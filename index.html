@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sellify Agency &mdash; Especialistas en Amazon Ads. Escalamos marcas en Amazon, Walmart, Shopify y TikTok con PPC, SEO y gesti&oacute;n integral de cuentas." />
+    <title>Sellify Agency | Especialistas en Marketplaces</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23FF9900'/><text x='50' y='73' font-size='62' font-weight='bold' fill='white' text-anchor='middle' font-family='system-ui'>S</text></svg>" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        accent: '#FF9900',
+                        'accent-dark': '#E07800',
+                        'accent-light': '#FFB84D',
+                        ink: '#0D0D0D',
+                        cream: '#F5F0EB',
+                        'cream-dark': '#EDE6DF',
+                        muted: '#6B6B6B',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'system-ui', 'sans-serif'],
+                        display: ['Fraunces', 'Georgia', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        ::selection { background: #FF9900; color: white; }
+
+        @keyframes fadeUp { from { opacity:0; transform:translateY(36px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+        @keyframes scaleUp { from { opacity:0; transform:scale(0.92); } to { opacity:1; transform:scale(1); } }
+        @keyframes pulseGlow { 0%,100% { box-shadow:0 0 0 0 rgba(255,153,0,0.3); } 50% { box-shadow:0 0 40px 8px rgba(255,153,0,0.15); } }
+        @keyframes marquee { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
+
+        .anim-fade-up { animation: fadeUp 0.8s ease-out both; }
+        .anim-fade-in { animation: fadeIn 0.7s ease-out both; }
+        .anim-scale { animation: scaleUp 0.6s ease-out both; }
+        .d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}.d4{animation-delay:.4s}.d5{animation-delay:.5s}.d6{animation-delay:.6s}.d7{animation-delay:.7s}
+
+        .reveal { opacity:0; transform:translateY(32px); transition: opacity .7s ease, transform .7s ease; }
+        .reveal.visible { opacity:1; transform:translateY(0); }
+        .reveal-scale { opacity:0; transform:scale(0.94); transition: opacity .6s ease, transform .6s ease; }
+        .reveal-scale.visible { opacity:1; transform:scale(1); }
+
+        .cta-glow { animation: pulseGlow 3s ease-in-out infinite; }
+
+        .mobile-overlay { opacity:0; pointer-events:none; transition:opacity .3s ease; }
+        .mobile-overlay.open { opacity:1; pointer-events:auto; }
+
+        .pain-card { transition: transform .3s ease, box-shadow .3s ease; }
+        .pain-card:hover { transform:translateY(-4px); box-shadow: 0 16px 48px -8px rgba(0,0,0,0.12); }
+
+        .service-card { transition: transform .35s ease, border-color .35s ease; }
+        .service-card:hover { transform:translateY(-6px); border-color: #FF9900; }
+        .service-card:hover .svc-badge { background:#FF9900; color:white; }
+
+        .testimonial-card { transition: transform .3s ease; }
+        .testimonial-card:hover { transform:translateY(-3px); }
+
+        .stat-card { transition: transform .3s ease, box-shadow .3s ease; }
+        .stat-card:hover { transform:translateY(-4px) scale(1.02); box-shadow: 0 20px 50px -10px rgba(255,153,0,0.2); }
+
+        .step-num { transition: background .3s, color .3s; }
+        .step-group:hover .step-num { background:#FF9900; color:white; }
+
+        .marquee-track { display:flex; width:max-content; animation: marquee 30s linear infinite; }
+        .marquee-track:hover { animation-play-state: paused; }
+
+        .hero-grid {
+            background-image: linear-gradient(rgba(255,153,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,153,0,0.04) 1px, transparent 1px);
+            background-size: 56px 56px;
+        }
+    </style>
+</head>
+<body class="bg-cream text-ink font-sans antialiased">
+
+    <!-- ═══════════════ HEADER ═══════════════ -->
+    <header id="header" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+            <div class="flex items-center justify-between h-[72px]">
+                <a href="#" class="flex items-center gap-2.5 group">
+                    <div class="w-9 h-9 rounded-lg bg-accent flex items-center justify-center shadow-md shadow-accent/20 transition-transform group-hover:scale-105">
+                        <span class="text-white font-bold text-lg leading-none">S</span>
+                    </div>
+                    <span class="text-[19px] font-bold tracking-tight">Sellify</span>
+                </a>
+                <nav class="hidden md:flex items-center gap-7">
+                    <a href="#dolor" class="text-sm font-medium text-muted hover:text-ink transition-colors">Problema</a>
+                    <a href="#servicios" class="text-sm font-medium text-muted hover:text-ink transition-colors">Servicios</a>
+                    <a href="#resultados" class="text-sm font-medium text-muted hover:text-ink transition-colors">Resultados</a>
+                    <a href="#nosotros" class="text-sm font-medium text-muted hover:text-ink transition-colors">Nosotros</a>
+                    <a href="mailto:alonso@sellify-agency.com" class="inline-flex items-center gap-2 bg-ink text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-gray-800 transition-all hover:-translate-y-0.5">
+                        Agendar Auditor&iacute;a
+                    </a>
+                </nav>
+                <button onclick="toggleMenu()" class="md:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-cream-dark transition-colors" aria-label="Menu">
+                    <i class="fa-solid fa-bars text-lg text-ink"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-overlay fixed inset-0 z-[999] bg-cream/98 backdrop-blur-xl flex flex-col items-center justify-center gap-8">
+        <button onclick="toggleMenu()" class="absolute top-5 right-5 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-cream-dark"><i class="fa-solid fa-xmark text-xl"></i></button>
+        <a onclick="toggleMenu()" href="#dolor" class="text-2xl font-semibold hover:text-accent transition-colors">Problema</a>
+        <a onclick="toggleMenu()" href="#servicios" class="text-2xl font-semibold hover:text-accent transition-colors">Servicios</a>
+        <a onclick="toggleMenu()" href="#resultados" class="text-2xl font-semibold hover:text-accent transition-colors">Resultados</a>
+        <a onclick="toggleMenu()" href="#nosotros" class="text-2xl font-semibold hover:text-accent transition-colors">Nosotros</a>
+        <a href="mailto:alonso@sellify-agency.com" class="mt-4 bg-accent text-white text-lg font-bold px-8 py-3.5 rounded-xl hover:bg-accent-dark transition-colors">Agendar Auditor&iacute;a</a>
+    </div>
+
+    <!-- ═══════════════ 1. HERO ═══════════════ -->
+    <section class="relative min-h-[100vh] flex items-center overflow-hidden">
+        <div class="absolute inset-0 hero-grid"></div>
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[120px] bg-accent/[0.06] -translate-y-1/3 translate-x-1/4"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 pt-28 pb-20 w-full">
+            <div class="max-w-4xl">
+                <div class="anim-fade-up inline-flex items-center gap-2 bg-ink/[0.05] border border-ink/10 rounded-full px-4 py-1.5 mb-8">
+                    <div class="w-2 h-2 rounded-full bg-accent animate-pulse"></div>
+                    <span class="text-xs font-semibold tracking-wide text-muted uppercase">Especialistas en Amazon Ads &amp; Marketplaces</span>
+                </div>
+
+                <h1 class="anim-fade-up d1 font-display text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.05] font-900 mb-6 tracking-tight">
+                    Deja de intentar entender los marketplaces.<br />
+                    <span class="text-accent">Empieza a dominarlos.</span>
+                </h1>
+
+                <p class="anim-fade-up d2 text-lg sm:text-xl text-muted leading-relaxed max-w-2xl mb-8">
+                    En <strong class="text-ink font-semibold">Sellify</strong> ayudamos a marcas a escalar sus ventas de forma rentable en Amazon, Walmart, Shopify y TikTok.
+                </p>
+
+                <!-- Social proof stats -->
+                <div class="anim-fade-up d3 flex flex-wrap items-center gap-6 mb-10">
+                    <div class="flex items-center gap-3 bg-white/60 backdrop-blur-sm border border-ink/[0.06] rounded-xl px-5 py-3">
+                        <span class="text-2xl sm:text-3xl font-display font-900 text-accent">+$4.5M</span>
+                        <span class="text-xs sm:text-sm text-muted font-medium leading-tight">generados<br/>en ventas</span>
+                    </div>
+                    <div class="flex items-center gap-3 bg-white/60 backdrop-blur-sm border border-ink/[0.06] rounded-xl px-5 py-3">
+                        <span class="text-2xl sm:text-3xl font-display font-900 text-ink">+$1M</span>
+                        <span class="text-xs sm:text-sm text-muted font-medium leading-tight">gestionado en<br/>inversi&oacute;n publicitaria</span>
+                    </div>
+                </div>
+
+                <div class="anim-fade-up d4 flex flex-wrap items-center gap-4">
+                    <a href="mailto:alonso@sellify-agency.com" class="cta-glow inline-flex items-center gap-2.5 bg-accent text-white font-bold px-8 py-4 rounded-xl hover:bg-accent-dark transition-all hover:-translate-y-0.5 shadow-lg shadow-accent/25 text-base">
+                        Agendar Auditor&iacute;a Gratuita
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </a>
+                    <a href="#servicios" class="inline-flex items-center gap-2 font-semibold px-6 py-4 rounded-xl border border-ink/15 hover:border-ink/30 hover:bg-white/50 transition-all text-[15px]">
+                        Ver Servicios
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ MARQUEE TRUST BAR ═══════════════ -->
+    <div class="border-y border-ink/[0.06] bg-white/40 overflow-hidden py-4">
+        <div class="marquee-track">
+            <span class="flex items-center gap-12 px-6 text-sm font-semibold text-muted/60 uppercase tracking-widest whitespace-nowrap">
+                <span>Amazon</span><span class="text-accent">&#10038;</span>
+                <span>Walmart</span><span class="text-accent">&#10038;</span>
+                <span>Shopify</span><span class="text-accent">&#10038;</span>
+                <span>TikTok Shop</span><span class="text-accent">&#10038;</span>
+                <span>PPC Management</span><span class="text-accent">&#10038;</span>
+                <span>Full Account Ops</span><span class="text-accent">&#10038;</span>
+                <span>Listing &amp; SEO</span><span class="text-accent">&#10038;</span>
+                <span>A+ Content</span><span class="text-accent">&#10038;</span>
+            </span>
+            <span class="flex items-center gap-12 px-6 text-sm font-semibold text-muted/60 uppercase tracking-widest whitespace-nowrap">
+                <span>Amazon</span><span class="text-accent">&#10038;</span>
+                <span>Walmart</span><span class="text-accent">&#10038;</span>
+                <span>Shopify</span><span class="text-accent">&#10038;</span>
+                <span>TikTok Shop</span><span class="text-accent">&#10038;</span>
+                <span>PPC Management</span><span class="text-accent">&#10038;</span>
+                <span>Full Account Ops</span><span class="text-accent">&#10038;</span>
+                <span>Listing &amp; SEO</span><span class="text-accent">&#10038;</span>
+                <span>A+ Content</span><span class="text-accent">&#10038;</span>
+            </span>
+        </div>
+    </div>
+
+    <!-- ═══════════════ 2. PAIN POINTS ═══════════════ -->
+    <section id="dolor" class="py-24 sm:py-32">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-display text-3xl sm:text-[2.8rem] font-900 leading-tight mb-4">
+                    &iquest;Te resulta <span class="text-accent">familiar</span> esta situaci&oacute;n?
+                </h2>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal d2">
+                <div class="pain-card bg-white rounded-2xl border border-ink/[0.06] p-7 text-center">
+                    <div class="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-5">
+                        <i class="fa-solid fa-head-side-virus text-2xl text-accent"></i>
+                    </div>
+                    <p class="text-[15px] leading-relaxed"><strong class="text-ink">&iquest;ABRUMADO</strong> por algoritmos complejos?</p>
+                </div>
+                <div class="pain-card bg-white rounded-2xl border border-ink/[0.06] p-7 text-center">
+                    <div class="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-5">
+                        <i class="fa-solid fa-chart-line text-2xl text-accent"></i>
+                    </div>
+                    <p class="text-[15px] leading-relaxed">&iquest;Frustrado por <strong class="text-ink">VENTAS ESTANCADAS</strong>?</p>
+                </div>
+                <div class="pain-card bg-white rounded-2xl border border-ink/[0.06] p-7 text-center">
+                    <div class="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-5">
+                        <i class="fa-solid fa-money-bill-wave text-2xl text-accent"></i>
+                    </div>
+                    <p class="text-[15px] leading-relaxed">&iquest;Preocupado por <strong class="text-ink">MALGASTAR TU INVERSI&Oacute;N</strong> en ads?</p>
+                </div>
+                <div class="pain-card bg-white rounded-2xl border border-ink/[0.06] p-7 text-center">
+                    <div class="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-5">
+                        <i class="fa-solid fa-user-group text-2xl text-accent"></i>
+                    </div>
+                    <p class="text-[15px] leading-relaxed">&iquest;Atascado mientras tus <strong class="text-ink">COMPETIDORES</strong> te superan?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ 3. VISION ═══════════════ -->
+    <section class="py-20 sm:py-28 bg-ink text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image:linear-gradient(white 1px,transparent 1px),linear-gradient(90deg,white 1px,transparent 1px);background-size:40px 40px;"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-5 sm:px-8 text-center reveal">
+            <h2 class="font-display text-3xl sm:text-[2.8rem] font-900 leading-tight mb-10">
+                &iquest;Y si tuvieras un camino claro hacia el <span class="text-accent">crecimiento</span>?
+            </h2>
+            <div class="grid sm:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center gap-4">
+                    <div class="w-16 h-16 rounded-full bg-accent/15 flex items-center justify-center">
+                        <i class="fa-solid fa-crown text-2xl text-accent"></i>
+                    </div>
+                    <p class="text-white/80 text-[15px] leading-relaxed">Imagin&aacute;te <strong class="text-white">dominando tu categor&iacute;a.</strong></p>
+                </div>
+                <div class="flex flex-col items-center gap-4">
+                    <div class="w-16 h-16 rounded-full bg-accent/15 flex items-center justify-center">
+                        <i class="fa-solid fa-arrow-trend-up text-2xl text-accent"></i>
+                    </div>
+                    <p class="text-white/80 text-[15px] leading-relaxed">Teniendo <strong class="text-white">ingresos predecibles y escalables.</strong></p>
+                </div>
+                <div class="flex flex-col items-center gap-4">
+                    <div class="w-16 h-16 rounded-full bg-accent/15 flex items-center justify-center">
+                        <i class="fa-solid fa-rocket text-2xl text-accent"></i>
+                    </div>
+                    <p class="text-white/80 text-[15px] leading-relaxed">La <strong class="text-white">libertad de enfocarte</strong> en tu negocio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ 4. TESTIMONIALS ═══════════════ -->
+    <section id="testimonios" class="py-24 sm:py-32">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+            <div class="text-center mb-16 reveal">
+                <span class="inline-block text-xs font-bold tracking-[0.2em] text-accent uppercase mb-3">Casos Reales</span>
+                <h2 class="font-display text-3xl sm:text-[2.8rem] font-900 leading-tight">
+                    Somos los socios para tu <span class="text-accent">crecimiento</span>
+                </h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6 reveal d2">
+                <!-- Tatiana -->
+                <div class="testimonial-card bg-white rounded-2xl border border-ink/[0.06] p-8 relative">
+                    <div class="absolute top-4 right-6 text-6xl font-display text-accent/10 leading-none">&ldquo;</div>
+                    <p class="text-[15px] text-muted leading-relaxed mb-6 relative z-10">
+                        &ldquo;Sellify llev&oacute; nuestras ventas en Amazon de <strong class="text-ink">$3.5K/mes a $30K/mes en 9 meses.</strong>&rdquo;
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-full bg-accent flex items-center justify-center text-white font-bold text-sm">TI</div>
+                        <div>
+                            <div class="font-bold text-sm">Tatiana Irizar</div>
+                            <div class="text-xs text-muted">Fundadora, Tatiana Irizar</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Alberto -->
+                <div class="testimonial-card bg-white rounded-2xl border border-ink/[0.06] p-8 relative">
+                    <div class="absolute top-4 right-6 text-6xl font-display text-accent/10 leading-none">&ldquo;</div>
+                    <p class="text-[15px] text-muted leading-relaxed mb-6 relative z-10">
+                        &ldquo;El equipo de Sellify lleg&oacute; con un plan claro, tom&oacute; el control de las operaciones diarias y optimiz&oacute; completamente nuestros listings. Nuestras ventas han <strong class="text-ink">aumentado un 85% a&ntilde;o tras a&ntilde;o.</strong>&rdquo;
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-full bg-ink flex items-center justify-center text-white font-bold text-sm">AO</div>
+                        <div>
+                            <div class="font-bold text-sm">Alberto O.</div>
+                            <div class="text-xs text-muted">Fundador, Steepy</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Carlos L -->
+                <div class="testimonial-card bg-white rounded-2xl border border-ink/[0.06] p-8 relative">
+                    <div class="absolute top-4 right-6 text-6xl font-display text-accent/10 leading-none">&ldquo;</div>
+                    <p class="text-[15px] text-muted leading-relaxed mb-6 relative z-10">
+                        &ldquo;Reconstruyeron por completo nuestra estrategia de PPC. El resultado: <strong class="text-ink">redujimos nuestro ACoS en un 20%</strong> mientras que simult&aacute;neamente <strong class="text-ink">aumentamos los ingresos totales en un 110% en solo 8 meses.</strong>&rdquo;
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-full bg-accent flex items-center justify-center text-white font-bold text-sm">CL</div>
+                        <div>
+                            <div class="font-bold text-sm">Carlos L.</div>
+                            <div class="text-xs text-muted">CFO, Bullpadel USA</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Carlos G -->
+                <div class="testimonial-card bg-white rounded-2xl border border-ink/[0.06] p-8 relative">
+                    <div class="absolute top-4 right-6 text-6xl font-display text-accent/10 leading-none">&ldquo;</div>
+                    <p class="text-[15px] text-muted leading-relaxed mb-6 relative z-10">
+                        &ldquo;Sab&iacute;amos que ten&iacute;amos que estar en Amazon, pero el proceso era intimidante. <strong class="text-ink">Alonso y su equipo gestionaron todo nuestro lanzamiento multicanal</strong>, desde la configuraci&oacute;n hasta la primera venta.&rdquo;
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-full bg-ink flex items-center justify-center text-white font-bold text-sm">CG</div>
+                        <div>
+                            <div class="font-bold text-sm">Carlos G.</div>
+                            <div class="text-xs text-muted">CEO &amp; Fundador, Zusset</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ 5. ABOUT / AUTHORITY ═══════════════ -->
+    <section id="nosotros" class="py-24 sm:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+            <div class="grid lg:grid-cols-5 gap-16 items-center">
+                <div class="lg:col-span-3 reveal">
+                    <span class="inline-block text-xs font-bold tracking-[0.2em] text-accent uppercase mb-3">Conoce a Alonso</span>
+                    <h2 class="font-display text-3xl sm:text-[2.8rem] font-900 leading-tight mb-6">
+                        Un aliado en el que puedes <span class="text-accent">confiar</span>
+                    </h2>
+                    <div class="space-y-5 text-[15px] text-muted leading-relaxed">
+                        <p>Mi nombre es <strong class="text-ink">Alonso</strong>, y fund&eacute; Sellify por una raz&oacute;n: vi c&oacute;mo demasiadas grandes marcas se perd&iacute;an en el ruido de los marketplaces.</p>
+                        <p>Con mis m&aacute;s de <strong class="text-ink">10 a&ntilde;os de experiencia</strong> personal como vendedor y gestor, he visto de primera mano c&oacute;mo las marcas malgastan millones en publicidad.</p>
+                        <p>Cre&eacute; Sellify para que fuera el <strong class="text-ink">socio que a m&iacute; me hubiera gustado tener.</strong></p>
+                        <p>Utilizando nuestras estrategias comprobadas, nuestro equipo ha gestionado <strong class="text-ink">&gt;$1 mill&oacute;n en inversi&oacute;n publicitaria</strong> y <strong class="text-ink">&gt;$4.5 millones en ventas</strong>. Sabemos lo que funciona.</p>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 reveal d3">
+                    <div class="bg-cream rounded-2xl p-8 border border-ink/[0.06]">
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-calendar-check text-accent text-lg"></i></div>
+                                <div>
+                                    <div class="font-bold text-sm">+10 A&ntilde;os</div>
+                                    <div class="text-xs text-muted">Experiencia comprobada</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-sack-dollar text-accent text-lg"></i></div>
+                                <div>
+                                    <div class="font-bold text-sm">+$4.5M en Ventas</div>
+                                    <div class="text-xs text-muted">Generados para clientes</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-bullhorn text-accent text-lg"></i></div>
+                                <div>
+                                    <div class="font-bold text-sm">+$1M en Ads</div>
+                                    <div class="text-xs text-muted">Inversi&oacute;n publicitaria gestionada</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-globe text-accent text-lg"></i></div>
+                                <div>
+                                    <div class="font-bold text-sm">Multi-Marketplace</div>
+                                    <div class="text-xs text-muted">Amazon, Walmart, Shopify, TikTok</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ 6. SERVICES ═══════════════ -->
+    <section id="servicios" class="py-24 sm:py-32">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+            <div class="text-center mb-16 reveal">
+                <span class="inline-block text-xs font-bold tracking-[0.2em] text-accent uppercase mb-3">Nuestros Servicios</span>
+                <h2 class="font-display text-3xl sm:text-[2.8rem] font-900 leading-tight">
+                    Tu equipo de servicios <span class="text-accent">integrales</span>
+                </h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-2xl border border-ink/[0.06] p-8 reveal">
+                    <div class="svc-badge inline-block bg-accent/10 text-accent text-xs font-bold tracking-wider uppercase px-4 py-2 rounded-lg mb-6 transition-all">Full Account Management</div>
+                    <p class="text-sm font-bold text-ink mb-2">Gestionamos de forma proactiva la salud y el crecimiento de toda tu cuenta.</p>
+                    <ul class="space-y-3 mt-5">
+                        <li class="flex items-start gap-2.5 text-sm text-muted"><i class="fa-solid fa-check text-accent mt-0.5 text-xs flex-shrink-0"></i><span><strong class="text-ink">Operaciones Proactivas:</strong> Log&iacute;stica FBA, forecast de inventario y salud de la cuenta.</span></li>
+                        <li class="flex items-start gap-2.5 text-sm text-muted"><i class="fa-solid fa-check text-accent mt-0.5 text-xs flex-shrink-0"></i><span><strong class="text-ink">Resoluci&oacute;n de Problemas:</strong> Casos de soporte, listings suprimidos y advertencias de pol&iacute;ticas.</span></li>
+                        <li class="flex items-start gap-2.5 text-sm text-muted"><i class="fa-solid fa-check text-accent mt-0.5 text-xs flex-shrink-0"></i><span><strong class="text-ink">Integridad del Cat&aacute;logo:</strong> Gesti&oacute;n completa para que tus productos est&eacute;n siempre activos.</span></li>
+                    </ul>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-2xl border border-ink/[0.06] p-8 reveal d1">
+                    <div class="svc-badge inline-block bg-accent/10 text-accent text-xs font-bold tracking-wider uppercase px-4 py-2 rounded-lg mb-6 transition-all">Marketplace Advertising</div>
+                    <p class="text-sm font-bold text-ink mb-2">No gastamos tu dinero; lo invertimos.</p>
+                    <ul class="space-y-3 mt-5">
+                        <li class="flex items-start gap-2.5 text-sm text-muted"><i class="fa-solid fa-check text-accent mt-0.5 text-xs flex-shrink-0"></i><span><strong class="text-ink">Publicidad Orientada a Rentabilidad:</strong> Gestionamos todo tu presupuesto para maximizar el ROI.</span></li>
+                        <li class="flex items-start gap-2.5 text-sm text-muted"><i class="fa-solid fa-check text-accent mt-0.5 text-xs flex-shrink-0"></i><span><strong class="text-ink">Estrategia Full-Funnel:</strong> Campa&ntilde;as de awareness, consideraci&oacute;n y conversi&oacute;n.</span></li>
+                        <li class="flex items-start gap-2.5 text-sm text-muted"><i class="fa-solid fa-check text-accent mt-0.5 text-xs flex-shrink-0"></i><span><strong class="text-ink">Dominaci&oacute;n de Keywords:</strong> Optimizaci&oacute;n constante para ganar palabras clave rentables.</span></li>
+                    </ul>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-2xl border border-ink/[0.06] p-8 reveal d2">
+                    <div class="svc-badge inline-block bg-accent/10 text-accent text-xs font-bold tracking-wider uppercase px-4 py-2 rounded-lg mb-6 transition-all">Listing &amp; SEO Optimization</div>
+                    <p class="text-sm font-bold text-ink mb-2">Convertimos tus p&aacute;ginas de productos en activos de alta conversi&oacute;n.</p>
+                    <ul class="space-y-3 mt-5">
+                        <li class="flex items-start gap-2.5 text-sm text-muted"><i class="fa-solid fa-check text-accent mt-0.5 text-xs flex-shrink-0"></i><span><strong class="text-ink">Copy de Conversi&oacute;n:</strong> T&iacute;tulos y bullet points optimizados que persuaden a comprar.</span></li>
+                        <li class="flex items-start gap-2.5 text-sm text-muted"><i class="fa-solid fa-check text-accent mt-0.5 text-xs flex-shrink-0"></i><span><strong class="text-ink">Narrativa Premium:</strong> Contenido A+ y Brand Stores que generan confianza.</span></li>
+                        <li class="flex items-start gap-2.5 text-sm text-muted"><i class="fa-solid fa-check text-accent mt-0.5 text-xs flex-shrink-0"></i><span><strong class="text-ink">Estrategia Visual:</strong> Im&aacute;genes e infograf&iacute;as que detienen el scroll e impulsan ventas.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ 7. 3-STEP PROCESS ═══════════════ -->
+    <section class="py-24 sm:py-32 bg-white">
+        <div class="max-w-5xl mx-auto px-5 sm:px-8">
+            <div class="text-center mb-16 reveal">
+                <span class="inline-block text-xs font-bold tracking-[0.2em] text-accent uppercase mb-3">C&oacute;mo Trabajamos</span>
+                <h2 class="font-display text-3xl sm:text-[2.8rem] font-900 leading-tight">
+                    Nuestro plan de <span class="text-accent">3 pasos</span> para crecer
+                </h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 reveal d2">
+                <div class="step-group text-center">
+                    <div class="step-num w-16 h-16 rounded-2xl bg-cream border-2 border-ink/10 flex items-center justify-center mx-auto mb-6 text-2xl font-display font-900">1</div>
+                    <div class="bg-accent text-white text-sm font-bold uppercase tracking-wider px-5 py-2.5 rounded-lg inline-block mb-4">Auditor&iacute;a</div>
+                    <p class="text-sm text-muted leading-relaxed">Agendamos una <strong class="text-ink">llamada gratuita de 30 minutos</strong> para analizar tu cuenta o tu negocio actual.</p>
+                </div>
+                <div class="step-group text-center">
+                    <div class="step-num w-16 h-16 rounded-2xl bg-cream border-2 border-ink/10 flex items-center justify-center mx-auto mb-6 text-2xl font-display font-900">2</div>
+                    <div class="bg-accent text-white text-sm font-bold uppercase tracking-wider px-5 py-2.5 rounded-lg inline-block mb-4">Ejecuci&oacute;n</div>
+                    <p class="text-sm text-muted leading-relaxed">Desarrollamos y ejecutamos una <strong class="text-ink">estrategia personalizada</strong> (Lanzamiento, Publicidad, SEO, Operaciones).</p>
+                </div>
+                <div class="step-group text-center">
+                    <div class="step-num w-16 h-16 rounded-2xl bg-cream border-2 border-ink/10 flex items-center justify-center mx-auto mb-6 text-2xl font-display font-900">3</div>
+                    <div class="bg-accent text-white text-sm font-bold uppercase tracking-wider px-5 py-2.5 rounded-lg inline-block mb-4">Escalabilidad</div>
+                    <p class="text-sm text-muted leading-relaxed">Optimizamos y gestionamos tus cuentas para impulsar un <strong class="text-ink">crecimiento rentable y sostenido.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ 8. CASE STUDIES / STATS ═══════════════ -->
+    <section id="resultados" class="py-24 sm:py-32">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+            <div class="text-center mb-16 reveal">
+                <span class="inline-block text-xs font-bold tracking-[0.2em] text-accent uppercase mb-3">Resultados Reales</span>
+                <h2 class="font-display text-3xl sm:text-[2.8rem] font-900 leading-tight">
+                    C&oacute;mo ayudamos a las marcas a <span class="text-accent">ganar</span>
+                </h2>
+            </div>
+            <div class="grid sm:grid-cols-3 gap-6 reveal d2">
+                <div class="stat-card bg-white rounded-2xl border border-ink/[0.06] p-8 text-center relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-accent to-accent-light"></div>
+                    <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-5">
+                        <i class="fa-solid fa-spa text-xl text-accent"></i>
+                    </div>
+                    <div class="text-xs font-bold text-muted uppercase tracking-wider mb-2">Belleza</div>
+                    <div class="text-4xl font-display font-900 text-accent mb-1">+385.7%</div>
+                    <p class="text-sm text-muted">en Ingresos en 6 meses</p>
+                </div>
+                <div class="stat-card bg-white rounded-2xl border border-ink/[0.06] p-8 text-center relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-accent to-accent-light"></div>
+                    <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-5">
+                        <i class="fa-solid fa-volleyball text-xl text-accent"></i>
+                    </div>
+                    <div class="text-xs font-bold text-muted uppercase tracking-wider mb-2">Deportes</div>
+                    <div class="text-4xl font-display font-900 text-ink mb-1">$200K</div>
+                    <p class="text-sm text-muted">en Ingresos en 6 meses</p>
+                </div>
+                <div class="stat-card bg-white rounded-2xl border border-ink/[0.06] p-8 text-center relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-accent to-accent-light"></div>
+                    <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-5">
+                        <i class="fa-solid fa-microchip text-xl text-accent"></i>
+                    </div>
+                    <div class="text-xs font-bold text-muted uppercase tracking-wider mb-2">Electr&oacute;nica</div>
+                    <div class="text-4xl font-display font-900 text-accent mb-1">+8%</div>
+                    <p class="text-sm text-muted">margen de ganancia &amp; +12% ventas mensuales</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ 9. COST OF INACTION + FINAL CTA ═══════════════ -->
+    <section class="py-24 sm:py-32 bg-ink text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image:radial-gradient(white 1px,transparent 1px);background-size:24px 24px;"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-5 sm:px-8 text-center reveal">
+            <span class="inline-block text-xs font-bold tracking-[0.2em] text-accent uppercase mb-4">El costo de no hacer nada</span>
+            <h2 class="font-display text-3xl sm:text-[2.6rem] font-900 leading-tight mb-8">
+                Competidores ganando.<br/>Dinero sobre la mesa.
+            </h2>
+            <div class="flex flex-wrap justify-center gap-4 mb-12 text-sm text-white/70">
+                <span class="bg-white/[0.06] border border-white/10 rounded-xl px-5 py-3">Continuar sinti&eacute;ndote <strong class="text-white">abrumado y frustrado</strong></span>
+                <span class="bg-white/[0.06] border border-white/10 rounded-xl px-5 py-3">Ver a tus <strong class="text-white">competidores</strong> tomar tu cuota</span>
+                <span class="bg-white/[0.06] border border-white/10 rounded-xl px-5 py-3"><strong class="text-white">Dejar ingresos</strong> sobre la mesa cada d&iacute;a</span>
+            </div>
+
+            <div class="bg-white/[0.04] border border-white/10 rounded-2xl p-8 sm:p-12 backdrop-blur-sm">
+                <h3 class="font-display text-2xl sm:text-3xl font-900 mb-3">
+                    Deja de adivinar. <span class="text-accent">Empieza a crecer.</span>
+                </h3>
+                <p class="text-white/60 mb-8 text-[15px]">Agenda una Auditor&iacute;a GRATUITA de 30 minutos con nuestro equipo.</p>
+                <a href="mailto:alonso@sellify-agency.com" class="cta-glow inline-flex items-center gap-3 bg-accent text-white font-bold px-10 py-4.5 rounded-xl hover:bg-accent-dark transition-all hover:-translate-y-0.5 shadow-lg shadow-accent/30 text-lg">
+                    Agendar Auditor&iacute;a Gratuita
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-white/50">
+                    <span><i class="fa-solid fa-user mr-2 text-accent"></i>Alonso Martini</span>
+                    <a href="https://wa.me/584142079933" class="hover:text-accent transition-colors"><i class="fa-brands fa-whatsapp mr-2 text-accent"></i>+58 414 207 9933</a>
+                    <a href="mailto:alonso@sellify-agency.com" class="hover:text-accent transition-colors"><i class="fa-regular fa-envelope mr-2 text-accent"></i>alonso@sellify-agency.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer class="bg-ink border-t border-white/[0.06] text-white">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 py-10">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 rounded-lg bg-accent flex items-center justify-center"><span class="text-white font-bold text-base leading-none">S</span></div>
+                    <span class="text-base font-bold tracking-tight">Sellify <span class="font-normal text-gray-400">Agency</span></span>
+                </div>
+                <div class="flex items-center gap-6 text-sm text-gray-400">
+                    <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
+                    <a href="#resultados" class="hover:text-white transition-colors">Resultados</a>
+                    <a href="#nosotros" class="hover:text-white transition-colors">Nosotros</a>
+                    <a href="mailto:alonso@sellify-agency.com" class="hover:text-accent transition-colors">
+                        <i class="fa-regular fa-envelope mr-1"></i>Contacto
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-white/[0.06] mt-8 pt-8 text-center">
+                <p class="text-xs text-gray-500">&copy; 2026 Sellify Agency. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══════════════ SCRIPTS ═══════════════ -->
+    <script>
+        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('bg-cream/90','backdrop-blur-xl','shadow-sm','border-b','border-ink/[0.04]');
+            } else {
+                header.classList.remove('bg-cream/90','backdrop-blur-xl','shadow-sm','border-b','border-ink/[0.04]');
+            }
+        }, { passive: true });
+
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal,.reveal-scale').forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>
