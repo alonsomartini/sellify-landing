@@ -1,574 +1,508 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sellify Agency &mdash; Especialistas en Amazon Ads. Escalamos marcas en Amazon, Walmart, Shopify y TikTok con PPC, SEO y gesti&oacute;n integral de cuentas." />
-    <title>Sellify Agency | Especialistas en Marketplaces</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23FF9900'/><text x='50' y='73' font-size='62' font-weight='bold' fill='white' text-anchor='middle' font-family='system-ui'>S</text></svg>" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&display=swap" rel="stylesheet" />
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        accent: '#FF9900',
-                        'accent-dark': '#E07800',
-                        'accent-light': '#FFB84D',
-                        ink: '#0D0D0D',
-                        cream: '#F5F0EB',
-                        'cream-dark': '#EDE6DF',
-                        muted: '#6B6B6B',
-                    },
-                    fontFamily: {
-                        sans: ['Outfit', 'system-ui', 'sans-serif'],
-                        display: ['Fraunces', 'Georgia', 'serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
-        html { scroll-behavior: smooth; }
-        ::selection { background: #FF9900; color: white; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sellify | Agencia de Amazon para marcas en Estados Unidos y Europa</title>
+<meta name="description" content="Gestionamos publicidad, contenido y operaciones en Amazon para marcas en Estados Unidos y Europa, y respondemos por tu P&amp;L, no solo por tus ventas.">
+<link rel="canonical" href="https://www.sellify.us/">
+<meta name="theme-color" content="#1A1A1A">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.sellify.us/">
+<meta property="og:title" content="Sellify | Crecimiento en Amazon, medido en margen">
+<meta property="og:description" content="Agencia de Amazon para marcas en Estados Unidos y Europa. Publicidad, contenido y operaciones con tu P&amp;L real cada mes.">
+<meta property="og:image" content="https://www.sellify.us/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Sellify Agency","legalName":"Cortafuegos LLC","url":"https://www.sellify.us/","logo":"https://www.sellify.us/assets/apple-touch-icon.png","email":"alonso@sellify-agency.com","telephone":"+1-786-824-7458","founder":{"@type":"Person","name":"Alonso Martini"},"areaServed":["US","ES","DE"],"knowsLanguage":["es","en"]}
+</script>
+<style>
+:root{
+  --bg:#1A1A1A; --surface:#202123; --raised:#222325; --raised-2:#2A2B2E;
+  --line:#2E3034; --line-2:#34363A; --field:#3A3C40;
+  --text:#F2F2F2; --text-2:#B4B6BA; --text-3:#8E9196; --soft:#D6D7DA;
+  --orange:#F58238; --orange-light:#FBBA89;
+  --display:'Space Grotesk',system-ui,sans-serif;
+  --body:'Inter',-apple-system,'Helvetica Neue',Arial,sans-serif;
+  --wrap:1240px; --gutter:clamp(20px,4vw,48px); --section:clamp(80px,10vw,144px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg,video{display:block;max-width:100%}
+a{color:var(--text)}
+a:hover{color:var(--orange-light)}
+:focus-visible{outline:2px solid var(--orange-light);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);font-weight:500;margin:0;letter-spacing:-0.03em}
+p,ul,ol,dl,dd,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+.muted{color:var(--text-3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:8px;border:0;background:var(--orange);color:var(--bg);font:600 16px/1 var(--body);text-decoration:none;cursor:pointer;transition:background .15s}
+.btn:hover{background:var(--orange-light);color:var(--bg)}
+.btn--sm{min-height:44px;padding:0 18px;font-size:14px}
+.link{font-weight:500;text-underline-offset:6px;text-decoration-color:#5A5D62}
+.h2{font-size:clamp(36px,4.4vw,60px);line-height:1.04}
+.lead{font-size:17px;line-height:1.65;color:var(--text-2);max-width:32em}
+.rule-list li{padding:14px 0;border-top:1px solid var(--line)}
+.rule-list li:last-child{border-bottom:1px solid var(--line)}
+.section{padding:var(--section) 0}
+.section--alt{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;align-items:center}
 
-        @keyframes fadeUp { from { opacity:0; transform:translateY(36px); } to { opacity:1; transform:translateY(0); } }
-        @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-        @keyframes scaleUp { from { opacity:0; transform:scale(0.92); } to { opacity:1; transform:scale(1); } }
-        @keyframes pulseGlow { 0%,100% { box-shadow:0 0 0 0 rgba(255,153,0,0.3); } 50% { box-shadow:0 0 40px 8px rgba(255,153,0,0.15); } }
-        @keyframes marquee { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
+/* Encabezado */
+.header{position:sticky;top:0;z-index:30;background:rgba(26,26,26,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px 32px;min-height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
+.brand__word{font:700 19px/1 var(--display);letter-spacing:.05em}
+.nav{display:flex;align-items:center;gap:32px;font-size:14px;font-weight:500}
+.nav a:not(.btn){color:var(--text-2);text-decoration:none}
+.nav a:not(.btn):hover{color:var(--orange-light)}
 
-        .anim-fade-up { animation: fadeUp 0.8s ease-out both; }
-        .anim-fade-in { animation: fadeIn 0.7s ease-out both; }
-        .anim-scale { animation: scaleUp 0.6s ease-out both; }
-        .d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}.d4{animation-delay:.4s}.d5{animation-delay:.5s}.d6{animation-delay:.6s}.d7{animation-delay:.7s}
+/* Hero */
+.hero{padding:clamp(64px,9vw,128px) 0}
+.hero__grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:80px;align-items:center}
+.hero__copy{display:flex;flex-direction:column;gap:32px}
+.hero h1{font-size:clamp(44px,6vw,84px);line-height:1;letter-spacing:-0.035em}
+.hero__sub{font-size:clamp(17px,1.35vw,19px);line-height:1.65;color:var(--text-2);max-width:32em}
+.hero__actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:24px;margin-top:24px}
+.stats div{border-left:1px solid var(--line-2);padding-left:18px}
+.stats dt{font:500 30px/1.1 var(--display);letter-spacing:-0.02em}
+.stats dd{margin-top:6px;font-size:14px;line-height:1.45;color:var(--text-3)}
+.portrait{width:100%;max-width:480px;justify-self:end}
+.portrait__frame{position:relative;aspect-ratio:4/5;border-radius:24px;background:var(--raised);overflow:hidden}
+.portrait__mark{position:absolute;top:4%;left:50%;width:80%;transform:translateX(-50%)}
+.portrait__img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:88%;height:auto}
+.portrait__caption{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:16px;font-size:14px;color:var(--text-2)}
+.portrait__caption b{color:var(--text);font-weight:500}
 
-        .reveal { opacity:0; transform:translateY(32px); transition: opacity .7s ease, transform .7s ease; }
-        .reveal.visible { opacity:1; transform:translateY(0); }
-        .reveal-scale { opacity:0; transform:scale(0.94); transition: opacity .6s ease, transform .6s ease; }
-        .reveal-scale.visible { opacity:1; transform:scale(1); }
+/* Animación del asterisco: un solo momento al cargar */
+@keyframes sx-turn{from{opacity:0;transform:rotate(-28deg) scale(.86)}to{opacity:1;transform:none}}
+@keyframes sx-wipe{from{transform:translateX(-620px)}to{transform:translateX(0)}}
+@keyframes sx-line{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.sx-turn{transform-box:fill-box;transform-origin:center;animation:sx-turn 1.2s cubic-bezier(.2,.7,.2,1) .2s both}
+.sx-wipe{animation:sx-wipe 1s cubic-bezier(.6,0,.2,1) 1.2s both}
+.sx-line{transform-box:fill-box;transform-origin:left center;animation:sx-line .7s cubic-bezier(.2,.7,.2,1) 2s both}
+@media (prefers-reduced-motion:reduce){.sx-turn,.sx-wipe,.sx-line{animation:none}html{scroll-behavior:auto}}
 
-        .cta-glow { animation: pulseGlow 3s ease-in-out infinite; }
+/* Marcas */
+.brands{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.brands .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 48px;padding-top:28px;padding-bottom:28px}
+.brands__list{display:flex;flex-wrap:wrap;align-items:center;gap:14px 56px;font-size:19px;font-weight:500;color:var(--text-2)}
 
-        .mobile-overlay { opacity:0; pointer-events:none; transition:opacity .3s ease; }
-        .mobile-overlay.open { opacity:1; pointer-events:auto; }
+/* Testimonio */
+.feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;align-items:center}
+.video-card{position:relative;display:block;width:100%;max-width:440px;aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:var(--raised);border:0;padding:0;cursor:default}
+.video-card img{width:100%;height:100%;object-fit:cover}
+.video-card__play{position:absolute;left:20px;bottom:20px;width:64px;height:64px;border-radius:50%;background:var(--orange);display:none;align-items:center;justify-content:center;transition:transform .15s}
+.video-card.has-video{cursor:pointer}
+.video-card.has-video .video-card__play{display:flex}
+.video-card.has-video:hover .video-card__play{transform:scale(1.06)}
+.feature__copy{display:flex;flex-direction:column;gap:28px}
+.feature__copy h2{font-size:clamp(40px,5vw,72px);line-height:1.02;letter-spacing:-0.035em}
+.feature__quote{font-size:clamp(18px,1.5vw,21px);line-height:1.6;color:var(--soft);max-width:30em}
+.who{display:flex;align-items:center;gap:16px;font-size:15px;line-height:1.5;color:var(--text-2)}
+.who img{width:56px;height:56px;border-radius:10px;flex:none}
+.who b{color:var(--text);font-weight:500}
 
-        .pain-card { transition: transform .3s ease, box-shadow .3s ease; }
-        .pain-card:hover { transform:translateY(-4px); box-shadow: 0 16px 48px -8px rgba(0,0,0,0.12); }
+/* Casos */
+.cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:clamp(48px,6vw,80px)}
+.case{background:var(--raised);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.case__img{aspect-ratio:4/3;background:#EDEDED;display:flex;align-items:center;justify-content:center;padding:28px}
+.case__img img{max-height:100%;width:auto;object-fit:contain;mix-blend-mode:multiply}
+.case__body{padding:28px;display:flex;flex-direction:column;gap:16px;flex:1}
+.case__body h3{font-size:28px;line-height:1.12;letter-spacing:-0.02em}
+.case__body blockquote{font-size:15px;line-height:1.6;color:var(--text-2)}
+.case__by{margin-top:auto;font-size:14px;color:var(--text-3)}
+.case__by b{color:var(--text);font-weight:500}
 
-        .service-card { transition: transform .35s ease, border-color .35s ease; }
-        .service-card:hover { transform:translateY(-6px); border-color: #FF9900; }
-        .service-card:hover .svc-badge { background:#FF9900; color:white; }
+/* Método */
+.method__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 64px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:48px 32px;margin:64px 0}
+.steps li{display:flex;flex-direction:column;gap:14px;border-top:1px solid var(--orange);padding-top:24px}
+.steps span{font:400 14px/1 var(--display);color:var(--orange)}
+.steps h3{font-size:26px;letter-spacing:-0.02em}
+.steps p{font-size:15px;line-height:1.65;color:var(--text-2)}
 
-        .testimonial-card { transition: transform .3s ease; }
-        .testimonial-card:hover { transform:translateY(-3px); }
+/* Dashboard */
+.dash-copy{display:flex;flex-direction:column;gap:24px}
+.dash-copy .rule-list{font-size:15px;color:var(--soft)}
+.dash{background:var(--raised);border-radius:22px;padding:clamp(14px,2vw,24px)}
+.dash__ui{background:#fff;color:#1A1A1A;border-radius:12px;overflow:hidden;font-size:12px}
+.dash__bar{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid #E6E7E8}
+.dash__bar b{font:700 12px/1 var(--display);letter-spacing:.05em}
+.dash__tag{margin-left:auto;font-size:11px;font-weight:600;color:#4A4D52;background:#EEF0F2;border-radius:5px;padding:3px 8px}
+.dash__main{padding:18px;display:flex;flex-direction:column;gap:16px}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.kpis div{background:#F4F4F5;border-radius:10px;padding:12px}
+.kpis p{color:#6B6E73;font-size:11px}
+.kpis strong{display:block;margin-top:4px;font-size:18px;font-weight:600;font-variant-numeric:tabular-nums}
+.kpis small{display:block;margin-top:2px;font-size:11px;color:#4A4D52}
+.dash table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.dash th{font-weight:400;color:#6B6E73;text-align:right;padding:8px 0;border-bottom:1px solid #E6E7E8}
+.dash td{text-align:right;padding:8px 0;border-bottom:1px solid #F0F1F2}
+.dash th:first-child,.dash td:first-child{text-align:left}
+.dash tr:last-child td{border-bottom:0}
+.dash .warn{color:#B8541A;font-weight:600}
 
-        .stat-card { transition: transform .3s ease, box-shadow .3s ease; }
-        .stat-card:hover { transform:translateY(-4px) scale(1.02); box-shadow: 0 20px 50px -10px rgba(255,153,0,0.2); }
+/* Fundador */
+.founder{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:80px;align-items:center}
+.founder__photo{position:relative;aspect-ratio:1/1;max-width:460px;width:100%;border-radius:24px;background:var(--raised-2);overflow:hidden}
+.founder__photo img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:84%;height:auto}
+.founder__copy{display:flex;flex-direction:column;gap:24px;max-width:600px}
+.founder__copy p{font-size:18px;line-height:1.7;color:var(--soft)}
+.founder__copy p + p{color:var(--text-2)}
 
-        .step-num { transition: background .3s, color .3s; }
-        .step-group:hover .step-num { background:#FF9900; color:white; }
+/* Preguntas */
+.faq{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0 64px;margin-top:48px}
+.faq div{border-top:1px solid var(--line);padding:24px 0 32px}
+.faq dt{font-size:18px;line-height:1.4;font-weight:500}
+.faq dd{margin-top:10px;font-size:15px;line-height:1.65;color:var(--text-2)}
 
-        .marquee-track { display:flex; width:max-content; animation: marquee 30s linear infinite; }
-        .marquee-track:hover { animation-play-state: paused; }
+/* Auditoría */
+.audit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;align-items:start}
+.audit__copy{display:flex;flex-direction:column;gap:28px}
+.audit__copy h2{font-size:clamp(40px,5vw,72px);line-height:1;letter-spacing:-0.035em}
+.audit__copy .rule-list{font-size:16px;color:var(--soft)}
+.audit__contact{font-size:15px;line-height:1.8;color:var(--text-2)}
+.form{background:var(--raised);border-radius:20px;padding:clamp(24px,3vw,40px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field--full,.form .btn,.form__note{grid-column:1/-1}
+.field label{font-size:13px;font-weight:500;color:var(--text-2)}
+.field input,.field select{height:52px;border:1px solid var(--field);border-radius:8px;background:var(--bg);color:var(--text);padding:0 16px;font:inherit;font-size:16px}
+.field input::placeholder{color:var(--text-3)}
+.field input:focus,.field select:focus{border-color:var(--orange-light);outline:none}
+.form__note{font-size:13px;color:var(--text-3)}
 
-        .hero-grid {
-            background-image: linear-gradient(rgba(255,153,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,153,0,0.04) 1px, transparent 1px);
-            background-size: 56px 56px;
-        }
-    </style>
+/* Pie */
+.footer{border-top:1px solid var(--line)}
+.footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;padding-top:32px;padding-bottom:32px;font-size:13px;color:var(--text-3)}
+.footer nav{display:flex;flex-wrap:wrap;gap:8px 24px}
+.footer a{color:var(--text-3);text-decoration:none}
+.footer a:hover{color:var(--orange-light)}
+
+/* Video */
+.video-dialog{border:0;padding:0;background:transparent;max-width:min(92vw,440px);width:100%}
+.video-dialog::backdrop{background:rgba(10,10,10,.82)}
+.video-dialog video{width:100%;border-radius:16px;background:#000}
+.video-dialog button{margin:14px auto 0;display:block;background:none;border:1px solid var(--line-2);color:var(--text);border-radius:8px;padding:10px 18px;font:500 14px/1 var(--body);cursor:pointer}
+
+@media (max-width:960px){
+  .hero__grid,.split,.feature,.founder,.audit{grid-template-columns:minmax(0,1fr);gap:48px}
+  .portrait{justify-self:start}
+}
+@media (max-width:760px){
+  .nav a:not(.btn){display:none}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .form{grid-template-columns:minmax(0,1fr)}
+}
+</style>
 </head>
-<body class="bg-cream text-ink font-sans antialiased">
+<body>
 
-    <!-- ═══════════════ HEADER ═══════════════ -->
-    <header id="header" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-5 sm:px-8">
-            <div class="flex items-center justify-between h-[72px]">
-                <a href="#" class="flex items-center gap-2.5 group">
-                    <div class="w-9 h-9 rounded-lg bg-accent flex items-center justify-center shadow-md shadow-accent/20 transition-transform group-hover:scale-105">
-                        <span class="text-white font-bold text-lg leading-none">S</span>
-                    </div>
-                    <span class="text-[19px] font-bold tracking-tight">Sellify</span>
-                </a>
-                <nav class="hidden md:flex items-center gap-7">
-                    <a href="#dolor" class="text-sm font-medium text-muted hover:text-ink transition-colors">Problema</a>
-                    <a href="#servicios" class="text-sm font-medium text-muted hover:text-ink transition-colors">Servicios</a>
-                    <a href="#resultados" class="text-sm font-medium text-muted hover:text-ink transition-colors">Resultados</a>
-                    <a href="#nosotros" class="text-sm font-medium text-muted hover:text-ink transition-colors">Nosotros</a>
-                    <a href="mailto:alonso@sellify-agency.com" class="inline-flex items-center gap-2 bg-ink text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-gray-800 transition-all hover:-translate-y-0.5">
-                        Agendar Auditor&iacute;a
-                    </a>
-                </nav>
-                <button onclick="toggleMenu()" class="md:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-cream-dark transition-colors" aria-label="Menu">
-                    <i class="fa-solid fa-bars text-lg text-ink"></i>
-                </button>
-            </div>
+<header class="header">
+  <div class="wrap">
+    <a href="#inicio" class="brand" aria-label="Sellify, inicio">
+      <svg width="20" height="26" viewBox="0 -4 548 708" aria-hidden="true"><use href="#sx-mark"></use></svg>
+      <span class="brand__word">SELLIFY</span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#casos">Casos</a>
+      <a href="#metodo">Método</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#fundador">Fundador</a>
+      <a href="#auditoria" class="btn btn--sm">Agenda una auditoría</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Símbolo reutilizable -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <clipPath id="sx-clip"><polygon points="-20,-20 166,-20 336,258 53,720 -20,720"></polygon></clipPath>
+    <g id="sx-bars">
+      <rect x="0" y="204.5" width="548" height="107" rx="12"></rect>
+      <rect x="3" y="204.5" width="542" height="107" rx="12" transform="rotate(58.5 274 258)"></rect>
+      <rect x="3" y="204.5" width="542" height="107" rx="12" transform="rotate(-58.5 274 258)"></rect>
+    </g>
+    <g id="sx-mark">
+      <use href="#sx-bars" fill="#999B9E"></use>
+      <use href="#sx-bars" fill="#F58238" clip-path="url(#sx-clip)"></use>
+      <rect x="88" y="610" width="370" height="90" rx="4" fill="#F58238"></rect>
+    </g>
+  </defs>
+</svg>
+
+<main id="inicio">
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <h1>Crecimiento en Amazon, medido en margen.</h1>
+      <p class="hero__sub">Gestionamos publicidad, contenido y operaciones para marcas en Estados Unidos y Europa, y respondemos por tu P&amp;L, no solo por tus ventas.</p>
+      <div class="hero__actions">
+        <a href="#auditoria" class="btn">Agenda una auditoría</a>
+        <a href="#casos" class="link">Ver casos</a>
+      </div>
+      <dl class="stats">
+        <div><dt>+$4.5M</dt><dd>en ventas generadas para clientes</dd></div>
+        <div><dt>+$1M</dt><dd>en publicidad gestionada</dd></div>
+        <div><dt>10+ años</dt><dd>vendiendo y gestionando marcas en marketplaces</dd></div>
+      </dl>
+    </div>
+    <figure class="portrait">
+      <div class="portrait__frame">
+        <svg class="portrait__mark" viewBox="0 -4 548 708" aria-hidden="true">
+          <defs><clipPath id="sx-hero-clip"><polygon class="sx-wipe" points="-20,-20 166,-20 336,258 53,720 -20,720"></polygon></clipPath></defs>
+          <g class="sx-turn">
+            <use href="#sx-bars" fill="#3A3C40"></use>
+            <use href="#sx-bars" fill="#F58238" clip-path="url(#sx-hero-clip)"></use>
+          </g>
+        </svg>
+        <img class="portrait__img" src="assets/alonso.webp" width="821" height="900" alt="Alonso Martini, fundador de Sellify" fetchpriority="high">
+      </div>
+      <figcaption class="portrait__caption">
+        <span><b>Alonso Martini</b>, fundador</span>
+        <svg width="120" height="8" viewBox="0 0 120 8" aria-hidden="true"><rect class="sx-line" width="120" height="8" rx="1" fill="#F58238"></rect></svg>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="brands" aria-label="Marcas con las que hemos trabajado">
+  <div class="wrap">
+    <p class="muted" style="font-size:14px">Marcas con las que hemos trabajado</p>
+    <div class="brands__list"><span>Tatiana Irizar</span><span>Zusset</span><span>Steepy</span><span>Bullpadel USA</span></div>
+  </div>
+</section>
+
+<section id="casos" class="section">
+  <div class="wrap">
+    <div class="feature">
+      <figure>
+        <button type="button" class="video-card" id="video-card" aria-label="Ver el testimonio en video de Tatiana Irizar" disabled>
+          <img src="assets/tatiana-poster.webp" width="392" height="490" alt="Tatiana Irizar en su testimonio en video" loading="lazy">
+          <span class="video-card__play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M7 4.5v13l11-6.5z" fill="#1A1A1A"></path></svg></span>
+        </button>
+        <figcaption class="muted" style="font-size:14px;margin-top:14px">Testimonio en video de Tatiana Irizar</figcaption>
+      </figure>
+      <div class="feature__copy">
+        <p class="muted" style="font-size:14px">Tatiana Irizar, belleza, Amazon EE.UU.</p>
+        <h2>De $3.5K a $30K al mes, en 9 meses.</h2>
+        <blockquote class="feature__quote">“Sellify llevó nuestras ventas en Amazon de $3.5K/mes a $30K/mes en 9 meses.”</blockquote>
+        <div class="who">
+          <img onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/al-na-9d5791cf-3faf/a6f72a17-5789-43c7-80ff-ec0262d33ea7._CR0,0,2500,2500_SX400_.jpg'" src="/_vercel/image?url=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FS%2Fal-na-9d5791cf-3faf%2Fa6f72a17-5789-43c7-80ff-ec0262d33ea7._CR0%2C0%2C2500%2C2500_SX400_.jpg&amp;w=256&amp;q=80" width="56" height="56" alt="Logo de Tatiana Irizar" loading="lazy">
+          <p><b>Tatiana Irizar</b><br>Fundadora</p>
         </div>
-    </header>
-
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="mobile-overlay fixed inset-0 z-[999] bg-cream/98 backdrop-blur-xl flex flex-col items-center justify-center gap-8">
-        <button onclick="toggleMenu()" class="absolute top-5 right-5 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-cream-dark"><i class="fa-solid fa-xmark text-xl"></i></button>
-        <a onclick="toggleMenu()" href="#dolor" class="text-2xl font-semibold hover:text-accent transition-colors">Problema</a>
-        <a onclick="toggleMenu()" href="#servicios" class="text-2xl font-semibold hover:text-accent transition-colors">Servicios</a>
-        <a onclick="toggleMenu()" href="#resultados" class="text-2xl font-semibold hover:text-accent transition-colors">Resultados</a>
-        <a onclick="toggleMenu()" href="#nosotros" class="text-2xl font-semibold hover:text-accent transition-colors">Nosotros</a>
-        <a href="mailto:alonso@sellify-agency.com" class="mt-4 bg-accent text-white text-lg font-bold px-8 py-3.5 rounded-xl hover:bg-accent-dark transition-colors">Agendar Auditor&iacute;a</a>
+      </div>
     </div>
 
-    <!-- ═══════════════ 1. HERO ═══════════════ -->
-    <section class="relative min-h-[100vh] flex items-center overflow-hidden">
-        <div class="absolute inset-0 hero-grid"></div>
-        <div class="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[120px] bg-accent/[0.06] -translate-y-1/3 translate-x-1/4"></div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 pt-28 pb-20 w-full">
-            <div class="max-w-4xl">
-                <div class="anim-fade-up inline-flex items-center gap-2 bg-ink/[0.05] border border-ink/10 rounded-full px-4 py-1.5 mb-8">
-                    <div class="w-2 h-2 rounded-full bg-accent animate-pulse"></div>
-                    <span class="text-xs font-semibold tracking-wide text-muted uppercase">Especialistas en Amazon Ads &amp; Marketplaces</span>
-                </div>
-
-                <h1 class="anim-fade-up d1 font-display text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.05] font-900 mb-6 tracking-tight">
-                    Deja de intentar entender los marketplaces.<br />
-                    <span class="text-accent">Empieza a dominarlos.</span>
-                </h1>
-
-                <p class="anim-fade-up d2 text-lg sm:text-xl text-muted leading-relaxed max-w-2xl mb-8">
-                    En <strong class="text-ink font-semibold">Sellify</strong> ayudamos a marcas a escalar sus ventas de forma rentable en Amazon, Walmart, Shopify y TikTok.
-                </p>
-
-                <!-- Social proof stats -->
-                <div class="anim-fade-up d3 flex flex-wrap items-center gap-6 mb-10">
-                    <div class="flex items-center gap-3 bg-white/60 backdrop-blur-sm border border-ink/[0.06] rounded-xl px-5 py-3">
-                        <span class="text-2xl sm:text-3xl font-display font-900 text-accent">+$4.5M</span>
-                        <span class="text-xs sm:text-sm text-muted font-medium leading-tight">generados<br/>en ventas</span>
-                    </div>
-                    <div class="flex items-center gap-3 bg-white/60 backdrop-blur-sm border border-ink/[0.06] rounded-xl px-5 py-3">
-                        <span class="text-2xl sm:text-3xl font-display font-900 text-ink">+$1M</span>
-                        <span class="text-xs sm:text-sm text-muted font-medium leading-tight">gestionado en<br/>inversi&oacute;n publicitaria</span>
-                    </div>
-                </div>
-
-                <div class="anim-fade-up d4 flex flex-wrap items-center gap-4">
-                    <a href="mailto:alonso@sellify-agency.com" class="cta-glow inline-flex items-center gap-2.5 bg-accent text-white font-bold px-8 py-4 rounded-xl hover:bg-accent-dark transition-all hover:-translate-y-0.5 shadow-lg shadow-accent/25 text-base">
-                        Agendar Auditor&iacute;a Gratuita
-                        <i class="fa-solid fa-arrow-right text-sm"></i>
-                    </a>
-                    <a href="#servicios" class="inline-flex items-center gap-2 font-semibold px-6 py-4 rounded-xl border border-ink/15 hover:border-ink/30 hover:bg-white/50 transition-all text-[15px]">
-                        Ver Servicios
-                    </a>
-                </div>
-            </div>
+    <div class="cases">
+      <article class="case">
+        <div class="case__img"><img onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/515cgaxhbKL.jpg'" src="/_vercel/image?url=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F515cgaxhbKL.jpg&amp;w=640&amp;q=80" alt="Pala de pádel Bullpadel Vertex 05" loading="lazy"></div>
+        <div class="case__body">
+          <p class="muted" style="font-size:13px">Bullpadel USA, pádel</p>
+          <h3>-20% ACoS y +110% en ingresos, en 8 meses.</h3>
+          <blockquote>“Reconstruyeron por completo nuestra estrategia de PPC.”</blockquote>
+          <p class="case__by"><b>Carlos L.</b>, CFO</p>
         </div>
-    </section>
-
-    <!-- ═══════════════ MARQUEE TRUST BAR ═══════════════ -->
-    <div class="border-y border-ink/[0.06] bg-white/40 overflow-hidden py-4">
-        <div class="marquee-track">
-            <span class="flex items-center gap-12 px-6 text-sm font-semibold text-muted/60 uppercase tracking-widest whitespace-nowrap">
-                <span>Amazon</span><span class="text-accent">&#10038;</span>
-                <span>Walmart</span><span class="text-accent">&#10038;</span>
-                <span>Shopify</span><span class="text-accent">&#10038;</span>
-                <span>TikTok Shop</span><span class="text-accent">&#10038;</span>
-                <span>PPC Management</span><span class="text-accent">&#10038;</span>
-                <span>Full Account Ops</span><span class="text-accent">&#10038;</span>
-                <span>Listing &amp; SEO</span><span class="text-accent">&#10038;</span>
-                <span>A+ Content</span><span class="text-accent">&#10038;</span>
-            </span>
-            <span class="flex items-center gap-12 px-6 text-sm font-semibold text-muted/60 uppercase tracking-widest whitespace-nowrap">
-                <span>Amazon</span><span class="text-accent">&#10038;</span>
-                <span>Walmart</span><span class="text-accent">&#10038;</span>
-                <span>Shopify</span><span class="text-accent">&#10038;</span>
-                <span>TikTok Shop</span><span class="text-accent">&#10038;</span>
-                <span>PPC Management</span><span class="text-accent">&#10038;</span>
-                <span>Full Account Ops</span><span class="text-accent">&#10038;</span>
-                <span>Listing &amp; SEO</span><span class="text-accent">&#10038;</span>
-                <span>A+ Content</span><span class="text-accent">&#10038;</span>
-            </span>
+      </article>
+      <article class="case">
+        <div class="case__img"><img onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/71qa1ehZGUL.jpg'" src="/_vercel/image?url=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F71qa1ehZGUL.jpg&amp;w=640&amp;q=80" alt="Soporte portátil para laptop Steepy" loading="lazy"></div>
+        <div class="case__body">
+          <p class="muted" style="font-size:13px">Steepy, accesorios de oficina</p>
+          <h3>+85% en ventas, año contra año.</h3>
+          <blockquote>“El equipo de Sellify llegó con un plan claro, tomó el control de las operaciones diarias y optimizó completamente nuestros listings.”</blockquote>
+          <p class="case__by"><b>Alberto O.</b>, fundador</p>
         </div>
+      </article>
+      <article class="case">
+        <div class="case__img"><img onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/81eb+MPQm6L.jpg'" src="/_vercel/image?url=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F81eb%2BMPQm6L.jpg&amp;w=640&amp;q=80" alt="Pala de pádel Zusset Solid Pro" loading="lazy"></div>
+        <div class="case__body">
+          <p class="muted" style="font-size:13px">Zusset, pádel</p>
+          <h3>De la configuración a la primera venta.</h3>
+          <blockquote>“Sabíamos que teníamos que estar en Amazon, pero el proceso era intimidante. Alonso y su equipo gestionaron todo nuestro lanzamiento multicanal.”</blockquote>
+          <p class="case__by"><b>Carlos G.</b>, CEO y fundador</p>
+        </div>
+      </article>
     </div>
+  </div>
+</section>
 
-    <!-- ═══════════════ 2. PAIN POINTS ═══════════════ -->
-    <section id="dolor" class="py-24 sm:py-32">
-        <div class="max-w-7xl mx-auto px-5 sm:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="font-display text-3xl sm:text-[2.8rem] font-900 leading-tight mb-4">
-                    &iquest;Te resulta <span class="text-accent">familiar</span> esta situaci&oacute;n?
-                </h2>
-            </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal d2">
-                <div class="pain-card bg-white rounded-2xl border border-ink/[0.06] p-7 text-center">
-                    <div class="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-5">
-                        <i class="fa-solid fa-head-side-virus text-2xl text-accent"></i>
-                    </div>
-                    <p class="text-[15px] leading-relaxed"><strong class="text-ink">&iquest;ABRUMADO</strong> por algoritmos complejos?</p>
-                </div>
-                <div class="pain-card bg-white rounded-2xl border border-ink/[0.06] p-7 text-center">
-                    <div class="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-5">
-                        <i class="fa-solid fa-chart-line text-2xl text-accent"></i>
-                    </div>
-                    <p class="text-[15px] leading-relaxed">&iquest;Frustrado por <strong class="text-ink">VENTAS ESTANCADAS</strong>?</p>
-                </div>
-                <div class="pain-card bg-white rounded-2xl border border-ink/[0.06] p-7 text-center">
-                    <div class="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-5">
-                        <i class="fa-solid fa-money-bill-wave text-2xl text-accent"></i>
-                    </div>
-                    <p class="text-[15px] leading-relaxed">&iquest;Preocupado por <strong class="text-ink">MALGASTAR TU INVERSI&Oacute;N</strong> en ads?</p>
-                </div>
-                <div class="pain-card bg-white rounded-2xl border border-ink/[0.06] p-7 text-center">
-                    <div class="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-5">
-                        <i class="fa-solid fa-user-group text-2xl text-accent"></i>
-                    </div>
-                    <p class="text-[15px] leading-relaxed">&iquest;Atascado mientras tus <strong class="text-ink">COMPETIDORES</strong> te superan?</p>
-                </div>
-            </div>
+<section id="metodo" class="section section--alt">
+  <div class="wrap">
+    <div class="method__head">
+      <h2 class="h2">Margen primero.</h2>
+      <p class="lead">Primero tapamos las fugas, después invertimos para crecer. Cada mes lo medimos contra tu P&amp;L, no contra las ventas brutas.</p>
+    </div>
+    <ol class="steps">
+      <li><span aria-hidden="true">01</span><h3>Auditar</h3><p>Revisamos publicidad, listings, inventario y P&amp;L para encontrar dónde se pierde dinero.</p></li>
+      <li><span aria-hidden="true">02</span><h3>Corregir</h3><p>Empezamos por lo que más cuesta: búsquedas sin conversión, listings sin indexar, quiebres de stock.</p></li>
+      <li><span aria-hidden="true">03</span><h3>Escalar</h3><p>Con la base sana, invertimos en lo que trae venta rentable: campañas, keywords, contenido y promociones.</p></li>
+      <li><span aria-hidden="true">04</span><h3>Reportar</h3><p>Cada mes: P&amp;L, publicidad por campaña, acciones realizadas y próximos pasos. Y volvemos a auditar.</p></li>
+    </ol>
+    <p class="muted" style="font-size:15px;max-width:52em">Publicidad (Sponsored Products, Brands y Display), listings y contenido A+, operaciones FBA y Brand Registry. También Walmart, Shopify y TikTok Shop cuando tiene sentido para tu marca.</p>
+  </div>
+</section>
+
+<section id="dashboard" class="section">
+  <div class="wrap split">
+    <div class="dash-copy">
+      <h2 class="h2">Tus números, siempre a la vista.</h2>
+      <p class="lead">Cada mes recibes un reporte con el P&amp;L de tu cuenta y lo revisamos contigo. Entre reportes, tienes un dashboard con ventas, publicidad e inventario actualizado cada día.</p>
+      <ul class="rule-list">
+        <li>P&amp;L mensual contra el mes y el año anterior</li>
+        <li>Publicidad por campaña: inversión, ACoS y ROAS</li>
+        <li>Inventario y días de cobertura por producto</li>
+      </ul>
+    </div>
+    <figure class="dash" role="img" aria-label="Vista de ejemplo del dashboard de clientes de Sellify, con datos ficticios">
+      <div class="dash__ui">
+        <div class="dash__bar">
+          <svg width="12" height="16" viewBox="0 -4 548 708" aria-hidden="true"><use href="#sx-mark"></use></svg>
+          <b>SELLIFY</b><span style="color:#6B6E73">Dashboard de clientes</span>
+          <span class="dash__tag">Datos de ejemplo</span>
         </div>
-    </section>
-
-    <!-- ═══════════════ 3. VISION ═══════════════ -->
-    <section class="py-20 sm:py-28 bg-ink text-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-[0.03]" style="background-image:linear-gradient(white 1px,transparent 1px),linear-gradient(90deg,white 1px,transparent 1px);background-size:40px 40px;"></div>
-        <div class="relative z-10 max-w-4xl mx-auto px-5 sm:px-8 text-center reveal">
-            <h2 class="font-display text-3xl sm:text-[2.8rem] font-900 leading-tight mb-10">
-                &iquest;Y si tuvieras un camino claro hacia el <span class="text-accent">crecimiento</span>?
-            </h2>
-            <div class="grid sm:grid-cols-3 gap-8">
-                <div class="flex flex-col items-center gap-4">
-                    <div class="w-16 h-16 rounded-full bg-accent/15 flex items-center justify-center">
-                        <i class="fa-solid fa-crown text-2xl text-accent"></i>
-                    </div>
-                    <p class="text-white/80 text-[15px] leading-relaxed">Imagin&aacute;te <strong class="text-white">dominando tu categor&iacute;a.</strong></p>
-                </div>
-                <div class="flex flex-col items-center gap-4">
-                    <div class="w-16 h-16 rounded-full bg-accent/15 flex items-center justify-center">
-                        <i class="fa-solid fa-arrow-trend-up text-2xl text-accent"></i>
-                    </div>
-                    <p class="text-white/80 text-[15px] leading-relaxed">Teniendo <strong class="text-white">ingresos predecibles y escalables.</strong></p>
-                </div>
-                <div class="flex flex-col items-center gap-4">
-                    <div class="w-16 h-16 rounded-full bg-accent/15 flex items-center justify-center">
-                        <i class="fa-solid fa-rocket text-2xl text-accent"></i>
-                    </div>
-                    <p class="text-white/80 text-[15px] leading-relaxed">La <strong class="text-white">libertad de enfocarte</strong> en tu negocio.</p>
-                </div>
-            </div>
+        <div class="dash__main">
+          <div class="kpis">
+            <div><p>Ventas 30 días</p><strong>$52,340</strong><small>+8%</small></div>
+            <div><p>Pedidos</p><strong>1,612</strong><small>+6%</small></div>
+            <div><p>ACoS</p><strong>21.4%</strong><small>-2.1 pts</small></div>
+            <div><p>TACoS</p><strong>15.2%</strong><small>-1.4 pts</small></div>
+          </div>
+          <div>
+            <p style="color:#6B6E73;font-size:11px;margin-bottom:8px">Ventas diarias, últimos 30 días</p>
+            <svg viewBox="0 0 600 140" preserveAspectRatio="none" aria-hidden="true" style="width:100%;height:120px">
+              <line x1="0" y1="139" x2="600" y2="139" stroke="#E6E7E8" stroke-width="2"></line>
+              <polyline points="0,96 20,92 41,98 62,88 83,90 103,84 124,86 145,80 166,83 186,76 207,79 228,72 248,75 269,70 290,74 310,66 331,69 352,62 372,64 393,58 414,61 434,54 455,57 476,49 497,52 517,45 538,48 559,40 579,43 600,36" fill="none" stroke="#F58238" stroke-width="3" stroke-linejoin="round"></polyline>
+            </svg>
+          </div>
+          <table>
+            <thead><tr><th>Producto</th><th>Ventas</th><th>ACoS</th><th>Cobertura</th></tr></thead>
+            <tbody>
+              <tr><td>Producto A</td><td>$24,910</td><td>18.2%</td><td>41 días</td></tr>
+              <tr><td>Producto B</td><td>$17,480</td><td>23.9%</td><td>29 días</td></tr>
+              <tr><td>Producto C</td><td>$9,950</td><td>26.7%</td><td class="warn">12 días</td></tr>
+            </tbody>
+          </table>
         </div>
-    </section>
+      </div>
+    </figure>
+  </div>
+</section>
 
-    <!-- ═══════════════ 4. TESTIMONIALS ═══════════════ -->
-    <section id="testimonios" class="py-24 sm:py-32">
-        <div class="max-w-7xl mx-auto px-5 sm:px-8">
-            <div class="text-center mb-16 reveal">
-                <span class="inline-block text-xs font-bold tracking-[0.2em] text-accent uppercase mb-3">Casos Reales</span>
-                <h2 class="font-display text-3xl sm:text-[2.8rem] font-900 leading-tight">
-                    Somos los socios para tu <span class="text-accent">crecimiento</span>
-                </h2>
-            </div>
-            <div class="grid md:grid-cols-2 gap-6 reveal d2">
-                <!-- Tatiana -->
-                <div class="testimonial-card bg-white rounded-2xl border border-ink/[0.06] p-8 relative">
-                    <div class="absolute top-4 right-6 text-6xl font-display text-accent/10 leading-none">&ldquo;</div>
-                    <p class="text-[15px] text-muted leading-relaxed mb-6 relative z-10">
-                        &ldquo;Sellify llev&oacute; nuestras ventas en Amazon de <strong class="text-ink">$3.5K/mes a $30K/mes en 9 meses.</strong>&rdquo;
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-11 h-11 rounded-full bg-accent flex items-center justify-center text-white font-bold text-sm">TI</div>
-                        <div>
-                            <div class="font-bold text-sm">Tatiana Irizar</div>
-                            <div class="text-xs text-muted">Fundadora, Tatiana Irizar</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Alberto -->
-                <div class="testimonial-card bg-white rounded-2xl border border-ink/[0.06] p-8 relative">
-                    <div class="absolute top-4 right-6 text-6xl font-display text-accent/10 leading-none">&ldquo;</div>
-                    <p class="text-[15px] text-muted leading-relaxed mb-6 relative z-10">
-                        &ldquo;El equipo de Sellify lleg&oacute; con un plan claro, tom&oacute; el control de las operaciones diarias y optimiz&oacute; completamente nuestros listings. Nuestras ventas han <strong class="text-ink">aumentado un 85% a&ntilde;o tras a&ntilde;o.</strong>&rdquo;
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-11 h-11 rounded-full bg-ink flex items-center justify-center text-white font-bold text-sm">AO</div>
-                        <div>
-                            <div class="font-bold text-sm">Alberto O.</div>
-                            <div class="text-xs text-muted">Fundador, Steepy</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Carlos L -->
-                <div class="testimonial-card bg-white rounded-2xl border border-ink/[0.06] p-8 relative">
-                    <div class="absolute top-4 right-6 text-6xl font-display text-accent/10 leading-none">&ldquo;</div>
-                    <p class="text-[15px] text-muted leading-relaxed mb-6 relative z-10">
-                        &ldquo;Reconstruyeron por completo nuestra estrategia de PPC. El resultado: <strong class="text-ink">redujimos nuestro ACoS en un 20%</strong> mientras que simult&aacute;neamente <strong class="text-ink">aumentamos los ingresos totales en un 110% en solo 8 meses.</strong>&rdquo;
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-11 h-11 rounded-full bg-accent flex items-center justify-center text-white font-bold text-sm">CL</div>
-                        <div>
-                            <div class="font-bold text-sm">Carlos L.</div>
-                            <div class="text-xs text-muted">CFO, Bullpadel USA</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Carlos G -->
-                <div class="testimonial-card bg-white rounded-2xl border border-ink/[0.06] p-8 relative">
-                    <div class="absolute top-4 right-6 text-6xl font-display text-accent/10 leading-none">&ldquo;</div>
-                    <p class="text-[15px] text-muted leading-relaxed mb-6 relative z-10">
-                        &ldquo;Sab&iacute;amos que ten&iacute;amos que estar en Amazon, pero el proceso era intimidante. <strong class="text-ink">Alonso y su equipo gestionaron todo nuestro lanzamiento multicanal</strong>, desde la configuraci&oacute;n hasta la primera venta.&rdquo;
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-11 h-11 rounded-full bg-ink flex items-center justify-center text-white font-bold text-sm">CG</div>
-                        <div>
-                            <div class="font-bold text-sm">Carlos G.</div>
-                            <div class="text-xs text-muted">CEO &amp; Fundador, Zusset</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="fundador" class="section section--alt">
+  <div class="wrap founder">
+    <div class="founder__photo"><img src="assets/alonso.webp" width="821" height="900" alt="Alonso Martini" loading="lazy"></div>
+    <div class="founder__copy">
+      <h2 class="h2">Una agencia pequeña, a propósito.</h2>
+      <p>Soy Alonso Martini. Llevo más de 10 años vendiendo y gestionando marcas en marketplaces, y fundé Sellify para trabajar con pocas marcas a la vez y responder por sus resultados como si fueran míos.</p>
+      <p>Detrás de cada cuenta hay un equipo dedicado de operaciones, publicidad y contenido. Yo reviso personalmente cada reporte antes de que llegue a ti. Atendemos en español e inglés.</p>
+      <p class="muted" style="font-size:15px"><b style="color:var(--text);font-weight:500">Alonso Martini</b>, fundador de Sellify</p>
+    </div>
+  </div>
+</section>
 
-    <!-- ═══════════════ 5. ABOUT / AUTHORITY ═══════════════ -->
-    <section id="nosotros" class="py-24 sm:py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-5 sm:px-8">
-            <div class="grid lg:grid-cols-5 gap-16 items-center">
-                <div class="lg:col-span-3 reveal">
-                    <span class="inline-block text-xs font-bold tracking-[0.2em] text-accent uppercase mb-3">Conoce a Alonso</span>
-                    <h2 class="font-display text-3xl sm:text-[2.8rem] font-900 leading-tight mb-6">
-                        Un aliado en el que puedes <span class="text-accent">confiar</span>
-                    </h2>
-                    <div class="space-y-5 text-[15px] text-muted leading-relaxed">
-                        <p>Mi nombre es <strong class="text-ink">Alonso</strong>, y fund&eacute; Sellify por una raz&oacute;n: vi c&oacute;mo demasiadas grandes marcas se perd&iacute;an en el ruido de los marketplaces.</p>
-                        <p>Con mis m&aacute;s de <strong class="text-ink">10 a&ntilde;os de experiencia</strong> personal como vendedor y gestor, he visto de primera mano c&oacute;mo las marcas malgastan millones en publicidad.</p>
-                        <p>Cre&eacute; Sellify para que fuera el <strong class="text-ink">socio que a m&iacute; me hubiera gustado tener.</strong></p>
-                        <p>Utilizando nuestras estrategias comprobadas, nuestro equipo ha gestionado <strong class="text-ink">&gt;$1 mill&oacute;n en inversi&oacute;n publicitaria</strong> y <strong class="text-ink">&gt;$4.5 millones en ventas</strong>. Sabemos lo que funciona.</p>
-                    </div>
-                </div>
-                <div class="lg:col-span-2 reveal d3">
-                    <div class="bg-cream rounded-2xl p-8 border border-ink/[0.06]">
-                        <div class="space-y-6">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-calendar-check text-accent text-lg"></i></div>
-                                <div>
-                                    <div class="font-bold text-sm">+10 A&ntilde;os</div>
-                                    <div class="text-xs text-muted">Experiencia comprobada</div>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-sack-dollar text-accent text-lg"></i></div>
-                                <div>
-                                    <div class="font-bold text-sm">+$4.5M en Ventas</div>
-                                    <div class="text-xs text-muted">Generados para clientes</div>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-bullhorn text-accent text-lg"></i></div>
-                                <div>
-                                    <div class="font-bold text-sm">+$1M en Ads</div>
-                                    <div class="text-xs text-muted">Inversi&oacute;n publicitaria gestionada</div>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-globe text-accent text-lg"></i></div>
-                                <div>
-                                    <div class="font-bold text-sm">Multi-Marketplace</div>
-                                    <div class="text-xs text-muted">Amazon, Walmart, Shopify, TikTok</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="preguntas" class="section">
+  <div class="wrap">
+    <h2 class="h2">Preguntas frecuentes.</h2>
+    <dl class="faq">
+      <div><dt>¿Trabajan con marcas que todavía no venden en Amazon?</dt><dd>Sí. Te ayudamos a abrir la cuenta, registrar la marca en Brand Registry y lanzar tus primeros productos.</dd></div>
+      <div><dt>¿Piden un mínimo de ventas?</dt><dd>No. En la auditoría vemos juntos si tiene sentido trabajar con nosotros.</dd></div>
+      <div><dt>¿Voy a tener acceso a mis datos?</dt><dd>Sí. Tienes tu dashboard, recibes el reporte mensual y tu cuenta de Amazon sigue siendo tuya en todo momento.</dd></div>
+      <div><dt>¿Cuánto cuesta?</dt><dd>Depende del alcance y del tamaño de la cuenta. Después de la auditoría te enviamos una propuesta con el costo exacto.</dd></div>
+    </dl>
+  </div>
+</section>
 
-    <!-- ═══════════════ 6. SERVICES ═══════════════ -->
-    <section id="servicios" class="py-24 sm:py-32">
-        <div class="max-w-7xl mx-auto px-5 sm:px-8">
-            <div class="text-center mb-16 reveal">
-                <span class="inline-block text-xs font-bold tracking-[0.2em] text-accent uppercase mb-3">Nuestros Servicios</span>
-                <h2 class="font-display text-3xl sm:text-[2.8rem] font-900 leading-tight">
-                    Tu equipo de servicios <span class="text-accent">integrales</span>
-                </h2>
-            </div>
-            <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
-                <!-- Service 1 -->
-                <div class="service-card bg-white rounded-2xl border border-ink/[0.06] p-8 reveal">
-                    <div class="svc-badge inline-block bg-accent/10 text-accent text-xs font-bold tracking-wider uppercase px-4 py-2 rounded-lg mb-6 transition-all">Full Account Management</div>
-                    <p class="text-sm font-bold text-ink mb-2">Gestionamos de forma proactiva la salud y el crecimiento de toda tu cuenta.</p>
-                    <ul class="space-y-3 mt-5">
-                        <li class="flex items-start gap-2.5 text-sm text-muted"><i class="fa-solid fa-check text-accent mt-0.5 text-xs flex-shrink-0"></i><span><strong class="text-ink">Operaciones Proactivas:</strong> Log&iacute;stica FBA, forecast de inventario y salud de la cuenta.</span></li>
-                        <li class="flex items-start gap-2.5 text-sm text-muted"><i class="fa-solid fa-check text-accent mt-0.5 text-xs flex-shrink-0"></i><span><strong class="text-ink">Resoluci&oacute;n de Problemas:</strong> Casos de soporte, listings suprimidos y advertencias de pol&iacute;ticas.</span></li>
-                        <li class="flex items-start gap-2.5 text-sm text-muted"><i class="fa-solid fa-check text-accent mt-0.5 text-xs flex-shrink-0"></i><span><strong class="text-ink">Integridad del Cat&aacute;logo:</strong> Gesti&oacute;n completa para que tus productos est&eacute;n siempre activos.</span></li>
-                    </ul>
-                </div>
-                <!-- Service 2 -->
-                <div class="service-card bg-white rounded-2xl border border-ink/[0.06] p-8 reveal d1">
-                    <div class="svc-badge inline-block bg-accent/10 text-accent text-xs font-bold tracking-wider uppercase px-4 py-2 rounded-lg mb-6 transition-all">Marketplace Advertising</div>
-                    <p class="text-sm font-bold text-ink mb-2">No gastamos tu dinero; lo invertimos.</p>
-                    <ul class="space-y-3 mt-5">
-                        <li class="flex items-start gap-2.5 text-sm text-muted"><i class="fa-solid fa-check text-accent mt-0.5 text-xs flex-shrink-0"></i><span><strong class="text-ink">Publicidad Orientada a Rentabilidad:</strong> Gestionamos todo tu presupuesto para maximizar el ROI.</span></li>
-                        <li class="flex items-start gap-2.5 text-sm text-muted"><i class="fa-solid fa-check text-accent mt-0.5 text-xs flex-shrink-0"></i><span><strong class="text-ink">Estrategia Full-Funnel:</strong> Campa&ntilde;as de awareness, consideraci&oacute;n y conversi&oacute;n.</span></li>
-                        <li class="flex items-start gap-2.5 text-sm text-muted"><i class="fa-solid fa-check text-accent mt-0.5 text-xs flex-shrink-0"></i><span><strong class="text-ink">Dominaci&oacute;n de Keywords:</strong> Optimizaci&oacute;n constante para ganar palabras clave rentables.</span></li>
-                    </ul>
-                </div>
-                <!-- Service 3 -->
-                <div class="service-card bg-white rounded-2xl border border-ink/[0.06] p-8 reveal d2">
-                    <div class="svc-badge inline-block bg-accent/10 text-accent text-xs font-bold tracking-wider uppercase px-4 py-2 rounded-lg mb-6 transition-all">Listing &amp; SEO Optimization</div>
-                    <p class="text-sm font-bold text-ink mb-2">Convertimos tus p&aacute;ginas de productos en activos de alta conversi&oacute;n.</p>
-                    <ul class="space-y-3 mt-5">
-                        <li class="flex items-start gap-2.5 text-sm text-muted"><i class="fa-solid fa-check text-accent mt-0.5 text-xs flex-shrink-0"></i><span><strong class="text-ink">Copy de Conversi&oacute;n:</strong> T&iacute;tulos y bullet points optimizados que persuaden a comprar.</span></li>
-                        <li class="flex items-start gap-2.5 text-sm text-muted"><i class="fa-solid fa-check text-accent mt-0.5 text-xs flex-shrink-0"></i><span><strong class="text-ink">Narrativa Premium:</strong> Contenido A+ y Brand Stores que generan confianza.</span></li>
-                        <li class="flex items-start gap-2.5 text-sm text-muted"><i class="fa-solid fa-check text-accent mt-0.5 text-xs flex-shrink-0"></i><span><strong class="text-ink">Estrategia Visual:</strong> Im&aacute;genes e infograf&iacute;as que detienen el scroll e impulsan ventas.</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="auditoria" class="section" style="border-top:1px solid var(--line)">
+  <div class="wrap audit">
+    <div class="audit__copy">
+      <h2>Agenda tu auditoría.</h2>
+      <ul class="rule-list">
+        <li>30 minutos conmigo revisando tu cuenta</li>
+        <li>Hallazgos por escrito, ordenados por lo que más dinero te cuesta</li>
+        <li>Una recomendación clara, trabajes o no con nosotros</li>
+      </ul>
+      <p class="audit__contact">¿Prefieres escribir?<br><a href="mailto:alonso@sellify-agency.com">alonso@sellify-agency.com</a><br><a href="https://wa.me/17868247458">WhatsApp +1 786 824 7458</a></p>
+    </div>
+    <form class="form" id="audit-form" aria-label="Solicitar auditoría">
+      <div class="field"><label for="f-nombre">Nombre</label><input id="f-nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required></div>
+      <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="tu@marca.com" required></div>
+      <div class="field field--full"><label for="f-marca">Link de tu marca en Amazon o tu web</label><input id="f-marca" name="marca" type="text" inputmode="url" placeholder="amazon.com/stores/tu-marca"></div>
+      <div class="field field--full"><label for="f-mercado">¿Dónde vendes hoy?</label>
+        <select id="f-mercado" name="mercado">
+          <option>Amazon Estados Unidos</option>
+          <option>Amazon Europa</option>
+          <option>Todavía no vendo en Amazon</option>
+        </select>
+      </div>
+      <button type="submit" class="btn">Solicitar auditoría</button>
+      <p class="form__note">Al enviar se abre WhatsApp con tus datos listos para mandar.</p>
+    </form>
+  </div>
+</section>
 
-    <!-- ═══════════════ 7. 3-STEP PROCESS ═══════════════ -->
-    <section class="py-24 sm:py-32 bg-white">
-        <div class="max-w-5xl mx-auto px-5 sm:px-8">
-            <div class="text-center mb-16 reveal">
-                <span class="inline-block text-xs font-bold tracking-[0.2em] text-accent uppercase mb-3">C&oacute;mo Trabajamos</span>
-                <h2 class="font-display text-3xl sm:text-[2.8rem] font-900 leading-tight">
-                    Nuestro plan de <span class="text-accent">3 pasos</span> para crecer
-                </h2>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8 reveal d2">
-                <div class="step-group text-center">
-                    <div class="step-num w-16 h-16 rounded-2xl bg-cream border-2 border-ink/10 flex items-center justify-center mx-auto mb-6 text-2xl font-display font-900">1</div>
-                    <div class="bg-accent text-white text-sm font-bold uppercase tracking-wider px-5 py-2.5 rounded-lg inline-block mb-4">Auditor&iacute;a</div>
-                    <p class="text-sm text-muted leading-relaxed">Agendamos una <strong class="text-ink">llamada gratuita de 30 minutos</strong> para analizar tu cuenta o tu negocio actual.</p>
-                </div>
-                <div class="step-group text-center">
-                    <div class="step-num w-16 h-16 rounded-2xl bg-cream border-2 border-ink/10 flex items-center justify-center mx-auto mb-6 text-2xl font-display font-900">2</div>
-                    <div class="bg-accent text-white text-sm font-bold uppercase tracking-wider px-5 py-2.5 rounded-lg inline-block mb-4">Ejecuci&oacute;n</div>
-                    <p class="text-sm text-muted leading-relaxed">Desarrollamos y ejecutamos una <strong class="text-ink">estrategia personalizada</strong> (Lanzamiento, Publicidad, SEO, Operaciones).</p>
-                </div>
-                <div class="step-group text-center">
-                    <div class="step-num w-16 h-16 rounded-2xl bg-cream border-2 border-ink/10 flex items-center justify-center mx-auto mb-6 text-2xl font-display font-900">3</div>
-                    <div class="bg-accent text-white text-sm font-bold uppercase tracking-wider px-5 py-2.5 rounded-lg inline-block mb-4">Escalabilidad</div>
-                    <p class="text-sm text-muted leading-relaxed">Optimizamos y gestionamos tus cuentas para impulsar un <strong class="text-ink">crecimiento rentable y sostenido.</strong></p>
-                </div>
-            </div>
-        </div>
-    </section>
+</main>
 
-    <!-- ═══════════════ 8. CASE STUDIES / STATS ═══════════════ -->
-    <section id="resultados" class="py-24 sm:py-32">
-        <div class="max-w-7xl mx-auto px-5 sm:px-8">
-            <div class="text-center mb-16 reveal">
-                <span class="inline-block text-xs font-bold tracking-[0.2em] text-accent uppercase mb-3">Resultados Reales</span>
-                <h2 class="font-display text-3xl sm:text-[2.8rem] font-900 leading-tight">
-                    C&oacute;mo ayudamos a las marcas a <span class="text-accent">ganar</span>
-                </h2>
-            </div>
-            <div class="grid sm:grid-cols-3 gap-6 reveal d2">
-                <div class="stat-card bg-white rounded-2xl border border-ink/[0.06] p-8 text-center relative overflow-hidden">
-                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-accent to-accent-light"></div>
-                    <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-5">
-                        <i class="fa-solid fa-spa text-xl text-accent"></i>
-                    </div>
-                    <div class="text-xs font-bold text-muted uppercase tracking-wider mb-2">Belleza</div>
-                    <div class="text-4xl font-display font-900 text-accent mb-1">+385.7%</div>
-                    <p class="text-sm text-muted">en Ingresos en 6 meses</p>
-                </div>
-                <div class="stat-card bg-white rounded-2xl border border-ink/[0.06] p-8 text-center relative overflow-hidden">
-                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-accent to-accent-light"></div>
-                    <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-5">
-                        <i class="fa-solid fa-volleyball text-xl text-accent"></i>
-                    </div>
-                    <div class="text-xs font-bold text-muted uppercase tracking-wider mb-2">Deportes</div>
-                    <div class="text-4xl font-display font-900 text-ink mb-1">$200K</div>
-                    <p class="text-sm text-muted">en Ingresos en 6 meses</p>
-                </div>
-                <div class="stat-card bg-white rounded-2xl border border-ink/[0.06] p-8 text-center relative overflow-hidden">
-                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-accent to-accent-light"></div>
-                    <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-5">
-                        <i class="fa-solid fa-microchip text-xl text-accent"></i>
-                    </div>
-                    <div class="text-xs font-bold text-muted uppercase tracking-wider mb-2">Electr&oacute;nica</div>
-                    <div class="text-4xl font-display font-900 text-accent mb-1">+8%</div>
-                    <p class="text-sm text-muted">margen de ganancia &amp; +12% ventas mensuales</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<footer class="footer">
+  <div class="wrap">
+    <div style="display:flex;align-items:center;gap:12px">
+      <span class="brand__word" style="font-size:14px;color:var(--text)">SELLIFY</span>
+      <span>© 2026 Sellify Agency. Operado por Cortafuegos LLC.</span>
+    </div>
+    <nav aria-label="Pie de página">
+      <a href="#casos">Casos</a><a href="#metodo">Método</a><a href="#preguntas">Preguntas</a><a href="mailto:alonso@sellify-agency.com">Contacto</a>
+    </nav>
+  </div>
+</footer>
 
-    <!-- ═══════════════ 9. COST OF INACTION + FINAL CTA ═══════════════ -->
-    <section class="py-24 sm:py-32 bg-ink text-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-[0.03]" style="background-image:radial-gradient(white 1px,transparent 1px);background-size:24px 24px;"></div>
-        <div class="relative z-10 max-w-4xl mx-auto px-5 sm:px-8 text-center reveal">
-            <span class="inline-block text-xs font-bold tracking-[0.2em] text-accent uppercase mb-4">El costo de no hacer nada</span>
-            <h2 class="font-display text-3xl sm:text-[2.6rem] font-900 leading-tight mb-8">
-                Competidores ganando.<br/>Dinero sobre la mesa.
-            </h2>
-            <div class="flex flex-wrap justify-center gap-4 mb-12 text-sm text-white/70">
-                <span class="bg-white/[0.06] border border-white/10 rounded-xl px-5 py-3">Continuar sinti&eacute;ndote <strong class="text-white">abrumado y frustrado</strong></span>
-                <span class="bg-white/[0.06] border border-white/10 rounded-xl px-5 py-3">Ver a tus <strong class="text-white">competidores</strong> tomar tu cuota</span>
-                <span class="bg-white/[0.06] border border-white/10 rounded-xl px-5 py-3"><strong class="text-white">Dejar ingresos</strong> sobre la mesa cada d&iacute;a</span>
-            </div>
+<dialog class="video-dialog" id="video-dialog" aria-label="Testimonio de Tatiana Irizar">
+  <video id="video-el" controls playsinline preload="none" poster="assets/tatiana-poster.webp">
+    <source src="assets/tatiana-testimonio.mp4" type="video/mp4">
+  </video>
+  <button type="button" id="video-close">Cerrar</button>
+</dialog>
 
-            <div class="bg-white/[0.04] border border-white/10 rounded-2xl p-8 sm:p-12 backdrop-blur-sm">
-                <h3 class="font-display text-2xl sm:text-3xl font-900 mb-3">
-                    Deja de adivinar. <span class="text-accent">Empieza a crecer.</span>
-                </h3>
-                <p class="text-white/60 mb-8 text-[15px]">Agenda una Auditor&iacute;a GRATUITA de 30 minutos con nuestro equipo.</p>
-                <a href="mailto:alonso@sellify-agency.com" class="cta-glow inline-flex items-center gap-3 bg-accent text-white font-bold px-10 py-4.5 rounded-xl hover:bg-accent-dark transition-all hover:-translate-y-0.5 shadow-lg shadow-accent/30 text-lg">
-                    Agendar Auditor&iacute;a Gratuita
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-                <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-white/50">
-                    <span><i class="fa-solid fa-user mr-2 text-accent"></i>Alonso Martini</span>
-                    <a href="https://wa.me/584142079933" class="hover:text-accent transition-colors"><i class="fa-brands fa-whatsapp mr-2 text-accent"></i>+58 414 207 9933</a>
-                    <a href="mailto:alonso@sellify-agency.com" class="hover:text-accent transition-colors"><i class="fa-regular fa-envelope mr-2 text-accent"></i>alonso@sellify-agency.com</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<script>
+(function(){
+  // Formulario: abre WhatsApp con los datos (sin backend)
+  var form = document.getElementById('audit-form');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var d = new FormData(form);
+    var msg = 'Hola Alonso, quiero agendar una auditoría.\n' +
+      'Nombre: ' + (d.get('nombre') || '') + '\n' +
+      'Email: ' + (d.get('email') || '') + '\n' +
+      'Marca: ' + (d.get('marca') || '-') + '\n' +
+      'Vendo en: ' + (d.get('mercado') || '');
+    window.open('https://wa.me/17868247458?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+  });
 
-    <!-- ═══════════════ FOOTER ═══════════════ -->
-    <footer class="bg-ink border-t border-white/[0.06] text-white">
-        <div class="max-w-7xl mx-auto px-5 sm:px-8 py-10">
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
-                <div class="flex items-center gap-2.5">
-                    <div class="w-8 h-8 rounded-lg bg-accent flex items-center justify-center"><span class="text-white font-bold text-base leading-none">S</span></div>
-                    <span class="text-base font-bold tracking-tight">Sellify <span class="font-normal text-gray-400">Agency</span></span>
-                </div>
-                <div class="flex items-center gap-6 text-sm text-gray-400">
-                    <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
-                    <a href="#resultados" class="hover:text-white transition-colors">Resultados</a>
-                    <a href="#nosotros" class="hover:text-white transition-colors">Nosotros</a>
-                    <a href="mailto:alonso@sellify-agency.com" class="hover:text-accent transition-colors">
-                        <i class="fa-regular fa-envelope mr-1"></i>Contacto
-                    </a>
-                </div>
-            </div>
-            <div class="border-t border-white/[0.06] mt-8 pt-8 text-center">
-                <p class="text-xs text-gray-500">&copy; 2026 Sellify Agency. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ═══════════════ SCRIPTS ═══════════════ -->
-    <script>
-        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
-
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                header.classList.add('bg-cream/90','backdrop-blur-xl','shadow-sm','border-b','border-ink/[0.04]');
-            } else {
-                header.classList.remove('bg-cream/90','backdrop-blur-xl','shadow-sm','border-b','border-ink/[0.04]');
-            }
-        }, { passive: true });
-
-        const obs = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal,.reveal-scale').forEach(el => obs.observe(el));
-    </script>
+  // Video de Tatiana: el botón de play solo aparece si el archivo existe
+  var card = document.getElementById('video-card');
+  var dialog = document.getElementById('video-dialog');
+  var video = document.getElementById('video-el');
+  fetch('assets/tatiana-testimonio.mp4', {method: 'HEAD'}).then(function(r){
+    if (!r.ok) return;
+    card.disabled = false;
+    card.classList.add('has-video');
+    card.addEventListener('click', function(){ dialog.showModal(); video.play(); });
+  }).catch(function(){});
+  function closeVideo(){ video.pause(); dialog.close(); }
+  document.getElementById('video-close').addEventListener('click', closeVideo);
+  dialog.addEventListener('click', function(e){ if (e.target === dialog) closeVideo(); });
+  dialog.addEventListener('close', function(){ video.pause(); });
+})();
+</script>
 </body>
 </html>
