@@ -1,4 +1,19 @@
 {
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "cookie", "key": "lang", "value": "en" }],
+      "destination": "/en/",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "missing": [{ "type": "cookie", "key": "lang" }],
+      "has": [{ "type": "header", "key": "accept-language", "value": { "pre": "en" } }],
+      "destination": "/en/",
+      "permanent": false
+    }
+  ],
   "images": {
     "sizes": [256, 640, 1080],
     "formats": ["image/webp"],
