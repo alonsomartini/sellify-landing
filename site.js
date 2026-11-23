@@ -34,7 +34,12 @@
   var dialog = document.getElementById('video-dialog');
   var video = document.getElementById('video-el');
   if (card && dialog && video) {
-    var openVideo = function(e){ if (e) e.preventDefault(); dialog.showModal(); video.play(); };
+    var openVideo = function(e){
+      if (e) e.preventDefault();
+      dialog.showModal();
+      var playing = video.play();
+      if (playing && playing.catch) playing.catch(function(){}); // si se cierra antes de arrancar, no es un error
+    };
     fetch('/assets/tatiana-testimonio.mp4', { method: 'HEAD' }).then(function(r){
       if (!r.ok) return;
       card.disabled = false;

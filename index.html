@@ -32,6 +32,7 @@
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
+<a class="skip" href="#inicio">Saltar al contenido</a>
 
 <header class="header">
   <div class="wrap">
@@ -96,7 +97,7 @@
             <use href="#sx-bars" fill="#F58238" clip-path="url(#sx-hero-clip)"></use>
           </g>
         </svg>
-        <img class="portrait__img" src="/assets/alonso.webp" width="821" height="900" alt="Alonso Martini, fundador de Sellify" fetchpriority="high">
+        <img class="portrait__img" src="/assets/alonso.webp" width="821" height="889" alt="Alonso Martini, fundador de Sellify" fetchpriority="high">
       </div>
       <figcaption class="portrait__caption">
         <span><b>Alonso Martini</b>, fundador</span>
@@ -130,17 +131,18 @@
 
     <figure class="pl" aria-labelledby="pl-title">
       <h3 class="pl__title" id="pl-title">De cada $100 que vendes en Amazon, ¿cuánto te queda?</h3>
-      <ol class="pl__rows">
+      <ol class="pl__rows" style="--goal:15">
         <li class="pl__row pl__row--sale" style="--from:0;--to:100"><span class="pl__label">Venta</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">$100</span></li>
         <li class="pl__row" style="--from:72;--to:100"><span class="pl__label">Costo del producto</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">−$28</span></li>
         <li class="pl__row" style="--from:57;--to:72"><span class="pl__label">Comisión de Amazon</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">−$15</span></li>
-        <li class="pl__row" style="--from:43;--to:57"><span class="pl__label">Envío FBA</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">−$14</span></li>
-        <li class="pl__row" style="--from:30;--to:43"><span class="pl__label">Publicidad</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">−$13</span></li>
-        <li class="pl__row" style="--from:24;--to:30"><span class="pl__label">Devoluciones y almacenamiento</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">−$6</span></li>
-        <li class="pl__row pl__row--margin" style="--from:0;--to:24"><span class="pl__label">Lo que te queda</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">$24</span></li>
+        <li class="pl__row" style="--from:37;--to:57"><span class="pl__label">Envío FBA</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">−$20</span></li>
+        <li class="pl__row" style="--from:17;--to:37"><span class="pl__label">Publicidad</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">−$20</span></li>
+        <li class="pl__row" style="--from:12;--to:17"><span class="pl__label">Devoluciones</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">−$5</span></li>
+        <li class="pl__row" style="--from:9;--to:12"><span class="pl__label">Almacenamiento y otros cargos</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">−$3</span></li>
+        <li class="pl__row pl__row--margin" style="--from:0;--to:9"><span class="pl__label">Lo que te queda</span><span class="pl__bar" aria-hidden="true"><i></i><span class="pl__goal"><span>Margen sano: $15</span></span></span><span class="pl__amt">$9</span></li>
       </ol>
       <figcaption class="pl__foot">
-        <p class="pl__punch">Amazon te muestra los $100. Nosotros trabajamos para que crezcan los $24.</p>
+        <p class="pl__punch">Amazon te muestra los $100. Te quedan $9, cuando un margen sano ronda los $15. Cerrar esa diferencia es nuestro trabajo.</p>
         <p class="pl__note">Ejemplo ilustrativo de un producto vendido con FBA en Amazon Estados Unidos. El reparto real de cada producto aparece en tu P&amp;L.</p>
       </figcaption>
     </figure>
@@ -363,14 +365,23 @@
 </main>
 
 <footer class="footer">
-  <div class="wrap">
-    <div class="footer__id">
-      <span class="brand__word">SELLIFY</span>
-      <span>© 2026 Sellify Agency. Operado por Cortafuegos LLC.</span>
+  <div class="wrap footer__grid">
+    <div class="footer__brand">
+      <a href="#inicio" class="brand" aria-label="Sellify, inicio"><svg width="16" height="21" viewBox="0 -4 548 708" aria-hidden="true"><use href="#sx-mark"></use></svg><span class="brand__word">SELLIFY</span></a>
+      <p>Agencia de Amazon para marcas que quieren crecer sin perder margen, en Estados Unidos y Europa.</p>
     </div>
-    <nav aria-label="Pie de página">
-      <a href="#casos">Casos</a><a href="#como-funciona">Cómo funciona</a><a href="#preguntas">Preguntas</a><a href="mailto:alonso@sellify-agency.com">Contacto</a>
+    <nav class="footer__col" aria-label="Pie de página">
+      <p class="footer__h">Sitio</p>
+      <a href="#casos">Casos</a><a href="#como-funciona">Cómo funciona</a><a href="#dashboard">Dashboard</a><a href="#preguntas">Preguntas</a>
     </nav>
+    <div class="footer__col">
+      <p class="footer__h">Contacto</p>
+      <a href="https://wa.me/34627071754">WhatsApp +34 627 07 17 54</a><a href="tel:+17868247458">Llamadas +1 786 824 7458</a><a href="mailto:alonso@sellify-agency.com">alonso@sellify-agency.com</a>
+    </div>
+  </div>
+  <div class="wrap footer__legal">
+    <span>© 2026 Sellify Agency. Operado por Cortafuegos LLC.</span>
+    <a href="/en/" hreflang="en" lang="en" data-set-lang="en">English</a>
   </div>
 </footer>
 

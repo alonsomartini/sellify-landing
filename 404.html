@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Página no encontrada | Sellify</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1A1A1A">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="/site.css">
+<style>
+  .nf{min-height:100vh;display:flex;flex-direction:column}
+  .nf__main{flex:1;display:flex;align-items:center;padding:96px 0}
+  .nf__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px 80px;align-items:start}
+  .nf__block{display:flex;flex-direction:column;gap:20px}
+  .nf__block p{color:var(--text-2);max-width:28em}
+  .nf__block .btn{align-self:flex-start;margin-top:8px}
+  @media (max-width:760px){.nf__grid{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body class="nf">
+<header class="header">
+  <div class="wrap">
+    <a href="/" class="brand" aria-label="Sellify, inicio">
+      <svg width="20" height="26" viewBox="0 -4 548 708" aria-hidden="true">
+        <defs><clipPath id="nf-clip"><polygon points="-20,-20 166,-20 336,258 53,720 -20,720"></polygon></clipPath>
+        <g id="nf-bars"><rect x="0" y="204.5" width="548" height="107" rx="12"></rect><rect x="3" y="204.5" width="542" height="107" rx="12" transform="rotate(58.5 274 258)"></rect><rect x="3" y="204.5" width="542" height="107" rx="12" transform="rotate(-58.5 274 258)"></rect></g></defs>
+        <use href="#nf-bars" fill="#999B9E"></use><use href="#nf-bars" fill="#F58238" clip-path="url(#nf-clip)"></use>
+        <rect x="88" y="610" width="370" height="90" rx="4" fill="#F58238"></rect>
+      </svg>
+      <span class="brand__word">SELLIFY</span>
+    </a>
+  </div>
+</header>
+<main class="nf__main">
+  <div class="wrap nf__grid">
+    <div class="nf__block">
+      <h1 class="h2">Esta página no existe.</h1>
+      <p>Puede que el enlace esté mal escrito o que la página se haya movido.</p>
+      <a class="btn" href="/">Ir al inicio</a>
+    </div>
+    <div class="nf__block" lang="en">
+      <h2 class="h2">This page doesn't exist.</h2>
+      <p>The link may be mistyped, or the page may have moved.</p>
+      <a class="btn btn--ghost" href="/en/">Go to the homepage</a>
+    </div>
+  </div>
+</main>
+</body>
+</html>
