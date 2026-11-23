@@ -29,6 +29,7 @@
 {"@context":"https://schema.org","@type":"Organization","name":"Sellify Agency","legalName":"Cortafuegos LLC","url":"https://www.sellify.us/","logo":"https://www.sellify.us/assets/apple-touch-icon.png","email":"alonso@sellify-agency.com","telephone":"+1-786-824-7458","founder":{"@type":"Person","name":"Alonso Martini"},"areaServed":["US","ES","DE"],"knowsLanguage":["es","en"]}
 </script>
 <link rel="stylesheet" href="/site.css">
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -81,11 +82,10 @@
         <a href="#auditoria" class="btn">Agenda tu auditoría</a>
         <a href="/assets/checklist-10-fugas-de-margen-amazon.pdf" class="link" target="_blank" rel="noopener">Descarga el checklist gratis</a>
       </div>
-      <dl class="stats">
-        <div><dt>+$4.5M</dt><dd>en ventas generadas para clientes</dd></div>
-        <div><dt>+$1M</dt><dd>en publicidad gestionada</dd></div>
-        <div><dt>10+ años</dt><dd>vendiendo y gestionando marcas en marketplaces</dd></div>
-      </dl>
+      <a class="proof" href="#casos" data-video-open>
+        <span class="proof__thumb"><img src="/assets/tatiana-thumb.webp" width="128" height="128" alt=""><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#F58238"/><path d="M8 6v8l6-4z" fill="#1A1A1A"/></svg></span>
+        <span><b>De $42K a $360K al año en Amazon, en 9 meses.</b>Tatiana Irizar, fundadora. <span class="proof__cta">Ver su testimonio</span></span>
+      </a>
     </div>
     <figure class="portrait">
       <div class="portrait__frame">
@@ -106,10 +106,17 @@
   </div>
 </section>
 
-<section class="brands" aria-label="Marcas con las que hemos trabajado">
-  <div class="wrap">
-    <p class="muted" style="font-size:14px">Marcas con las que hemos trabajado</p>
-    <div class="brands__list"><span>Tatiana Irizar</span><span>Zusset</span><span>Steepy</span><span>Bullpadel USA</span></div>
+<section class="creds" aria-label="Credenciales">
+  <div class="wrap creds__inner">
+    <div>
+      <p class="creds__label">Marcas con las que hemos trabajado</p>
+      <ul class="creds__brands"><li>Tatiana Irizar</li><li>Zusset</li><li>Steepy</li><li>Bullpadel USA</li></ul>
+    </div>
+    <dl class="creds__stats">
+      <div><dt>+$4.5M</dt><dd>en ventas generadas para clientes</dd></div>
+      <div><dt>+$1M</dt><dd>en publicidad gestionada</dd></div>
+      <div><dt>10+ años</dt><dd>vendiendo en marketplaces</dd></div>
+    </dl>
   </div>
 </section>
 
@@ -118,8 +125,27 @@
   <div class="wrap">
     <div class="section__head">
       <h2 class="h2">Vender más no debería significar ganar menos.</h2>
-      <p class="lead">Si no sabes qué campaña o qué producto te deja dinero, cada mes en Amazon es una apuesta. Esto es lo que más encontramos al auditar una cuenta:</p>
+      <p class="lead">Si no sabes qué campaña o qué producto te deja dinero, cada mes en Amazon es una apuesta.</p>
     </div>
+
+    <figure class="pl" aria-labelledby="pl-title">
+      <h3 class="pl__title" id="pl-title">De cada $100 que vendes en Amazon, ¿cuánto te queda?</h3>
+      <ol class="pl__rows">
+        <li class="pl__row pl__row--sale" style="--from:0;--to:100"><span class="pl__label">Venta</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">$100</span></li>
+        <li class="pl__row" style="--from:72;--to:100"><span class="pl__label">Costo del producto</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">−$28</span></li>
+        <li class="pl__row" style="--from:57;--to:72"><span class="pl__label">Comisión de Amazon</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">−$15</span></li>
+        <li class="pl__row" style="--from:43;--to:57"><span class="pl__label">Envío FBA</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">−$14</span></li>
+        <li class="pl__row" style="--from:30;--to:43"><span class="pl__label">Publicidad</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">−$13</span></li>
+        <li class="pl__row" style="--from:24;--to:30"><span class="pl__label">Devoluciones y almacenamiento</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">−$6</span></li>
+        <li class="pl__row pl__row--margin" style="--from:0;--to:24"><span class="pl__label">Lo que te queda</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">$24</span></li>
+      </ol>
+      <figcaption class="pl__foot">
+        <p class="pl__punch">Amazon te muestra los $100. Nosotros trabajamos para que crezcan los $24.</p>
+        <p class="pl__note">Ejemplo ilustrativo de un producto vendido con FBA en Amazon Estados Unidos. El reparto real de cada producto aparece en tu P&amp;L.</p>
+      </figcaption>
+    </figure>
+
+    <h3 class="problems__title">Lo que más encontramos al auditar una cuenta</h3>
     <ul class="problems">
       <li><h3>Pagas clics que no venden.</h3><p>Búsquedas con clics y sin pedidos que nadie revisa desde hace meses.</p></li>
       <li><h3>Tu ACoS se ve bien. Tu margen, no.</h3><p>Si no cuentas fees, devoluciones y costo del producto, la publicidad puede estar perdiendo dinero.</p></li>
@@ -143,18 +169,20 @@
 
 <!-- 3. Propuesta de valor: el éxito -->
 <section id="margen" class="section section--alt">
-  <div class="wrap">
-    <div class="section__head section__head--row">
+  <div class="wrap index">
+    <div class="index__head">
       <h2 class="h2">Margen primero.</h2>
       <p class="lead">Primero tapamos las fugas, después invertimos para crecer. Así cada dólar que pones en Amazon trabaja para tu margen.</p>
     </div>
-    <ul class="benefits">
-      <li><h3>Publicidad que responde a tu margen</h3><p>Campañas gestionadas contra un objetivo de rentabilidad, no solo de ventas.</p></li>
-      <li><h3>Listings que convierten</h3><p>Títulos, contenido A+ e imágenes que responden lo que el comprador pregunta antes de comprar.</p></li>
-      <li><h3>Inventario sin sorpresas</h3><p>Forecast y envíos a FBA para no perder ranking ni pagar almacenamiento de más.</p></li>
-      <li><h3>Números claros cada mes</h3><p>Tu P&amp;L real, por producto y por campaña, y lo revisamos contigo.</p></li>
-    </ul>
-    <p class="muted" style="font-size:15px;max-width:52em;margin-top:56px">Publicidad (Sponsored Products, Brands y Display), listings y contenido A+, operaciones FBA y Brand Registry. También Walmart, Shopify y TikTok Shop cuando tiene sentido para tu marca.</p>
+    <div>
+      <ul class="rows">
+        <li><h3>Publicidad que responde a tu margen</h3><p>Campañas gestionadas contra un objetivo de rentabilidad, no solo de ventas.</p></li>
+        <li><h3>Listings que convierten</h3><p>Títulos, contenido A+ e imágenes que responden lo que el comprador pregunta antes de comprar.</p></li>
+        <li><h3>Inventario sin sorpresas</h3><p>Forecast y envíos a FBA para no perder ranking ni pagar almacenamiento de más.</p></li>
+        <li><h3>Números claros cada mes</h3><p>Tu P&amp;L real, por producto y por campaña, y lo revisamos contigo.</p></li>
+      </ul>
+      <p class="index__note">Publicidad (Sponsored Products, Brands y Display), listings y contenido A+, operaciones FBA y Brand Registry. También Walmart, Shopify y TikTok Shop cuando tiene sentido para tu marca.</p>
+    </div>
   </div>
 </section>
 
@@ -185,35 +213,23 @@
       </div>
     </div>
 
-    <div class="cases">
-      <article class="case">
-        <div class="case__img"><img onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/515cgaxhbKL.jpg'" src="/_vercel/image?url=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F515cgaxhbKL.jpg&amp;w=640&amp;q=80" alt="Pala de pádel Bullpadel Vertex 05" loading="lazy"></div>
-        <div class="case__body">
-          <p class="muted" style="font-size:13px">Bullpadel USA, pádel</p>
-          <h3>-20% ACoS y +110% en ingresos, en 8 meses.</h3>
-          <blockquote>“Reconstruyeron por completo nuestra estrategia de PPC.”</blockquote>
-          <p class="case__by"><b>Carlos L.</b>, CFO</p>
-        </div>
-      </article>
-      <article class="case">
-        <div class="case__img"><img onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/71qa1ehZGUL.jpg'" src="/_vercel/image?url=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F71qa1ehZGUL.jpg&amp;w=640&amp;q=80" alt="Soporte portátil para laptop Steepy" loading="lazy"></div>
-        <div class="case__body">
-          <p class="muted" style="font-size:13px">Steepy, accesorios de oficina</p>
-          <h3>+85% en ventas, año contra año.</h3>
-          <blockquote>“El equipo de Sellify llegó con un plan claro, tomó el control de las operaciones diarias y optimizó completamente nuestros listings.”</blockquote>
-          <p class="case__by"><b>Alberto O.</b>, fundador</p>
-        </div>
-      </article>
-      <article class="case">
-        <div class="case__img"><img onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/81eb+MPQm6L.jpg'" src="/_vercel/image?url=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F81eb%2BMPQm6L.jpg&amp;w=640&amp;q=80" alt="Pala de pádel Zusset Solid Pro" loading="lazy"></div>
-        <div class="case__body">
-          <p class="muted" style="font-size:13px">Zusset, pádel</p>
-          <h3>De la configuración a la primera venta.</h3>
-          <blockquote>“Sabíamos que teníamos que estar en Amazon, pero el proceso era intimidante. Alonso y su equipo gestionaron todo nuestro lanzamiento multicanal.”</blockquote>
-          <p class="case__by"><b>Carlos G.</b>, CEO y fundador</p>
-        </div>
-      </article>
-    </div>
+    <ul class="ledger">
+      <li>
+        <div class="ledger__img"><img onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/515cgaxhbKL.jpg'" src="/_vercel/image?url=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F515cgaxhbKL.jpg&amp;w=256&amp;q=80" alt="Pala de pádel Bullpadel Vertex 05" loading="lazy"></div>
+        <div><p class="ledger__brand">Bullpadel USA, pádel</p><h3>-20% ACoS y +110% en ingresos, en 8 meses.</h3></div>
+        <blockquote><p>“Reconstruyeron por completo nuestra estrategia de PPC.”</p><footer><b>Carlos L.</b>, CFO</footer></blockquote>
+      </li>
+      <li>
+        <div class="ledger__img"><img onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/71qa1ehZGUL.jpg'" src="/_vercel/image?url=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F71qa1ehZGUL.jpg&amp;w=256&amp;q=80" alt="Soporte portátil para laptop Steepy" loading="lazy"></div>
+        <div><p class="ledger__brand">Steepy, accesorios de oficina</p><h3>+85% en ventas, año contra año.</h3></div>
+        <blockquote><p>“El equipo de Sellify llegó con un plan claro, tomó el control de las operaciones diarias y optimizó completamente nuestros listings.”</p><footer><b>Alberto O.</b>, fundador</footer></blockquote>
+      </li>
+      <li>
+        <div class="ledger__img"><img onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/81eb+MPQm6L.jpg'" src="/_vercel/image?url=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F81eb%2BMPQm6L.jpg&amp;w=256&amp;q=80" alt="Pala de pádel Zusset Solid Pro" loading="lazy"></div>
+        <div><p class="ledger__brand">Zusset, pádel</p><h3>De la configuración a la primera venta.</h3></div>
+        <blockquote><p>“Sabíamos que teníamos que estar en Amazon, pero el proceso era intimidante. Alonso y su equipo gestionaron todo nuestro lanzamiento multicanal.”</p><footer><b>Carlos G.</b>, CEO y fundador</footer></blockquote>
+      </li>
+    </ul>
   </div>
 </section>
 
@@ -223,7 +239,7 @@
     <div class="section__head">
       <h2 class="h2">Empezar es simple.</h2>
     </div>
-    <ol class="steps steps--3">
+    <ol class="steps">
       <li><span aria-hidden="true">01</span><h3>Agenda tu auditoría</h3><p>30 minutos para revisar tu cuenta, o tu plan para entrar a Amazon.</p></li>
       <li><span aria-hidden="true">02</span><h3>Recibe tu plan</h3><p>Hallazgos por escrito, ordenados por lo que más dinero te cuesta, y una propuesta clara.</p></li>
       <li><span aria-hidden="true">03</span><h3>Crece con tus números a la vista</h3><p>Ejecutamos el plan y cada mes revisamos contigo tu P&amp;L y los próximos pasos.</p></li>
@@ -261,7 +277,7 @@
         <div class="dash__main">
           <div class="kpis">
             <div><p>Ventas 30 días</p><strong>$52,340</strong><small>+8%</small></div>
-            <div><p>Pedidos</p><strong>1,612</strong><small>+6%</small></div>
+            <div class="kpi--margin"><p>Margen neto</p><strong>23.6%</strong><small>+1.8 pts</small></div>
             <div><p>ACoS</p><strong>21.4%</strong><small>-2.1 pts</small></div>
             <div><p>TACoS</p><strong>15.2%</strong><small>-1.4 pts</small></div>
           </div>
@@ -289,19 +305,22 @@
 <!-- 6. Párrafo explicativo: la historia en corto -->
 <section id="fundador" class="section section--alt">
   <div class="wrap founder">
-    <div class="founder__photo"><img src="/assets/alonso.webp" width="821" height="900" alt="Alonso Martini" loading="lazy"></div>
-    <div class="founder__copy">
+    <div class="founder__head">
       <h2 class="h2">Una agencia pequeña, a propósito.</h2>
+      <p class="founder__sign"><svg width="22" height="28" viewBox="0 -4 548 708" aria-hidden="true"><use href="#sx-mark"></use></svg><span><b>Alonso Martini</b><br>Fundador de Sellify</span></p>
+    </div>
+    <div class="founder__copy">
       <p>Quieres que Amazon sea un canal rentable y predecible para tu marca. Para eso necesitas que la publicidad, el contenido y el inventario trabajen hacia un mismo objetivo: tu margen. El problema es que Amazon te muestra ventas, no ganancias, y es fácil terminar pagando por crecer sin saber si estás ganando.</p>
       <p>Soy Alonso Martini. Llevo más de 10 años vendiendo y gestionando marcas en marketplaces, y fundé Sellify para trabajar con pocas marcas a la vez y responder por sus resultados como si fueran míos. Detrás de cada cuenta hay un equipo dedicado de operaciones, publicidad y contenido, y yo reviso personalmente cada reporte antes de que llegue a ti. Atendemos en español e inglés.</p>
-      <p class="muted" style="font-size:15px"><b style="color:var(--text);font-weight:500">Alonso Martini</b>, fundador de Sellify</p>
     </div>
   </div>
 </section>
 
 <section id="preguntas" class="section">
-  <div class="wrap">
-    <h2 class="h2">Preguntas frecuentes.</h2>
+  <div class="wrap index">
+    <div class="index__head">
+      <h2 class="h2">Preguntas frecuentes.</h2>
+    </div>
     <dl class="faq">
       <div><dt>¿Trabajan con marcas que todavía no venden en Amazon?</dt><dd>Sí. Te ayudamos a abrir la cuenta, registrar la marca en Brand Registry y lanzar tus primeros productos.</dd></div>
       <div><dt>¿Piden un mínimo de ventas?</dt><dd>No. En la auditoría vemos juntos si tiene sentido trabajar con nosotros.</dd></div>
@@ -316,7 +335,7 @@
   <div class="wrap audit">
     <div class="audit__copy">
       <h2>Agenda tu auditoría.</h2>
-      <p class="lead" style="color:var(--soft)">Deja de adivinar qué te deja dinero en Amazon.</p>
+      <p class="lead">Deja de adivinar qué te deja dinero en Amazon.</p>
       <ul class="rule-list">
         <li>30 minutos conmigo revisando tu cuenta</li>
         <li>Hallazgos por escrito, ordenados por lo que más dinero te cuesta</li>
@@ -345,8 +364,8 @@
 
 <footer class="footer">
   <div class="wrap">
-    <div style="display:flex;align-items:center;gap:12px">
-      <span class="brand__word" style="font-size:14px;color:var(--text)">SELLIFY</span>
+    <div class="footer__id">
+      <span class="brand__word">SELLIFY</span>
       <span>© 2026 Sellify Agency. Operado por Cortafuegos LLC.</span>
     </div>
     <nav aria-label="Pie de página">

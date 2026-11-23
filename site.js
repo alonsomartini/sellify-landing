@@ -28,16 +28,19 @@
     });
   }
 
-  // Video de Tatiana: el botón de play solo aparece si el archivo existe
+  // Video de Tatiana: el botón de play solo aparece si el archivo existe.
+  // Los enlaces con data-video-open (el del hero) abren el mismo video; sin video, bajan al caso.
   var card = document.getElementById('video-card');
   var dialog = document.getElementById('video-dialog');
   var video = document.getElementById('video-el');
   if (card && dialog && video) {
+    var openVideo = function(e){ if (e) e.preventDefault(); dialog.showModal(); video.play(); };
     fetch('/assets/tatiana-testimonio.mp4', { method: 'HEAD' }).then(function(r){
       if (!r.ok) return;
       card.disabled = false;
       card.classList.add('has-video');
-      card.addEventListener('click', function(){ dialog.showModal(); video.play(); });
+      card.addEventListener('click', function(){ openVideo(); });
+      document.querySelectorAll('[data-video-open]').forEach(function(a){ a.addEventListener('click', openVideo); });
     }).catch(function(){});
     var closeVideo = function(){ video.pause(); dialog.close(); };
     document.getElementById('video-close').addEventListener('click', closeVideo);
