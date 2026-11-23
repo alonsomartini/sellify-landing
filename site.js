@@ -2,8 +2,8 @@
 (function(){
   var lang = document.documentElement.lang === 'en' ? 'en' : 'es';
   var T = {
-    es: { intro: 'Hola Alonso, quiero agendar una auditoría.', name: 'Nombre', email: 'Email', brand: 'Marca', market: 'Vendo en' },
-    en: { intro: "Hi Alonso, I'd like to book an audit.", name: 'Name', email: 'Email', brand: 'Brand', market: 'Selling on' }
+    es: { intro: 'Hola Alonso, quiero agendar una auditoría.', name: 'Nombre', email: 'Email', brand: 'Marca', market: 'Vendo en', sales: 'Ventas mensuales en Amazon' },
+    en: { intro: "Hi Alonso, I'd like to book an audit.", name: 'Name', email: 'Email', brand: 'Brand', market: 'Selling on', sales: 'Monthly Amazon sales' }
   }[lang];
 
   // Selector ES/EN: recuerda la elección para que la detección automática no la pise
@@ -23,7 +23,8 @@
         T.name + ': ' + (d.get('nombre') || '') + '\n' +
         T.email + ': ' + (d.get('email') || '') + '\n' +
         T.brand + ': ' + (d.get('marca') || '-') + '\n' +
-        T.market + ': ' + (d.get('mercado') || '');
+        T.market + ': ' + (d.get('mercado') || '') + '\n' +
+        T.sales + ': ' + (d.get('ventas') || '');
       window.open('https://wa.me/34627071754?text=' + encodeURIComponent(msg), '_blank', 'noopener');
     });
   }

@@ -81,10 +81,10 @@
       <p class="hero__sub">Gestionamos la publicidad, el contenido y las operaciones de tu marca en Amazon Estados Unidos y Europa, y cada mes te mostramos cuánto ganas de verdad.</p>
       <div class="hero__actions">
         <a href="#auditoria" class="btn">Agenda tu auditoría</a>
-        <a href="/assets/checklist-10-fugas-de-margen-amazon.pdf" class="link" target="_blank" rel="noopener">Descarga el checklist gratis</a>
+        <a href="/assets/checklist-10-fugas-de-margen-amazon.pdf" class="link" target="_blank" rel="noopener">Descarga el checklist de las 10 fugas</a>
       </div>
       <a class="proof" href="#casos" data-video-open>
-        <span class="proof__thumb"><img src="/assets/tatiana-thumb.webp" width="128" height="128" alt=""><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#F58238"/><path d="M8 6v8l6-4z" fill="#1A1A1A"/></svg></span>
+        <span class="proof__thumb"><img src="/assets/tatiana-thumb.webp" width="128" height="128" alt=""><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#F2F2F2"/><path d="M8 6v8l6-4z" fill="#1A1A1A"/></svg></span>
         <span><b>De $42K a $360K al año en Amazon, en 9 meses.</b>Tatiana Irizar, fundadora. <span class="proof__cta">Ver su testimonio</span></span>
       </a>
     </div>
@@ -349,11 +349,20 @@
       <div class="field"><label for="f-nombre">Nombre</label><input id="f-nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required></div>
       <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="tu@marca.com" required></div>
       <div class="field field--full"><label for="f-marca">Link de tu marca en Amazon o tu web</label><input id="f-marca" name="marca" type="text" inputmode="url" placeholder="amazon.com/stores/tu-marca"></div>
-      <div class="field field--full"><label for="f-mercado">¿Dónde vendes hoy?</label>
+      <div class="field"><label for="f-mercado">¿Dónde vendes hoy?</label>
         <select id="f-mercado" name="mercado">
-          <option>Amazon Estados Unidos</option>
+          <option>Amazon EE.UU.</option>
           <option>Amazon Europa</option>
-          <option>Todavía no vendo en Amazon</option>
+          <option>Aún no en Amazon</option>
+        </select>
+      </div>
+      <div class="field"><label for="f-ventas">Ventas mensuales en Amazon</label>
+        <select id="f-ventas" name="ventas">
+          <option>Todavía no vendo</option>
+          <option>Menos de $10K</option>
+          <option>$10K a $50K</option>
+          <option>$50K a $200K</option>
+          <option>Más de $200K</option>
         </select>
       </div>
       <button type="submit" class="btn">Agendar mi auditoría</button>
