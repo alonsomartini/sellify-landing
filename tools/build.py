@@ -4,6 +4,7 @@ import pathlib
 import sys
 
 ROOT = pathlib.Path(sys.argv[1]).resolve()
+LEAD_ENDPOINT = ""
 CAL = "https://calendar.app.google/2jLD97aqcqJvhxJu5"
 
 # Ventas mensuales en Amazon (Sellerboard). Cifras aprobadas por Alonso para publicarse.
@@ -169,13 +170,30 @@ def page(t):
     for i, (_, amt) in enumerate(t["pl_rows"]):
         segs += f'<i class="pl__seg" style="left:{to - amt}%;width:{amt}%" data-pl-seg></i>'
         to -= amt
-    problems = "".join(f"<li><h3>{h}</h3><p>{p}</p></li>" for h, p in t["problems"])
+    problems = "".join(f"<li>{h}</li>" for h in t["problems"])
     rows = "".join(f"<li><h3>{h}</h3><p>{p}</p></li>" for h, p in t["rows"])
     stats = "".join(
         f'<div><dt><span data-n="{n}" data-dec="{dec}" data-pre="{pre}" data-suf="{suf}">{pre}{n}{suf}</span></dt><dd>{dd}</dd></div>'
         for n, dec, pre, suf, dd in t["stats"])
     steps = "".join(f'<li><span class="steps__n" aria-hidden="true">{i + 1}</span><h3>{h}</h3><p>{p}</p></li>'
                     for i, (h, p) in enumerate(t["steps"]))
+    direct = f"""<a class="btn btn--ghost" href="{t['pdf']}" target="_blank" rel="noopener">{t['band_cta']}</a>"""
+    if LEAD_ENDPOINT:
+        hero_link = f"""<a href="#checklist" class="link">{t['hero_link']}</a>"""
+        band_action = f"""<form class="lead" id="lead-form" data-lead data-endpoint="{LEAD_ENDPOINT}" data-pdf="{t['pdf']}" data-subject="{t['lead_subject']}">
+      <label class="lead__label" for="lead-email">{t['lead_label']}</label>
+      <div class="lead__row">
+        <input id="lead-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="{t['lead_ph']}" required>
+        <button type="submit" class="btn btn--ghost">{t['band_cta']}</button>
+      </div>
+      <input class="lead__trap" type="text" name="empresa" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="lead__note">{t['lead_note']}</p>
+      <p class="lead__done" role="status" hidden>{t['lead_done']} <a href="{t['pdf']}" target="_blank" rel="noopener">{t['lead_open']}</a></p>
+    </form>
+    <noscript>{direct}</noscript>"""
+    else:
+        hero_link = f"""<a href="{t['pdf']}" class="link" target="_blank" rel="noopener">{t['hero_link']}</a>"""
+        band_action = direct
     terms = "".join(f"<div><dt>{h}</dt><dd>{p}</dd></div>" for h, p in t["terms"])
     dash_list = "".join(f"<li>{x}</li>" for x in t["dash_list"])
     KM = ' class="kpi--margin"'
@@ -198,7 +216,7 @@ def page(t):
           <li><img src="/assets/logos/khoul.webp" width="113" height="22" alt="Khoul"></li>
           <li><img src="/assets/logos/valentina-gordon.webp" width="129" height="32" alt="Valentina Gordon"></li>
           <li><img src="/assets/logos/psychodelic.webp" width="45" height="46" alt="Psychodelic"></li>
-          <li><span class="marquee__name">PERINOLA</span></li>
+          <li class="marquee__lock"><img src="/assets/logos/perinola-hg.webp" width="11" height="38" alt=""><span class="marquee__name">PERINOLA HG</span></li>
           <li><img src="/assets/logos/dosis-tea.webp" width="121" height="22" alt="Dösis Tea"></li>
           <li><img src="/assets/logos/bb-belen-berbel.webp" width="39" height="34" alt="BB by Belén Berbel"></li>
           <li><img src="/assets/logos/gran-turismo.webp" width="114" height="26" alt="Gran Turismo"></li>"""
@@ -264,7 +282,7 @@ def page(t):
       <p class="hero__sub" data-in>{t['hero_sub']}</p>
       <div class="hero__actions" data-in>
         <a href="{CAL}" class="btn" target="_blank" rel="noopener">{t['cta']}</a>
-        <a href="{t['pdf']}" class="link" target="_blank" rel="noopener">{t['hero_link']}</a>
+        {hero_link}
       </div>
       <a class="proof" href="#{a['cases']}" data-video-open data-in>
         <span class="proof__thumb"><img src="/assets/tatiana-thumb.webp" width="128" height="128" alt=""><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#F2F2F2"/><path d="M8 6v8l6-4z" fill="#1A1A1A"/></svg></span>
@@ -327,14 +345,14 @@ def page(t):
   </div>
 </section>
 
-<section class="band" aria-label="{t['band_aria']}">
+<section class="band" id="checklist" aria-label="{t['band_aria']}">
   <div class="wrap band__in">
     <img class="band__img" src="{t['band_img']}" width="480" height="480" alt="{t['band_alt']}" loading="lazy">
     <div class="band__copy">
       <h2 class="h3">{t['band_h']}</h2>
       <p>{t['band_p']}</p>
     </div>
-    <a class="btn btn--ghost" href="{t['pdf']}" target="_blank" rel="noopener">{t['band_cta']}</a>
+    {band_action}
   </div>
 </section>
 
@@ -539,15 +557,16 @@ ES = dict(
     pl_punch="Amazon te muestra los $100. Te quedan $9, cuando un margen sano ronda los $15. Cerrar esa diferencia es nuestro trabajo.",
     pl_note="El reparto real de cada producto aparece en tu P&amp;L.",
     problems_title="Lo que más encontramos al auditar una cuenta",
-    problems=[("Pagas clics que no venden.", "Búsquedas con clics y sin pedidos que nadie revisa desde hace meses."),
-              ("Tu ACoS se ve bien. Tu margen, no.", "Si no cuentas fees, devoluciones y costo del producto, la publicidad puede estar perdiendo dinero."),
-              ("Tus productos no aparecen donde se compra.", "Keywords principales fuera del título o sin indexar en el listing."),
-              ("Te quedas sin stock, o te sobra.", "Un quiebre de stock te cuesta ranking. El exceso, almacenamiento de largo plazo.")],
+    problems=["Pagas clics que no venden.", "Tu ACoS se ve bien. Tu margen, no.",
+              "Tus productos no aparecen donde se compra.", "Te quedas sin stock, o te sobra."],
     band_aria="Checklist gratuito", band_img="/assets/checklist-preview-es.webp",
     band_alt="Portada del checklist 10 fugas de margen en Amazon",
     band_h="¿Todavía no estás listo para una auditoría?",
     band_p="Revisa tu cuenta tú mismo con el checklist de las 10 fugas de margen que más encontramos. Gratis, en PDF, para hacerlo en una tarde.",
     band_cta="Descargar el checklist",
+    lead_label="Tu email", lead_ph="tu@marca.com", lead_subject="Nuevo lead del checklist (web en español)",
+    lead_note="Usamos tu email solo para escribirte sobre tu marca en Amazon. Sin spam.",
+    lead_done="Listo. Si el PDF no se abrió,", lead_open="ábrelo aquí.",
     margin_h="Margen primero.",
     margin_p="Primero tapamos las fugas, después invertimos para crecer. Así cada dólar que pones en Amazon trabaja para tu margen.",
     rows=[("Publicidad que responde a tu margen", "Campañas gestionadas contra un objetivo de rentabilidad, no solo de ventas, y optimizadas cada semana."),
@@ -595,10 +614,8 @@ ES = dict(
     terms_h="Sin letra pequeña.",
     terms=[("Sin permanencia mínima", "Te quedas porque funciona, no porque lo diga un contrato."),
            ("Cancelas con un correo", "Un correo basta para terminar el servicio."),
-           ("Optimización semanal", "Revisamos y ajustamos tus campañas cada semana."),
            ("Tu cuenta sigue siendo tuya", "Trabajamos dentro de tu cuenta de Amazon. Nunca deja de ser tuya."),
-           ("Hablas con Alonso", "Tu contacto es el fundador, no un intermediario."),
-           ("P&amp;L cada mes", "Un reporte con tus números reales, revisado contigo.")],
+           ("Hablas con Alonso", "Tu contacto es el fundador, no un intermediario.")],
     dash_h="Tus números, siempre a la vista.",
     dash_p="Cada mes recibes un reporte con el P&amp;L de tu cuenta y lo revisamos contigo. Entre reportes, tienes un dashboard con ventas, publicidad e inventario actualizado cada día.",
     dash_list=["P&amp;L mensual contra el mes y el año anterior", "Publicidad por campaña: inversión, ACoS y ROAS", "Inventario y días de cobertura por producto"],
@@ -665,15 +682,16 @@ EN = dict(
     pl_punch="Amazon shows you the $100. You keep $9, when a healthy margin is around $15. Closing that gap is our job.",
     pl_note="Each product's real breakdown shows up in your P&amp;L.",
     problems_title="What we find most often when we audit an account",
-    problems=[("You're paying for clicks that don't sell.", "Search terms with clicks and no orders that nobody has reviewed in months."),
-              ("Your ACoS looks fine. Your margin doesn't.", "Leave out fees, returns, and product cost, and your advertising can be losing money."),
-              ("Your products don't show up where people buy.", "Main keywords missing from the title or not indexed on the listing."),
-              ("You run out of stock, or sit on too much.", "A stockout costs you rank. Overstock costs you long-term storage fees.")],
+    problems=["You're paying for clicks that don't sell.", "Your ACoS looks fine. Your margin doesn't.",
+              "Your products don't show up where people buy.", "You run out of stock, or sit on too much."],
     band_aria="Free checklist", band_img="/assets/checklist-preview-en.webp",
     band_alt="Cover of the 10 Amazon margin leaks checklist",
     band_h="Not ready for an audit yet?",
     band_p="Review your account yourself with a checklist of the 10 margin leaks we find most often. Free, as a PDF, and doable in one afternoon.",
     band_cta="Download the checklist",
+    lead_label="Your email", lead_ph="you@brand.com", lead_subject="Nuevo lead del checklist (web en inglés)",
+    lead_note="We only use your email to write to you about your brand on Amazon. No spam.",
+    lead_done="Done. If the PDF didn't open,", lead_open="open it here.",
     margin_h="Margin first.",
     margin_p="First we plug the leaks, then we invest to grow. That way every dollar you put into Amazon works for your margin.",
     rows=[("Advertising tied to your margin", "Campaigns managed against a profitability target, not just a sales number, and optimized every week."),
@@ -721,10 +739,8 @@ EN = dict(
     terms_h="No fine print.",
     terms=[("No minimum term", "You stay because it works, not because a contract says so."),
            ("Cancel with one email", "One email is all it takes to end the service."),
-           ("Weekly optimization", "We review and adjust your campaigns every week."),
            ("Your account stays yours", "We work inside your Amazon account. It never stops being yours."),
-           ("You talk to Alonso", "Your contact is the founder, not a go-between."),
-           ("A P&amp;L every month", "A report with your real numbers, reviewed with you.")],
+           ("You talk to Alonso", "Your contact is the founder, not a go-between.")],
     dash_h="Your numbers, always in view.",
     dash_p="Every month you get a report with your account's P&amp;L, and we walk you through it. Between reports, you have a dashboard with sales, advertising, and inventory, updated daily.",
     dash_list=["Monthly P&amp;L vs. last month and last year", "Advertising by campaign: spend, ACoS, and ROAS", "Inventory and days of cover by product"],

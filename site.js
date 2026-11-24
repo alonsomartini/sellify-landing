@@ -39,6 +39,28 @@
     });
   }
 
+  /* ---------- Checklist: pide el email, abre el PDF en el mismo gesto y manda el lead en segundo plano.
+     El PDF nunca depende de que el envío funcione. ---------- */
+  var lead = $('[data-lead]');
+  if (lead) {
+    lead.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = (lead.elements.email.value || '').trim();
+      var pdf = lead.getAttribute('data-pdf'), url = lead.getAttribute('data-endpoint');
+      window.open(pdf, '_blank', 'noopener');
+      if (url && email && !lead.elements.empresa.value) {
+        try {
+          fetch(url, { method: 'POST', keepalive: true,
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ email: email, idioma: lang, origen: 'Checklist 10 fugas de margen', _subject: lead.getAttribute('data-subject') })
+          }).catch(function(){});
+        } catch (err) {}
+      }
+      lead.classList.add('is-done');
+      $('.lead__done', lead).hidden = false;
+    });
+  }
+
   /* ---------- Video de Tatiana: los botones solo se activan si el archivo existe ---------- */
   var dialog = $('#video-dialog');
   var video = $('#video-el');

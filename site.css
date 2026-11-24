@@ -118,6 +118,7 @@ ul,ol{padding:0;list-style:none}
 .marquee__track{display:flex;align-items:center;gap:72px;width:max-content}
 .marquee__track li{flex:none}
 .marquee__track img{height:auto;opacity:.78}
+.marquee__lock{display:flex;align-items:center;gap:14px}
 .marquee__name{display:block;font:300 15px/1 var(--sans);letter-spacing:.42em;margin-right:-.42em;color:var(--text);opacity:.78;white-space:nowrap}
 .marquee.is-on .marquee__track{animation:marquee var(--dur,30s) linear infinite}
 .marquee.is-on:hover .marquee__track{animation-play-state:paused}
@@ -156,9 +157,7 @@ ul,ol{padding:0;list-style:none}
 /* Lo que encontramos al auditar */
 .problems__title{margin:var(--sec) 0 32px;color:var(--text-2)}
 .problems{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 96px}
-.problems li{padding:28px 0;border-top:1px solid var(--line)}
-.problems h3{font-size:clamp(20px,1.8vw,24px);line-height:1.25;font-weight:400;letter-spacing:-0.02em;margin-bottom:10px}
-.problems p{color:var(--text-2);font-size:16px;max-width:30em}
+.problems li{padding:20px 0;border-top:1px solid var(--line);font-size:clamp(19px,1.8vw,24px);line-height:1.25;letter-spacing:-0.02em}
 
 /* Checklist */
 .band{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -166,6 +165,18 @@ ul,ol{padding:0;list-style:none}
 .band__img{width:112px;height:112px;border-radius:10px;object-fit:cover}
 .band__copy{display:flex;flex-direction:column;gap:8px}
 .band__copy p{color:var(--text-2);font-size:16px;max-width:38em}
+.lead{display:flex;flex-direction:column;gap:10px;width:min(100%,420px)}
+.lead__label{font-size:14px;color:var(--text-2)}
+.lead__row{display:flex;gap:10px}
+.lead input[type=email]{flex:1;min-width:0;min-height:54px;padding:0 18px;border-radius:var(--r-pill);border:1px solid var(--line-2);background:var(--panel-2);color:var(--text);font:400 16px/1.2 var(--sans)}
+.lead input[type=email]::placeholder{color:#74777C}
+.lead input[type=email]:focus{outline:2px solid var(--orange-2);outline-offset:1px;border-color:transparent}
+.lead .btn{flex:none}
+.lead__trap{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.lead__note{font-size:13px;line-height:1.45;color:var(--text-3)}
+.lead__done{font-size:16px;color:var(--text)}
+.lead.is-done .lead__label,.lead.is-done .lead__row,.lead.is-done .lead__note{display:none}
+html:not(.js) .lead{display:none}
 
 /* Margen primero */
 .rows li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:8px 40px;padding:30px 0;border-top:1px solid var(--line);align-items:baseline}
@@ -441,8 +452,8 @@ ul,ol{padding:0;list-style:none}
   .pl__rows li{font-size:21px;padding:17px 0}
   .pl__rows b{font-size:18px}
   .pl__punch{font-size:28px}
-  .problems h3,.rows h3,.steps h3{font-size:30px}
-  .problems p,.rows p,.steps p,.rule-list,.terms__list dd,.band__copy p,.stats dd,.footer__col{font-size:19px}
+  .problems li,.rows h3,.steps h3{font-size:30px}
+  .rows p,.steps p,.rule-list,.terms__list dd,.band__copy p,.stats dd,.footer__col{font-size:19px}
   .stats dt{font-size:96px}
   .tab{font-size:18px;padding:20px 30px}
   .case__result{font-size:54px}
@@ -463,6 +474,8 @@ ul,ol{padding:0;list-style:none}
 }
 /* Tablet */
 @media (max-width:1000px){
+  .band__in{grid-template-columns:112px minmax(0,1fr)}
+  .band__in > .lead{grid-column:1/-1}
   .nav{display:none}
   .hero__in{grid-template-columns:minmax(0,1fr)}
   .hero{align-items:flex-start;min-height:0;padding-bottom:56px}
@@ -494,7 +507,7 @@ ul,ol{padding:0;list-style:none}
   .rows li{grid-template-columns:minmax(0,1fr)}
   .band__in{grid-template-columns:72px minmax(0,1fr)}
   .band__img{width:72px;height:72px}
-  .band__in .btn{grid-column:1/-1;justify-self:start}
+  .band__in > .btn,.band__in > .lead,.band__in > noscript{grid-column:1/-1;justify-self:start}
   .stats{gap:28px}
   .case__media{grid-template-columns:minmax(0,1fr)}
   .tile{max-width:200px}
@@ -511,6 +524,8 @@ ul,ol{padding:0;list-style:none}
   .dock{bottom:14px}
 }
 @media (max-width:440px){
+  .lead__row{flex-direction:column}
+  .lead .btn{width:100%}
   .dock__status{display:none}
   .dock{padding:6px}
   .brand__word{font-size:16px}
