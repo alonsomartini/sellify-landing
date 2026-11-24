@@ -5,7 +5,7 @@ import sys
 
 ROOT = pathlib.Path(sys.argv[1]).resolve()
 LEAD_ENDPOINT = ""      # Formspree: "https://formspree.io/f/<id del formulario>"
-LEAD_PREVIEW = True     # True: muestra el formulario sin destino, solo para revisar en un preview. En producción va en False.
+LEAD_PREVIEW = False    # True: muestra el formulario sin destino, solo para revisar en un preview. En producción va en False.
 LEAD_ON = bool(LEAD_ENDPOINT) or LEAD_PREVIEW
 LEAD_PROC = "Formspree"
 UPDATED = dict(es="24 de noviembre de 2026", en="November 24, 2026")
