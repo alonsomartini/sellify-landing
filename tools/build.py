@@ -183,9 +183,14 @@ def page(t):
     opt_m = "".join(f"<option>{x}</option>" for x in t["f_market_opts"])
     opt_s = "".join(f"<option>{x}</option>" for x in t["f_sales_opts"])
     logos = """<li><img src="/assets/logos/tatiana-irizar.webp" width="105" height="38" alt="Tatiana Irizar"></li>
+          <li><img src="/assets/logos/khoul.webp" width="113" height="22" alt="Khoul"></li>
           <li><img src="/assets/logos/zusset.webp" width="92" height="22" alt="Zusset"></li>
+          <li><img src="/assets/logos/dosis-tea.webp" width="121" height="22" alt="Dösis Tea"></li>
           <li><img src="/assets/logos/steepy.webp" width="120" height="18" alt="Steepy"></li>
-          <li><img src="/assets/logos/bullpadel.webp" width="125" height="26" alt="Bullpadel USA"></li>"""
+          <li><img src="/assets/logos/valentina-gordon.webp" width="129" height="32" alt="Valentina Gordon"></li>
+          <li><img src="/assets/logos/bullpadel.webp" width="125" height="26" alt="Bullpadel USA"></li>
+          <li><img src="/assets/logos/bb-belen-berbel.webp" width="39" height="34" alt="BB by Belén Berbel"></li>
+          <li><img src="/assets/logos/psychodelic.webp" width="45" height="46" alt="Psychodelic"></li>"""
     nav = "".join(f'<a href="#{href}">{label}</a>' for href, label in t["nav"])
     foot_nav = "".join(f'<a href="#{href}">{label}</a>' for href, label in t["foot_nav"])
 
@@ -510,7 +515,7 @@ ES = dict(
     hero_sub="Gestionamos la publicidad, el contenido y las operaciones de tu marca en Amazon Estados Unidos y Europa, y cada mes te mostramos cuánto ganas de verdad.",
     pdf="/assets/checklist-10-fugas-de-margen-amazon.pdf",
     hero_link="Descarga el checklist de las 10 fugas",
-    proof_b="De $42K a $360K al año en Amazon, en 9 meses.", proof_who="Tatiana Irizar, fundadora.", proof_cta="Ver su testimonio",
+    proof_b="De $441 a $30.5K al mes en Amazon, en 9 meses.", proof_who="Tatiana Irizar, fundadora.", proof_cta="Ver su testimonio",
     logos_aria="Clientes", logos_label="Marcas con las que hemos trabajado",
     say_h="Vender más no debería significar ganar menos.",
     say_p="Si no sabes qué campaña o qué producto te deja dinero, cada mes en Amazon es una apuesta.",
@@ -548,7 +553,7 @@ ES = dict(
     chart_aria="Gráfica de ventas mensuales de Tatiana Irizar en Amazon: de $441 en mayo de 2024 a $30,546 en enero de 2025.",
     cases=[
         dict(brand="Tatiana Irizar", cat="Belleza", meta="Belleza, Amazon EE.UU.", logo="tatiana-irizar.webp", lw=105, lh=38,
-             result="De $42K a $360K al año, en 9 meses.", note="Ritmo anual de ventas en Amazon (ventas del mes × 12).",
+             result="De $441 a $30.5K al mes en 9 meses.",
              quote="“Sellify llevó nuestras ventas en Amazon de $3.5K/mes a $30K/mes en 9 meses.”", who="Tatiana Irizar", role="fundadora",
              video="Ver su testimonio en video", fig="chart",
              cap="Fig. 1 · Ventas mensuales en Amazon EE.UU., mayo 2024 a enero 2025", src="Fuente: Sellerboard, cuenta de la marca."),
@@ -634,7 +639,7 @@ EN = dict(
     hero_sub="We run advertising, content, and operations for your brand on Amazon in the US and Europe, and every month we show you what you're really making.",
     pdf="/assets/amazon-margin-leaks-checklist.pdf",
     hero_link="Get the 10 margin leaks checklist",
-    proof_b="From $42K to $360K a year on Amazon, in 9 months.", proof_who="Tatiana Irizar, founder.", proof_cta="Watch her testimonial",
+    proof_b="From $441 to $30.5K a month on Amazon, in 9 months.", proof_who="Tatiana Irizar, founder.", proof_cta="Watch her testimonial",
     logos_aria="Clients", logos_label="Brands we've worked with",
     say_h="Selling more shouldn't mean making less.",
     say_p="If you can't tell which campaign or product is making you money, every month on Amazon is a gamble.",
@@ -672,7 +677,7 @@ EN = dict(
     chart_aria="Chart of Tatiana Irizar's monthly Amazon sales: from $441 in May 2024 to $30,546 in January 2025.",
     cases=[
         dict(brand="Tatiana Irizar", cat="Beauty", meta="Beauty, Amazon US", logo="tatiana-irizar.webp", lw=105, lh=38,
-             result="From $42K to $360K a year, in 9 months.", note="Annualized Amazon sales run rate (monthly sales × 12).",
+             result="From $441 to $30.5K a month in 9 months.",
              quote="“Sellify took our Amazon sales from $3.5k/mo to $30k/mo in 9 months.”", who="Tatiana Irizar", role="founder",
              video="Watch her video testimonial", fig="chart",
              cap="Fig. 1 · Monthly sales on Amazon US, May 2024 to January 2025", src="Source: Sellerboard, the brand's account."),
