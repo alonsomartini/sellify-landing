@@ -110,7 +110,7 @@
       dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.round(W * dpr);
       canvas.height = Math.round(H * dpr);
-      P = W < 700 ? 6 : (W < 1200 ? 8 : 9);
+      P = W < 700 ? 6 : (W < 1200 ? 8 : (W < 2300 ? 9 : 12));
       var a = anchor.getBoundingClientRect();
       cx = a.left - r.left + a.width / 2;
       cy = a.top - r.top + a.height / 2;

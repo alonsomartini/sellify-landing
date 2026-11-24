@@ -362,6 +362,61 @@ ul,ol{padding:0;list-style:none}
   .pin-on .dock{transform:translate(-50%,160%);opacity:0;visibility:hidden}
   .pin-on .hdr:not(:focus-within){transform:translateY(-101%)}
 }
+/* Pantallas grandes: el contenido y la tipografía crecen para no quedar perdidos en el centro */
+@media (min-width:1800px){
+  :root{--wrap:1520px}
+  body{font-size:18px}
+  .hero__h1{font-size:108px}
+  .h2{font-size:72px}
+  .say__h{font-size:128px}
+  .hero__art{height:min(720px,calc(100svh - var(--hdr) - 112px))}
+}
+@media (min-width:1800px) and (min-height:761px){
+  .viewer.is-pinned .viewer__frame{height:min(800px,calc(100svh - 160px))}
+}
+@media (min-width:2400px){
+  :root{--wrap:1840px;--hdr:84px}
+  body{font-size:20px}
+  .cap,.status,.dock__status,.case__brand,.case__src,.pl__state,.big > span,.lang,.tab span,.yoy__row{font-size:14px}
+  .brand__word{font-size:21px}
+  .nav{font-size:17px}
+  .btn{min-height:62px;padding:0 34px;font-size:18px}
+  .btn--sm{min-height:50px;padding:0 24px;font-size:17px}
+  .hero__h1{font-size:132px}
+  .hero__sub{font-size:24px}
+  .hero__art{height:min(860px,calc(100svh - var(--hdr) - 140px))}
+  .proof{font-size:17px}
+  .h2{font-size:88px}
+  .h3{font-size:32px}
+  .lead{font-size:23px}
+  .say__h{font-size:156px}
+  .say__p{font-size:42px}
+  .pl__title{font-size:42px}
+  .pl__big{font-size:300px}
+  .pl__track{height:84px}
+  .pl__rows li{font-size:21px;padding:17px 0}
+  .pl__rows b{font-size:18px}
+  .pl__punch{font-size:28px}
+  .problems h3,.rows h3,.steps h3{font-size:30px}
+  .problems p,.rows p,.steps p,.rule-list,.terms__list dd,.band__copy p,.stats dd,.footer__col{font-size:19px}
+  .stats dt{font-size:96px}
+  .tab{font-size:18px;padding:20px 30px}
+  .case__result{font-size:54px}
+  .case__quote{font-size:21px}
+  .case__note,.case__quote footer,.pl__note,.audit__note,.form__note,.footer__legal,.duo__note{font-size:16px}
+  .play{font-size:18px}
+  .play img{width:48px;height:48px}
+  .big b{font-size:132px}
+  .case__media{grid-template-columns:minmax(0,300px) minmax(0,1fr)}
+  .launch li{font-size:22px}
+  .faq summary{font-size:25px}
+  .founder__copy p{font-size:21px}
+  .audit__h{font-size:132px}
+  .footer__word{font-size:320px}
+}
+@media (min-width:2400px) and (min-height:761px){
+  .viewer.is-pinned .viewer__frame{height:min(940px,calc(100svh - 200px))}
+}
 /* Tablet */
 @media (max-width:1000px){
   .nav{display:none}
