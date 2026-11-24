@@ -363,6 +363,49 @@ ul,ol{padding:0;list-style:none}
   .pin-on .dock{transform:translate(-50%,160%);opacity:0;visibility:hidden}
   .pin-on .hdr:not(:focus-within){transform:translateY(-101%)}
 }
+/* Secciones fijas en vertical (móvil y tablet). site.js añade .pin-compact y mide --svh y --lvh en píxeles una sola vez,
+   para que nada cambie de tamaño cuando el navegador del teléfono esconde sus barras. --u es el 1% del alto útil. */
+.pin-compact{--u:calc(var(--svh,100svh) / 100)}
+.pin-compact.pin-on .dock{transform:translate(-50%,160%);opacity:0;visibility:hidden}
+.pin-compact.pin-on .hdr:not(:focus-within){transform:translateY(-101%)}
+.pin-compact .pl.is-pinned{min-height:var(--lvh,100vh)}
+.pin-compact .pl.is-pinned .pl__in{min-height:0;height:var(--svh,100svh);align-content:center;gap:clamp(20px,3.7 * var(--u),56px);padding-top:12px;padding-bottom:12px}
+.pin-compact .pl.is-pinned .pl__left{gap:clamp(6px,1.3 * var(--u),18px)}
+.pin-compact .pl.is-pinned .pl__left .cap{font-size:11px}
+.pin-compact .pl.is-pinned .pl__title{font-size:clamp(19px,3.2 * var(--u),34px)}
+.pin-compact .pl.is-pinned .pl__big{font-size:clamp(64px,12.5 * var(--u),168px);margin-top:0}
+.pin-compact .pl.is-pinned .pl__track{height:clamp(32px,6 * var(--u),64px);margin-bottom:clamp(10px,2.2 * var(--u),28px)}
+.pin-compact .pl.is-pinned .pl__rows li{font-size:clamp(14px,2.4 * var(--u),18px);line-height:1.25;padding:clamp(6px,1.35 * var(--u),14px) 0}
+.pin-compact .pl.is-pinned .pl__rows b{font-size:clamp(13px,2.2 * var(--u),16px)}
+.pin-compact .pl.is-pinned .pl__foot{margin-top:clamp(10px,2.2 * var(--u),28px)}
+.pin-compact .pl.is-pinned .pl__punch{font-size:clamp(15px,2.5 * var(--u),23px)}
+.pin-compact .viewer.is-pinned .viewer__frame{height:min(calc(var(--svh,100svh) - 24px),820px)}
+.pin-compact .viewer.is-pinned .viewer__tabs{scrollbar-width:none}
+.pin-compact .viewer.is-pinned .viewer__tabs::-webkit-scrollbar{display:none}
+.pin-compact .viewer.is-pinned .case{grid-template-rows:auto minmax(0,1fr)}
+.pin-compact .viewer.is-pinned .case__copy{justify-content:flex-start;gap:clamp(8px,1.6 * var(--u),20px);padding:clamp(12px,2.4 * var(--u),36px) clamp(16px,4vw,40px)}
+.pin-compact .viewer.is-pinned .case__brand img{max-height:26px;width:auto}
+.pin-compact .viewer.is-pinned .case__result{font-size:clamp(21px,3.7 * var(--u),40px)}
+.pin-compact .viewer.is-pinned .case__quote{font-size:clamp(14px,2.35 * var(--u),18px);line-height:1.45;padding-left:14px}
+.pin-compact .viewer.is-pinned .case__quote footer{margin-top:6px;font-size:13px}
+.pin-compact .viewer.is-pinned .play{padding:4px 16px 4px 4px;font-size:14px;gap:10px}
+.pin-compact .viewer.is-pinned .play img{width:32px;height:32px}
+.pin-compact .viewer.is-pinned .case__fig{min-height:0;gap:clamp(6px,1.3 * var(--u),18px);padding:clamp(10px,2 * var(--u),32px) clamp(16px,4vw,40px)}
+.pin-compact .viewer.is-pinned .case__fig .cap{font-size:11px}
+.pin-compact .viewer.is-pinned .case__src{font-size:11px}
+.pin-compact .viewer.is-pinned .chart{flex:1 1 0;min-height:0;max-height:340px}
+.pin-compact .viewer.is-pinned .case__media{grid-template-columns:clamp(96px,30%,220px) minmax(0,1fr);gap:16px 24px}
+.pin-compact .viewer.is-pinned .tile{max-width:none}
+.pin-compact .viewer.is-pinned .bigs{gap:clamp(10px,2 * var(--u),20px)}
+.pin-compact .viewer.is-pinned .big b{font-size:clamp(40px,7.5 * var(--u),88px)}
+.pin-compact .viewer.is-pinned .launch li{font-size:clamp(15px,2.5 * var(--u),18px);padding:clamp(7px,1.4 * var(--u),13px) 0}
+@media (max-width:760px){
+  .pin-compact .pl.is-pinned .pl__note{display:none}
+  .pin-compact .viewer.is-pinned .tab{padding:13px 14px;font-size:14px;gap:8px}
+  .pin-compact .viewer.is-pinned .tab span{display:none}
+  .pin-compact .viewer.is-pinned .viewer__hint{display:none}
+  .pin-compact .viewer.is-pinned .viewer__foot{padding:11px 16px}
+}
 /* Pantallas grandes: el contenido y la tipografía crecen para no quedar perdidos en el centro */
 @media (min-width:1800px){
   :root{--wrap:1520px}
@@ -455,6 +498,12 @@ ul,ol{padding:0;list-style:none}
   .stats{gap:28px}
   .case__media{grid-template-columns:minmax(0,1fr)}
   .tile{max-width:200px}
+  .chart__tick{font-size:19px}
+  .chart__year{font-size:17px;transform:translateY(9px)}
+  .chart__val{font-size:22px}
+  .chart__val--end{font-size:30px}
+  .chart__line{stroke-width:3.5}
+  .chart__dot{stroke-width:3}
   .pl__track{height:48px}
   .steps{gap:32px}
   .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}

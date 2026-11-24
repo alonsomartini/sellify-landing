@@ -11,7 +11,7 @@ SERIES = {
     "tatiana": dict(data=[441, 1259, 10570, 6567, 5681, 14564, 12329, 16858, 30546], maxv=32000,
                     grid=(0, 10000, 20000, 30000), years=("2024", "2025"), first=(2, -14)),
     "steepy": dict(data=[2816, 8156, 14147, 13038, 10681, 11865, 19387, 14277, 18639, 18956, 17238, 20201], maxv=22000,
-                   grid=(0, 10000, 20000), years=("2024", ""), first=(8, 21)),
+                   grid=(0, 10000, 20000), years=("2024", ""), first=(14, 6)),
 }
 
 MARK = """<svg width="0" height="0" style="position:absolute" aria-hidden="true">

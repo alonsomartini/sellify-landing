@@ -94,7 +94,7 @@
     if (!canvas || !hero || !anchor || !canvas.getContext) return;
     var ctx = canvas.getContext('2d');
     var W = 0, H = 0, dpr = 1, P = 9, cx = 0, cy = 0, sc = 1, bg = [];
-    var mouse = { x: -9999, y: -9999, tx: -9999, ty: -9999 };
+    var mouse = { x: -9999, y: -9999, tx: -9999, ty: -9999, k: 0, tk: 0 };
     var visible = true, raf = 0, t0 = 0;
     var A = 58.5 * Math.PI / 180;
     var ORANGE = '#F58238', GRAY = '#8E9094', WHITE = '#F2F2F2';
@@ -139,6 +139,7 @@
       var theta = reduce ? 0 : (1 - outExpo(ti)) * -1.25 + .03 * Math.sin(t * .35) + p * .9;
       mouse.x += (mouse.tx - mouse.x) * .16;
       mouse.y += (mouse.ty - mouse.y) * .16;
+      mouse.k += (mouse.tk - mouse.k) * (mouse.tk ? .2 : .07);
 
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, W, H);
@@ -155,7 +156,7 @@
       // Marca
       var cs = [Math.cos(theta), Math.cos(theta + A), Math.cos(theta - A)];
       var sn = [Math.sin(theta), Math.sin(theta + A), Math.sin(theta - A)];
-      var edge = P / sc, R = 150, R2 = R * R;
+      var edge = P / sc, R = clamp(300 * sc, 72, 150), R2 = R * R, PUSH = clamp(72 * sc, 16, 36) * mouse.k, warp = mouse.k > .01;
       var i0 = Math.max(0, Math.floor((cx - 340 * sc) / P)), i1 = Math.min(Math.ceil(W / P), Math.ceil((cx + 340 * sc) / P));
       var j0 = Math.max(0, Math.floor((cy - 400 * sc) / P)), j1 = Math.min(Math.ceil(H / P), Math.ceil((cy + 400 * sc) / P));
       var fr = Math.floor(t * 20), sp = Math.floor(t * 5);
@@ -164,9 +165,9 @@
         for (i = i0; i < i1; i++) {
           var x = i * P + P / 2, y = j * P + P / 2, sx = x, sy = y, glow = 0;
           var dx = x - mouse.x, dy = y - mouse.y, d2 = dx * dx + dy * dy;
-          if (d2 < R2) {
-            var d = Math.sqrt(d2) || 1, f = 1 - d / R, push = f * f * 36;
-            sx = x - dx / d * push; sy = y - dy / d * push; glow = f;
+          if (warp && d2 < R2) {
+            var d = Math.sqrt(d2) || 1, f = 1 - d / R, push = f * f * PUSH;
+            sx = x - dx / d * push; sy = y - dy / d * push; glow = f * mouse.k;
           }
           var u = (sx - cx) / sc + 274, v = (sy - cy) / sc + 350;
           var du = u - 274, dv = v - 258, cov = 0, base = false, c;
@@ -221,12 +222,23 @@
       new IntersectionObserver(function(en){ visible = en[0].isIntersecting; if (visible) kick(); }).observe(hero);
     }
     document.addEventListener('visibilitychange', function(){ if (!document.hidden) kick(); });
+    // La marca se abre alrededor del cursor; en pantallas táctiles, alrededor del dedo mientras toca el hero
+    var point = function(x, y, jump){
+      var r = hero.getBoundingClientRect();
+      mouse.tx = x - r.left; mouse.ty = y - r.top; mouse.tk = 1;
+      if (jump || mouse.k < .02) { mouse.x = mouse.tx; mouse.y = mouse.ty; }
+    };
+    var release = function(){ mouse.tk = 0; };
     if (!reduce && window.matchMedia('(pointer: fine)').matches) {
-      hero.addEventListener('pointermove', function(e){
-        var r = hero.getBoundingClientRect();
-        mouse.tx = e.clientX - r.left; mouse.ty = e.clientY - r.top;
-      });
-      hero.addEventListener('pointerleave', function(){ mouse.tx = -9999; mouse.ty = -9999; });
+      hero.addEventListener('pointermove', function(e){ if (e.pointerType !== 'touch') point(e.clientX, e.clientY); });
+      hero.addEventListener('pointerleave', release);
+    }
+    if (!reduce && 'ontouchstart' in window) {
+      var touch = function(e){ var t = e.touches[0]; if (t) point(t.clientX, t.clientY, e.type === 'touchstart'); };
+      hero.addEventListener('touchstart', touch, { passive: true });
+      hero.addEventListener('touchmove', touch, { passive: true });
+      hero.addEventListener('touchend', release, { passive: true });
+      hero.addEventListener('touchcancel', release, { passive: true });
     }
   })();
 
@@ -339,11 +351,36 @@
     .to(ins, { autoAlpha: 1, y: 0, duration: .8, ease: 'power3.out', stagger: .09 }, .45);
 
   /* ---------- Todo lo que depende del tamaño de pantalla ---------- */
+  // Alto de pantalla con las barras del navegador visibles (svh) y ocultas (lvh), medido en píxeles.
+  // En iPhone el alto visible cambia al hacer scroll; las secciones fijas se dimensionan una sola vez con estas medidas.
+  var probe = function(unit){
+    var d = document.createElement('div');
+    d.style.cssText = 'position:fixed;top:0;left:0;width:0;visibility:hidden;pointer-events:none;height:100' + unit;
+    document.body.appendChild(d);
+    var h = d.offsetHeight;
+    document.body.removeChild(d);
+    return h || window.innerHeight;
+  };
+  // Con el dedo, la condición no depende del alto (que cambia con las barras) sino de la orientación
+  var coarse = window.matchMedia('(pointer: coarse)').matches;
   var mm = gsap.matchMedia();
-  mm.add({ wide: '(min-width: 1001px) and (min-height: 600px)', narrow: '(max-width: 1000px), (max-height: 599px)' }, function(ctx){
+  mm.add({
+    any: 'all',
+    wide: '(min-width: 1001px) and (min-height: 600px)',
+    slim: coarse ? '(max-width: 1000px) and (orientation: portrait)' : '(max-width: 1000px) and (min-height: 600px)'
+  }, function(ctx){
     var wide = ctx.conditions.wide;
-    var undo = [function(){ html.classList.remove('pin-on'); }];
-    // En pantallas bajas, la barra de agenda y el encabezado se apartan mientras una sección está fija (ver site.css)
+    var sv = probe('svh'), lv = Math.max(sv, probe('lvh'));
+    // Modo fijo compacto: una columna, en vertical, con al menos 600 px de alto útil
+    var compact = !wide && ctx.conditions.slim && sv >= 600;
+    var pin = wide || compact;
+    var undo = [function(){ html.classList.remove('pin-on', 'pin-compact'); }];
+    if (compact) {
+      html.classList.add('pin-compact');
+      html.style.setProperty('--svh', sv + 'px');
+      html.style.setProperty('--lvh', lv + 'px');
+    }
+    // Mientras una sección está fija, la barra de agenda y el encabezado se apartan (ver site.css)
     var onPin = function(self){ html.classList.toggle('pin-on', self.isActive); };
 
     // 1. Frase que se enciende palabra por palabra
@@ -387,9 +424,10 @@
         .to({}, { duration: .5 });
       paint();
       undo.push(function(){ num.textContent = '9'; state.textContent = state.getAttribute('data-b'); sec.classList.remove('is-pinned'); });
-      if (wide) {
+      if (pin) {
         sec.classList.add('is-pinned');
-        ScrollTrigger.create({ animation: tl, trigger: sec, start: 'top top', end: '+=230%', pin: true, scrub: .5, anticipatePin: 1, onToggle: onPin });
+        ScrollTrigger.create({ animation: tl, trigger: sec, start: 'top top', end: compact ? '+=' + Math.round(sv * 2.1) : '+=230%',
+          pin: true, scrub: .5, anticipatePin: 1, onToggle: onPin });
       } else {
         tl.pause();
         ScrollTrigger.create({ trigger: $('.pl__rows', sec), start: 'top 88%', once: true, onEnter: function(){ tl.timeScale(1.5).play(); } });
@@ -410,7 +448,8 @@
       if (!viewer) return;
       var frame = $('.viewer__frame', viewer), items = $$('[data-case]', viewer), tabs = $$('[data-tab]', viewer);
       var counter = $('[data-viewer-count]', viewer), n = items.length, active = -1;
-      if (!wide) {
+      var tabBox = $('.viewer__tabs', viewer);
+      if (!pin) {
         items.forEach(function(el){
           var tl = figTl(el).pause();
           ScrollTrigger.create({ trigger: $('[data-fig]', el), start: 'top 80%', once: true, onEnter: function(){ tl.duration(1.7).play(); } });
@@ -427,10 +466,21 @@
         active = i;
         tabs.forEach(function(t, k){ t.setAttribute('aria-selected', k === i ? 'true' : 'false'); });
         counter.textContent = (i + 1) + ' / ' + n;
+        // En móvil las pestañas no caben en una fila: la activa se centra sola
+        if (compact && tabBox.scrollWidth > tabBox.clientWidth + 1) {
+          var tab = tabs[i];
+          tabBox.scrollTo({ left: tab.offsetLeft - (tabBox.clientWidth - tab.offsetWidth) / 2, behavior: 'smooth' });
+        }
       };
+      // Punto donde el visor queda fijo: centrado en escritorio; en móvil, a una distancia fija del borde superior
+      var at = 'center center', len = n * 80 + '%';
+      if (compact) {
+        at = 'top ' + Math.max(12, Math.round((sv - frame.offsetHeight) / 2)) + 'px';
+        len = Math.round(sv * n * .75);
+      }
       // El primer caso se dibuja mientras el visor entra en pantalla
       var first = figTl(items[0]);
-      ScrollTrigger.create({ animation: first, trigger: frame, start: 'top 82%', end: 'center center', scrub: .5 });
+      ScrollTrigger.create({ animation: first, trigger: frame, start: 'top 82%', end: at, scrub: .5 });
       // Los demás se abren con el visor fijo
       var tl = gsap.timeline({ defaults: { ease: 'none' } });
       gsap.set(items.slice(1), { autoAlpha: 0 });
@@ -443,7 +493,7 @@
       });
       tl.to({}, { duration: .01 }, n - .01);
       var st = ScrollTrigger.create({
-        animation: tl, trigger: frame, start: 'center center', end: '+=' + (n * 80) + '%', pin: true, scrub: .5, anticipatePin: 1,
+        animation: tl, trigger: frame, start: at, end: '+=' + len, pin: true, scrub: .5, anticipatePin: 1,
         onToggle: onPin,
         onUpdate: function(self){ setActive(clamp(Math.floor(self.progress * n + .3), 0, n - 1)); }
       });
