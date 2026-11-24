@@ -6,8 +6,13 @@ import sys
 ROOT = pathlib.Path(sys.argv[1]).resolve()
 CAL = "https://calendar.app.google/2jLD97aqcqJvhxJu5"
 
-# Ventas mensuales de Tatiana Irizar en Amazon EE.UU. (Sellerboard). Aprobadas por Alonso para publicarse.
-TATIANA = [441, 1259, 10570, 6567, 5681, 14564, 12329, 16858, 30546]
+# Ventas mensuales en Amazon (Sellerboard). Cifras aprobadas por Alonso para publicarse.
+SERIES = {
+    "tatiana": dict(data=[441, 1259, 10570, 6567, 5681, 14564, 12329, 16858, 30546], maxv=32000,
+                    grid=(0, 10000, 20000, 30000), years=("2024", "2025"), first=(2, -14)),
+    "steepy": dict(data=[2816, 8156, 14147, 13038, 10681, 11865, 19387, 14277, 18639, 18956, 17238, 20201], maxv=22000,
+                   grid=(0, 10000, 20000), years=("2024", ""), first=(8, 21)),
+}
 
 MARK = """<svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -47,44 +52,48 @@ def mark(w, h):
     return f'<svg width="{w}" height="{h}" viewBox="0 -4 548 708" aria-hidden="true"><use href="#sx-mark"></use></svg>'
 
 
-def chart(t):
-    """Gráfica de líneas de las ventas mensuales de Tatiana. Se revela de izquierda a derecha con un clip."""
-    L, R, T, B, MAXV = 52, 612, 34, 268, 32000
-    n = len(TATIANA)
+def chart(c):
+    """Gráfica de líneas de ventas mensuales. Se revela de izquierda a derecha con un clip."""
+    key = c["series"]; sr = SERIES[key]; data = sr["data"]
+    L, R, T, B, MAXV = 52, 612, 34, 268, sr["maxv"]
+    n = len(data)
     xs = [L + i * (R - L) / (n - 1) for i in range(n)]
-    ys = [B - v / MAXV * (B - T) for v in TATIANA]
+    ys = [B - v / MAXV * (B - T) for v in data]
+    money = lambda v: "$" + format(v, ",")
     pts = " ".join(f"{x:.1f},{y:.1f}" for x, y in zip(xs, ys))
     area = f"M{xs[0]:.1f},{B} L" + " L".join(f"{x:.1f},{y:.1f}" for x, y in zip(xs, ys)) + f" L{xs[-1]:.1f},{B} Z"
     grid = ""
-    for v in (0, 10000, 20000, 30000):
+    for v in sr["grid"]:
         y = B - v / MAXV * (B - T)
         lab = "$0" if v == 0 else f"${v // 1000}K"
         grid += (f'<line x1="{L}" y1="{y:.1f}" x2="{R}" y2="{y:.1f}" class="chart__grid"></line>'
                  f'<text x="{L - 10}" y="{y + 4:.1f}" text-anchor="end" class="chart__tick">{lab}</text>')
     months = ""
-    for i, m in enumerate(t["months"]):
+    for i, m in enumerate(c["months"]):
         months += f'<text x="{xs[i]:.1f}" y="{B + 24}" text-anchor="middle" class="chart__tick">{m}</text>'
-    years = (f'<text x="{xs[0]:.1f}" y="{B + 42}" text-anchor="middle" class="chart__year">2024</text>'
-             f'<text x="{xs[-1]:.1f}" y="{B + 42}" text-anchor="middle" class="chart__year">2025</text>')
+    years = f'<text x="{xs[0]:.1f}" y="{B + 42}" text-anchor="middle" class="chart__year">{sr["years"][0]}</text>'
+    if sr["years"][1]:
+        years += f'<text x="{xs[-1]:.1f}" y="{B + 42}" text-anchor="middle" class="chart__year">{sr["years"][1]}</text>'
     dots = ""
     for i, (x, y) in enumerate(zip(xs, ys)):
         cls = "chart__dot chart__dot--end" if i == n - 1 else "chart__dot"
         dots += f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{6 if i == n - 1 else 4}" class="{cls}" data-dot></circle>'
-    return f"""<svg class="chart" viewBox="0 0 640 320" role="img" aria-label="{t['chart_aria']}">
+    fx, fy = sr["first"]
+    return f"""<svg class="chart" viewBox="0 0 640 320" role="img" aria-label="{c['aria']}">
             <defs>
-              <linearGradient id="chart-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F58238" stop-opacity=".30"></stop><stop offset="1" stop-color="#F58238" stop-opacity="0"></stop></linearGradient>
-              <clipPath id="chart-clip"><rect x="0" y="0" width="640" height="320" data-chart-clip></rect></clipPath>
+              <linearGradient id="chart-fill-{key}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F58238" stop-opacity=".30"></stop><stop offset="1" stop-color="#F58238" stop-opacity="0"></stop></linearGradient>
+              <clipPath id="chart-clip-{key}"><rect x="0" y="0" width="640" height="320" data-chart-clip></rect></clipPath>
             </defs>
             {grid}
             {months}
             {years}
-            <g clip-path="url(#chart-clip)">
-              <path d="{area}" fill="url(#chart-fill)"></path>
+            <g clip-path="url(#chart-clip-{key})">
+              <path d="{area}" fill="url(#chart-fill-{key})"></path>
               <polyline points="{pts}" class="chart__line"></polyline>
             </g>
             {dots}
-            <text x="{xs[0] + 2:.1f}" y="{ys[0] - 14:.1f}" text-anchor="start" class="chart__val" data-chart-first>$441</text>
-            <text x="{xs[-1]:.1f}" y="{ys[-1] - 16:.1f}" text-anchor="end" class="chart__val chart__val--end" data-chart-last>$30,546</text>
+            <text x="{xs[0] + fx:.1f}" y="{ys[0] + fy:.1f}" text-anchor="start" class="chart__val" data-chart-first>{money(data[0])}</text>
+            <text x="{xs[-1]:.1f}" y="{ys[-1] - 16:.1f}" text-anchor="end" class="chart__val chart__val--end" data-chart-last data-from="{data[0]}" data-to="{data[-1]}">{money(data[-1])}</text>
           </svg>"""
 
 
@@ -92,7 +101,7 @@ def case_fig(i, c, t):
     if c["fig"] == "chart":
         return f"""<figure class="case__fig case__fig--chart" data-fig="chart">
           <figcaption class="cap">{c['cap']}</figcaption>
-          {chart(t)}
+          {chart(c)}
           <p class="case__src">{c['src']}</p>
         </figure>"""
     photo = f'<div class="tile"><img {amz(c["img"])} alt="{c["alt"]}" width="640" height="640" loading="lazy"></div>'
@@ -182,15 +191,17 @@ def page(t):
     audit_list = "".join(f"<li>{x}</li>" for x in t["audit_list"])
     opt_m = "".join(f"<option>{x}</option>" for x in t["f_market_opts"])
     opt_s = "".join(f"<option>{x}</option>" for x in t["f_sales_opts"])
-    logos = """<li><img src="/assets/logos/tatiana-irizar.webp" width="105" height="38" alt="Tatiana Irizar"></li>
-          <li><img src="/assets/logos/khoul.webp" width="113" height="22" alt="Khoul"></li>
+    logos = """<li><img src="/assets/logos/bullpadel.webp" width="125" height="26" alt="Bullpadel USA"></li>
+          <li><img src="/assets/logos/tatiana-irizar.webp" width="105" height="38" alt="Tatiana Irizar"></li>
           <li><img src="/assets/logos/zusset.webp" width="92" height="22" alt="Zusset"></li>
-          <li><img src="/assets/logos/dosis-tea.webp" width="121" height="22" alt="Dösis Tea"></li>
           <li><img src="/assets/logos/steepy.webp" width="120" height="18" alt="Steepy"></li>
+          <li><img src="/assets/logos/khoul.webp" width="113" height="22" alt="Khoul"></li>
           <li><img src="/assets/logos/valentina-gordon.webp" width="129" height="32" alt="Valentina Gordon"></li>
-          <li><img src="/assets/logos/bullpadel.webp" width="125" height="26" alt="Bullpadel USA"></li>
+          <li><img src="/assets/logos/psychodelic.webp" width="45" height="46" alt="Psychodelic"></li>
+          <li><span class="marquee__name">PERINOLA</span></li>
+          <li><img src="/assets/logos/dosis-tea.webp" width="121" height="22" alt="Dösis Tea"></li>
           <li><img src="/assets/logos/bb-belen-berbel.webp" width="39" height="34" alt="BB by Belén Berbel"></li>
-          <li><img src="/assets/logos/psychodelic.webp" width="45" height="46" alt="Psychodelic"></li>"""
+          <li><img src="/assets/logos/gran-turismo.webp" width="114" height="26" alt="Gran Turismo"></li>"""
     nav = "".join(f'<a href="#{href}">{label}</a>' for href, label in t["nav"])
     foot_nav = "".join(f'<a href="#{href}">{label}</a>' for href, label in t["foot_nav"])
 
@@ -549,13 +560,13 @@ ES = dict(
     stats=[("4.5", 1, "+$", "M", "en ventas generadas para clientes"), ("1", 0, "+$", "M", "en publicidad gestionada"),
            ("10", 0, "", "+ años", "vendiendo y gestionando marcas en marketplaces")],
     tabs_aria="Casos de clientes", viewer_hint="Sigue bajando para ver el siguiente caso", viewer_skip="Saltar casos",
-    months=["may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", "ene"],
-    chart_aria="Gráfica de ventas mensuales de Tatiana Irizar en Amazon: de $441 en mayo de 2024 a $30,546 en enero de 2025.",
     cases=[
         dict(brand="Tatiana Irizar", cat="Belleza", meta="Belleza, Amazon EE.UU.", logo="tatiana-irizar.webp", lw=105, lh=38,
              result="De $441 a $30.5K al mes en 9 meses.",
              quote="“Sellify llevó nuestras ventas en Amazon de $3.5K/mes a $30K/mes en 9 meses.”", who="Tatiana Irizar", role="fundadora",
-             video="Ver su testimonio en video", fig="chart",
+             video="Ver su testimonio en video", fig="chart", series="tatiana",
+             months=["may", "jun", "jul", "ago", "sep", "oct", "nov", "dic", "ene"],
+             aria="Gráfica de ventas mensuales de Tatiana Irizar en Amazon: de $441 en mayo de 2024 a $30,546 en enero de 2025.",
              cap="Fig. 1 · Ventas mensuales en Amazon EE.UU., mayo 2024 a enero 2025", src="Fuente: Sellerboard, cuenta de la marca."),
         dict(brand="Bullpadel USA", cat="Pádel", meta="Pádel", logo="bullpadel.webp", lw=125, lh=26,
              result="-20% ACoS y +110% en ingresos, en 8 meses.",
@@ -563,11 +574,13 @@ ES = dict(
              fig="stats", img="515cgaxhbKL.jpg", alt="Pala de pádel Bullpadel Vertex 05", cap="Fig. 2 · Resultado en 8 meses",
              stats=[dict(n=110, pre="+", label="ingresos"), dict(n=20, pre="−", label="ACoS")]),
         dict(brand="Steepy", cat="Accesorios de oficina", meta="Accesorios de oficina", logo="steepy.webp", lw=120, lh=18,
-             result="+85% en ventas, año contra año.",
+             result="De $2.8K a $20.2K al mes en 2024.",
              quote="“El equipo de Sellify llegó con un plan claro, tomó el control de las operaciones diarias y optimizó completamente nuestros listings.”",
              who="Alberto O.", role="fundador",
-             fig="bars", img="71qa1ehZGUL.jpg", alt="Soporte portátil para laptop Steepy", cap="Fig. 3 · Ventas, año contra año",
-             stats=[dict(n=85, pre="+", label="ventas")], yoy=["Año anterior", "Año actual"], src="Índice: año anterior = 100."),
+             fig="chart", series="steepy",
+             months=["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"],
+             aria="Gráfica de ventas mensuales de Steepy en Amazon: de $2,816 en enero de 2024 a $20,201 en diciembre de 2024.",
+             cap="Fig. 3 · Ventas mensuales en Amazon, enero a diciembre 2024", src="Fuente: Sellerboard, productos de la marca."),
         dict(brand="Zusset", cat="Pádel", meta="Pádel", logo="zusset.webp", lw=92, lh=22,
              result="De la configuración a la primera venta.",
              quote="“Sabíamos que teníamos que estar en Amazon, pero el proceso era intimidante. Alonso y su equipo gestionaron todo nuestro lanzamiento multicanal.”",
@@ -673,13 +686,13 @@ EN = dict(
     stats=[("4.5", 1, "+$", "M", "in sales generated for clients"), ("1", 0, "+$", "M", "in ad spend managed"),
            ("10", 0, "", "+ years", "selling and managing brands on marketplaces")],
     tabs_aria="Client results", viewer_hint="Keep scrolling for the next case", viewer_skip="Skip cases",
-    months=["May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan"],
-    chart_aria="Chart of Tatiana Irizar's monthly Amazon sales: from $441 in May 2024 to $30,546 in January 2025.",
     cases=[
         dict(brand="Tatiana Irizar", cat="Beauty", meta="Beauty, Amazon US", logo="tatiana-irizar.webp", lw=105, lh=38,
              result="From $441 to $30.5K a month in 9 months.",
              quote="“Sellify took our Amazon sales from $3.5k/mo to $30k/mo in 9 months.”", who="Tatiana Irizar", role="founder",
-             video="Watch her video testimonial", fig="chart",
+             video="Watch her video testimonial", fig="chart", series="tatiana",
+             months=["May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan"],
+             aria="Chart of Tatiana Irizar's monthly Amazon sales: from $441 in May 2024 to $30,546 in January 2025.",
              cap="Fig. 1 · Monthly sales on Amazon US, May 2024 to January 2025", src="Source: Sellerboard, the brand's account."),
         dict(brand="Bullpadel USA", cat="Padel", meta="Padel", logo="bullpadel.webp", lw=125, lh=26,
              result="-20% ACoS and +110% revenue, in 8 months.",
@@ -687,11 +700,13 @@ EN = dict(
              fig="stats", img="515cgaxhbKL.jpg", alt="Bullpadel Vertex 05 padel racket", cap="Fig. 2 · Result in 8 months",
              stats=[dict(n=110, pre="+", label="revenue"), dict(n=20, pre="−", label="ACoS")]),
         dict(brand="Steepy", cat="Office accessories", meta="Office accessories", logo="steepy.webp", lw=120, lh=18,
-             result="+85% sales, year over year.",
+             result="From $2.8K to $20.2K a month in 2024.",
              quote="“The Sellify team came in with a clear plan, took over the day-to-day operations, and completely optimized our listings.”",
              who="Alberto O.", role="founder",
-             fig="bars", img="71qa1ehZGUL.jpg", alt="Steepy portable laptop stand", cap="Fig. 3 · Sales, year over year",
-             stats=[dict(n=85, pre="+", label="sales")], yoy=["Prior year", "This year"], src="Index: prior year = 100."),
+             fig="chart", series="steepy",
+             months=["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+             aria="Chart of Steepy's monthly Amazon sales: from $2,816 in January 2024 to $20,201 in December 2024.",
+             cap="Fig. 3 · Monthly sales on Amazon, January to December 2024", src="Source: Sellerboard, the brand's products."),
         dict(brand="Zusset", cat="Padel", meta="Padel", logo="zusset.webp", lw=92, lh=22,
              result="From setup to first sale.",
              quote="“Being on Amazon was intimidating and we had no idea where to start. Alonso and his team handled our entire multi-channel launch.”",

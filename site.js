@@ -303,7 +303,8 @@
     var fig = $('[data-fig]', el);
     var kind = fig ? fig.getAttribute('data-fig') : '';
     if (kind === 'chart') {
-      var clip = $('[data-chart-clip]', fig), last = $('[data-chart-last]', fig), o = { v: 441 };
+      var clip = $('[data-chart-clip]', fig), last = $('[data-chart-last]', fig);
+      var from = +last.getAttribute('data-from'), to = +last.getAttribute('data-to'), o = { v: from };
       tl.fromTo(clip, { attr: { width: 0 } }, { attr: { width: 640 }, duration: 1 }, 0);
       $$('[data-dot]', fig).forEach(function(dot){
         var x = parseFloat(dot.getAttribute('cx'));
@@ -311,7 +312,7 @@
       });
       tl.fromTo($('[data-chart-first]', fig), { autoAlpha: 0 }, { autoAlpha: 1, duration: .1 }, .06);
       tl.fromTo(last, { autoAlpha: 0 }, { autoAlpha: 1, duration: .1 }, .5);
-      tl.fromTo(o, { v: 441 }, { v: 30546, duration: .46, ease: 'power1.in', onUpdate: function(){
+      tl.fromTo(o, { v: from }, { v: to, duration: .46, ease: 'power1.in', onUpdate: function(){
         last.textContent = '$' + Math.round(o.v).toLocaleString('en-US');
       } }, .5);
     } else if (fig) {

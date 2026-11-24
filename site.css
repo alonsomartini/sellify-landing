@@ -118,6 +118,7 @@ ul,ol{padding:0;list-style:none}
 .marquee__track{display:flex;align-items:center;gap:72px;width:max-content}
 .marquee__track li{flex:none}
 .marquee__track img{height:auto;opacity:.78}
+.marquee__name{display:block;font:300 15px/1 var(--sans);letter-spacing:.42em;margin-right:-.42em;color:var(--text);opacity:.78;white-space:nowrap}
 .marquee.is-on .marquee__track{animation:marquee var(--dur,30s) linear infinite}
 .marquee.is-on:hover .marquee__track{animation-play-state:paused}
 @keyframes marquee{to{transform:translate3d(calc(var(--shift) * -1px),0,0)}}
