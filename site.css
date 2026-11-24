@@ -349,6 +349,19 @@ ul,ol{padding:0;list-style:none}
   .hdr,.dock{transition:none}
 }
 
+/* Pantallas anchas pero bajas (portátiles de 13"): las secciones fijas se compactan para caber */
+@media (min-width:1001px) and (max-height:760px){
+  .pl.is-pinned .pl__in{padding-top:28px;padding-bottom:28px}
+  .pl.is-pinned .pl__rows li{padding:10px 0}
+  .pl.is-pinned .pl__track{height:52px;margin-bottom:22px}
+  .pl.is-pinned .pl__big{font-size:clamp(96px,13vw,190px)}
+  .pl.is-pinned .pl__foot{margin-top:20px}
+  .viewer.is-pinned .viewer__frame{height:calc(100svh - 40px)}
+  .viewer.is-pinned .case__copy{padding:24px 36px;gap:16px}
+  .viewer.is-pinned .case__fig{padding:20px 32px;gap:14px}
+  .pin-on .dock{transform:translate(-50%,160%);opacity:0;visibility:hidden}
+  .pin-on .hdr:not(:focus-within){transform:translateY(-101%)}
+}
 /* Tablet */
 @media (max-width:1000px){
   .nav{display:none}

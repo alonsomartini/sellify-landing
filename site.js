@@ -339,9 +339,11 @@
 
   /* ---------- Todo lo que depende del tamaño de pantalla ---------- */
   var mm = gsap.matchMedia();
-  mm.add({ wide: '(min-width: 1001px) and (min-height: 700px)', narrow: '(max-width: 1000px), (max-height: 699px)' }, function(ctx){
+  mm.add({ wide: '(min-width: 1001px) and (min-height: 600px)', narrow: '(max-width: 1000px), (max-height: 599px)' }, function(ctx){
     var wide = ctx.conditions.wide;
-    var undo = [];
+    var undo = [function(){ html.classList.remove('pin-on'); }];
+    // En pantallas bajas, la barra de agenda y el encabezado se apartan mientras una sección está fija (ver site.css)
+    var onPin = function(self){ html.classList.toggle('pin-on', self.isActive); };
 
     // 1. Frase que se enciende palabra por palabra
     $$('[data-words]').forEach(function(el){
@@ -386,7 +388,7 @@
       undo.push(function(){ num.textContent = '9'; state.textContent = state.getAttribute('data-b'); sec.classList.remove('is-pinned'); });
       if (wide) {
         sec.classList.add('is-pinned');
-        ScrollTrigger.create({ animation: tl, trigger: sec, start: 'top top', end: '+=230%', pin: true, scrub: .5, anticipatePin: 1 });
+        ScrollTrigger.create({ animation: tl, trigger: sec, start: 'top top', end: '+=230%', pin: true, scrub: .5, anticipatePin: 1, onToggle: onPin });
       } else {
         tl.pause();
         ScrollTrigger.create({ trigger: $('.pl__rows', sec), start: 'top 88%', once: true, onEnter: function(){ tl.timeScale(1.5).play(); } });
@@ -441,6 +443,7 @@
       tl.to({}, { duration: .01 }, n - .01);
       var st = ScrollTrigger.create({
         animation: tl, trigger: frame, start: 'center center', end: '+=' + (n * 80) + '%', pin: true, scrub: .5, anticipatePin: 1,
+        onToggle: onPin,
         onUpdate: function(self){ setActive(clamp(Math.floor(self.progress * n + .3), 0, n - 1)); }
       });
       setActive(0);
