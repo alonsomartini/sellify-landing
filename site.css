@@ -174,6 +174,7 @@ ul,ol{padding:0;list-style:none}
 .lead .btn{flex:none}
 .lead__trap{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 .lead__note{font-size:13px;line-height:1.45;color:var(--text-3)}
+.lead__note a{color:var(--text-2)}
 .lead__done{font-size:16px;color:var(--text)}
 .lead.is-done .lead__label,.lead.is-done .lead__row,.lead.is-done .lead__note{display:none}
 html:not(.js) .lead{display:none}
@@ -338,6 +339,22 @@ html:not(.js) .lead{display:none}
 .footer__word svg{width:.62em;height:.8em;flex:none}
 .footer__legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;color:var(--text-3)}
 .footer__legal a{color:var(--text-2)}
+.footer__links{display:flex;flex-wrap:wrap;gap:8px 24px}
+.footer--slim{padding-top:0;border-top:0}
+
+/* Página de privacidad */
+.legal{padding:calc(var(--hdr) + clamp(48px,7vw,96px)) 0 var(--sec)}
+.legal__in{max-width:720px}
+.legal h1{font-size:clamp(40px,5vw,72px);line-height:1;letter-spacing:-0.04em;margin-bottom:24px}
+.legal__date{margin-top:20px;font:400 13px/1.4 var(--mono);color:var(--text-3)}
+.legal h2{font-size:clamp(21px,1.9vw,26px);line-height:1.2;font-weight:400;letter-spacing:-0.02em;margin:48px 0 14px}
+.legal p,.legal li{color:var(--text-2);max-width:38em}
+.legal .lead{color:var(--text-2)}
+.legal ul{display:flex;flex-direction:column;gap:14px}
+.legal li{position:relative;padding-left:20px}
+.legal li::before{content:"";position:absolute;left:0;top:.72em;width:6px;height:6px;border-radius:50%;background:var(--orange)}
+.legal b{color:var(--text);font-weight:500}
+.legal__back{margin-top:48px}
 
 /* Barra fija de agenda */
 .dock{position:fixed;left:50%;bottom:20px;z-index:45;display:flex;align-items:center;gap:18px;padding:7px 7px 7px 20px;border-radius:var(--r-pill);background:rgba(26,26,26,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px var(--line-2);transform:translate(-50%,160%);opacity:0;visibility:hidden;transition:transform .5s var(--ease),opacity .3s,visibility 0s .5s;white-space:nowrap}

@@ -4,7 +4,11 @@ import pathlib
 import sys
 
 ROOT = pathlib.Path(sys.argv[1]).resolve()
-LEAD_ENDPOINT = ""
+LEAD_ENDPOINT = ""      # Formspree: "https://formspree.io/f/<id del formulario>"
+LEAD_PREVIEW = True     # True: muestra el formulario sin destino, solo para revisar en un preview. En producción va en False.
+LEAD_ON = bool(LEAD_ENDPOINT) or LEAD_PREVIEW
+LEAD_PROC = "Formspree"
+UPDATED = dict(es="24 de noviembre de 2026", en="November 24, 2026")
 CAL = "https://calendar.app.google/2jLD97aqcqJvhxJu5"
 
 # Ventas mensuales en Amazon (Sellerboard). Cifras aprobadas por Alonso para publicarse.
@@ -178,7 +182,7 @@ def page(t):
     steps = "".join(f'<li><span class="steps__n" aria-hidden="true">{i + 1}</span><h3>{h}</h3><p>{p}</p></li>'
                     for i, (h, p) in enumerate(t["steps"]))
     direct = f"""<a class="btn btn--ghost" href="{t['pdf']}" target="_blank" rel="noopener">{t['band_cta']}</a>"""
-    if LEAD_ENDPOINT:
+    if LEAD_ON:
         hero_link = f"""<a href="#checklist" class="link">{t['hero_link']}</a>"""
         band_action = f"""<form class="lead" id="lead-form" data-lead data-endpoint="{LEAD_ENDPOINT}" data-pdf="{t['pdf']}" data-subject="{t['lead_subject']}">
       <label class="lead__label" for="lead-email">{t['lead_label']}</label>
@@ -186,8 +190,8 @@ def page(t):
         <input id="lead-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="{t['lead_ph']}" required>
         <button type="submit" class="btn btn--ghost">{t['band_cta']}</button>
       </div>
-      <input class="lead__trap" type="text" name="empresa" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <p class="lead__note">{t['lead_note']}</p>
+      <input class="lead__trap" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="lead__note">{t['lead_note']} <a href="{t['privacy_href']}">{t['privacy_label']}</a>.</p>
       <p class="lead__done" role="status" hidden>{t['lead_done']} <a href="{t['pdf']}" target="_blank" rel="noopener">{t['lead_open']}</a></p>
     </form>
     <noscript>{direct}</noscript>"""
@@ -500,7 +504,7 @@ def page(t):
     <p class="footer__word" aria-hidden="true">{mark(96, 124)}<span>SELLIFY</span></p>
     <div class="footer__legal">
       <span>{t['foot_legal']}</span>
-      {t['foot_lang']}
+      <span class="footer__links"><a href="{t['privacy_href']}">{t['privacy_label']}</a>{t['foot_lang']}</span>
     </div>
   </div>
 </footer>
@@ -520,6 +524,84 @@ def page(t):
 <script defer src="/assets/vendor/gsap.min.js"></script>
 <script defer src="/assets/vendor/ScrollTrigger.min.js"></script>
 <script defer src="/assets/vendor/lenis.min.js"></script>
+<script defer src="/site.js"></script>
+</body>
+</html>
+"""
+
+
+def legal(t):
+    """Página de privacidad: describe solo lo que la web hace de verdad. El punto del email aparece cuando el formulario está activo."""
+    v = t["priv"]; es = t["lang"] == "es"
+    toggle = (f'<span aria-current="true">ES</span><a href="{v["other"]}" hreflang="en" lang="en" data-set-lang="en" aria-label="English">EN</a>'
+              if es else
+              f'<a href="{v["other"]}" hreflang="es" lang="es" data-set-lang="es" aria-label="Español">ES</a><span aria-current="true">EN</span>')
+    items = ([v["lead_li"].format(proc=LEAD_PROC)] if LEAD_ON else []) + v["what"]
+    what = "".join(f"<li>{x}</li>" for x in items)
+    share = v["share_p"].format(procs=v["proc_item"].format(proc=LEAD_PROC) if LEAD_ON else "")
+    return f"""<!doctype html>
+<html lang="{t['lang']}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{v['title']}</title>
+<meta name="description" content="{v['desc']}">
+<link rel="canonical" href="{v['url']}">
+<link rel="alternate" hreflang="es" href="https://www.sellify.us/privacidad/">
+<link rel="alternate" hreflang="en" href="https://www.sellify.us/en/privacy/">
+<meta name="theme-color" content="#0F0F10">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/hanken-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.className+=' js ready'</script>
+<link rel="stylesheet" href="/site.css">
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+<a class="skip" href="#contenido">{t['skip']}</a>
+
+<header class="hdr is-solid">
+  <div class="wrap hdr__in">
+    <a href="{v['home']}" class="brand" aria-label="{t['brand_aria']}">{mark(20, 26)}<span class="brand__word">SELLIFY</span></a>
+    <div class="hdr__end">
+      <div class="lang" role="group" aria-label="{t['lang_aria']}">{toggle}</div>
+      <a href="{CAL}" class="btn btn--sm" target="_blank" rel="noopener"><span class="btn__long">{t['cta']}</span><span class="btn__short">{t['cta_short']}</span></a>
+    </div>
+  </div>
+</header>
+
+{MARK}
+
+<main id="contenido" class="legal">
+  <div class="wrap">
+    <div class="legal__in">
+      <h1>{v['h1']}</h1>
+      <p class="lead">{v['lead']}</p>
+      <p class="legal__date">{v['updated']} {UPDATED[t['lang']]}</p>
+      <h2>{v['who_h']}</h2>
+      <p>{v['who_p']}</p>
+      <h2>{v['what_h']}</h2>
+      <ul>{what}</ul>
+      <h2>{v['share_h']}</h2>
+      <p>{share}</p>
+      <h2>{v['keep_h']}</h2>
+      <p>{v['keep_p']}</p>
+      <h2>{v['rights_h']}</h2>
+      <p>{v['rights_p']}</p>
+      <p class="legal__back"><a class="link" href="{v['home']}">{v['home_label']}</a></p>
+    </div>
+  </div>
+</main>
+
+<footer class="footer footer--slim">
+  <div class="wrap">
+    <div class="footer__legal">
+      <span>{t['foot_legal']}</span>
+      <span class="footer__links"><a href="{v['home']}">{v['home_label']}</a></span>
+    </div>
+  </div>
+</footer>
+
 <script defer src="/site.js"></script>
 </body>
 </html>
@@ -648,6 +730,27 @@ ES = dict(
     foot_nav=[("casos", "Casos"), ("como-funciona", "Cómo funciona"), ("dashboard", "Dashboard"), ("preguntas", "Preguntas")],
     foot_legal="© 2026 Sellify Agency. Operado por Cortafuegos LLC.",
     foot_lang='<a href="/en/" hreflang="en" lang="en" data-set-lang="en">English</a>',
+    privacy_href="/privacidad/", privacy_label="Privacidad",
+    priv=dict(
+        title="Privacidad | Sellify", desc="Qué datos recoge sellify.us, para qué los usamos y cómo pedir que los borremos.",
+        url="https://www.sellify.us/privacidad/", home="/", home_label="Volver al inicio", other="/en/privacy/",
+        h1="Privacidad", lead="Qué datos recoge sellify.us, para qué los usamos y cómo pedir que los borremos.",
+        updated="Última actualización:",
+        who_h="Quién responde por tus datos",
+        who_p='Sellify Agency, operada por Cortafuegos LLC. Para cualquier tema de privacidad, escribe a <a href="mailto:alonso@sellify-agency.com">alonso@sellify-agency.com</a>.',
+        what_h="Qué datos recogemos y para qué",
+        lead_li="<b>Tu email, si lo dejas para descargar el checklist.</b> Lo usamos solo para escribirte sobre tu marca en Amazon. El formulario lo procesa {proc}, que nos reenvía tu email.",
+        what=["<b>Lo que escribes en el formulario de contacto:</b> nombre, email, marca, dónde vendes y ventas mensuales. La web no guarda esos datos. Abre un mensaje de WhatsApp con ellos y tú decides si lo envías.",
+              "<b>Tus datos de reserva, si agendas una auditoría.</b> La reserva se hace en Google Calendar, que nos pasa tu nombre, tu email y la hora que elegiste.",
+              "<b>Estadísticas de visitas.</b> Usamos Vercel Web Analytics para saber cuántas personas visitan la web y qué páginas ven. No usa cookies y no te sigue entre sitios ni de un día para otro.",
+              "<b>Una cookie de idioma.</b> Si cambias de idioma, guardamos una cookie llamada lang durante un año para recordarlo. No sirve para identificarte."],
+        share_h="Con quién los compartimos",
+        share_p="No vendemos tus datos. Solo los tratan los proveedores que hacen funcionar la web: Vercel (alojamiento y estadísticas), {procs}Google (agenda), WhatsApp (mensajes) y Amazon (algunas fotos de producto). Estos proveedores pueden tratar datos en Estados Unidos.",
+        proc_item="{proc} (formulario del checklist), ",
+        keep_h="Cuánto tiempo los guardamos",
+        keep_p="Guardamos tu email y tus mensajes mientras sigamos en conversación contigo, o hasta que nos pidas borrarlos.",
+        rights_h="Tus derechos",
+        rights_p='Puedes pedirnos ver, corregir o borrar tus datos, o que dejemos de escribirte, con un correo a <a href="mailto:alonso@sellify-agency.com">alonso@sellify-agency.com</a>. Respondemos en un máximo de 30 días. Si estás en la Unión Europea y crees que no atendimos tu solicitud, puedes reclamar ante la autoridad de protección de datos de tu país.'),
     video_aria="Testimonio de Tatiana Irizar", close="Cerrar",
 )
 
@@ -773,13 +876,38 @@ EN = dict(
     foot_nav=[("results", "Results"), ("how-it-works", "How it works"), ("dashboard", "Dashboard"), ("faq", "FAQ")],
     foot_legal="© 2026 Sellify Agency. Operated by Cortafuegos LLC.",
     foot_lang='<a href="/" hreflang="es" lang="es" data-set-lang="es">Español</a>',
+    privacy_href="/en/privacy/", privacy_label="Privacy",
+    priv=dict(
+        title="Privacy | Sellify", desc="What data sellify.us collects, what we use it for, and how to ask us to delete it.",
+        url="https://www.sellify.us/en/privacy/", home="/en/", home_label="Back to home", other="/privacidad/",
+        h1="Privacy", lead="What data sellify.us collects, what we use it for, and how to ask us to delete it.",
+        updated="Last updated:",
+        who_h="Who is responsible for your data",
+        who_p='Sellify Agency, operated by Cortafuegos LLC. For anything about privacy, write to <a href="mailto:alonso@sellify-agency.com">alonso@sellify-agency.com</a>.',
+        what_h="What we collect and why",
+        lead_li="<b>Your email, if you leave it to download the checklist.</b> We only use it to write to you about your brand on Amazon. The form is processed by {proc}, which forwards your email to us.",
+        what=["<b>What you type into the contact form:</b> name, email, brand, where you sell, and monthly sales. The site does not store that data. It opens a WhatsApp message with it, and you decide whether to send it.",
+              "<b>Your booking details, if you book an audit.</b> Bookings run on Google Calendar, which passes us your name, your email, and the time you picked.",
+              "<b>Visit statistics.</b> We use Vercel Web Analytics to see how many people visit the site and which pages they view. It uses no cookies and does not follow you across sites or from one day to the next.",
+              "<b>A language cookie.</b> If you switch languages, we store a cookie called lang for one year to remember your choice. It cannot identify you."],
+        share_h="Who we share it with",
+        share_p="We do not sell your data. It is only handled by the providers that run the site: Vercel (hosting and statistics), {procs}Google (booking), WhatsApp (messages), and Amazon (some product photos). These providers may process data in the United States.",
+        proc_item="{proc} (checklist form), ",
+        keep_h="How long we keep it",
+        keep_p="We keep your email and your messages while we are in conversation with you, or until you ask us to delete them.",
+        rights_h="Your rights",
+        rights_p='You can ask us to show, correct, or delete your data, or to stop writing to you, by emailing <a href="mailto:alonso@sellify-agency.com">alonso@sellify-agency.com</a>. We reply within 30 days. If you are in the European Union and believe we did not handle your request, you can file a complaint with your country\'s data protection authority.'),
     video_aria="Tatiana Irizar's testimonial", close="Close",
 )
 
 (ROOT / "index.html").write_text(page(ES), encoding="utf-8")
 (ROOT / "en").mkdir(exist_ok=True)
 (ROOT / "en" / "index.html").write_text(page(EN), encoding="utf-8")
-for f in ("index.html", "en/index.html"):
+(ROOT / "privacidad").mkdir(exist_ok=True)
+(ROOT / "privacidad" / "index.html").write_text(legal(ES), encoding="utf-8")
+(ROOT / "en" / "privacy").mkdir(exist_ok=True)
+(ROOT / "en" / "privacy" / "index.html").write_text(legal(EN), encoding="utf-8")
+for f in ("index.html", "en/index.html", "privacidad/index.html", "en/privacy/index.html"):
     s = (ROOT / f).read_text(encoding="utf-8")
     assert "—" not in s, f + " contiene una raya larga"
     print(f, len(s), "bytes")

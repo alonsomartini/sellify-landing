@@ -48,12 +48,14 @@
       var email = (lead.elements.email.value || '').trim();
       var pdf = lead.getAttribute('data-pdf'), url = lead.getAttribute('data-endpoint');
       window.open(pdf, '_blank', 'noopener');
-      if (url && email && !lead.elements.empresa.value) {
+      if (url && email && !lead.elements._gotcha.value) {
         try {
-          fetch(url, { method: 'POST', keepalive: true,
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify({ email: email, idioma: lang, origen: 'Checklist 10 fugas de margen', _subject: lead.getAttribute('data-subject') })
-          }).catch(function(){});
+          var data = new FormData();
+          data.append('email', email);
+          data.append('idioma', lang);
+          data.append('origen', 'Checklist 10 fugas de margen');
+          data.append('_subject', lead.getAttribute('data-subject'));
+          fetch(url, { method: 'POST', keepalive: true, headers: { 'Accept': 'application/json' }, body: data }).catch(function(){});
         } catch (err) {}
       }
       lead.classList.add('is-done');

@@ -71,7 +71,7 @@
       <p class="hero__sub" data-in>Gestionamos la publicidad, el contenido y las operaciones de tu marca en Amazon Estados Unidos y Europa, y cada mes te mostramos cuánto ganas de verdad.</p>
       <div class="hero__actions" data-in>
         <a href="https://calendar.app.google/2jLD97aqcqJvhxJu5" class="btn" target="_blank" rel="noopener">Agenda tu auditoría</a>
-        <a href="/assets/checklist-10-fugas-de-margen-amazon.pdf" class="link" target="_blank" rel="noopener">Descarga el checklist de las 10 fugas</a>
+        <a href="#checklist" class="link">Descarga el checklist de las 10 fugas</a>
       </div>
       <a class="proof" href="#casos" data-video-open data-in>
         <span class="proof__thumb"><img src="/assets/tatiana-thumb.webp" width="128" height="128" alt=""><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#F2F2F2"/><path d="M8 6v8l6-4z" fill="#1A1A1A"/></svg></span>
@@ -151,7 +151,17 @@
       <h2 class="h3">¿Todavía no estás listo para una auditoría?</h2>
       <p>Revisa tu cuenta tú mismo con el checklist de las 10 fugas de margen que más encontramos. Gratis, en PDF, para hacerlo en una tarde.</p>
     </div>
-    <a class="btn btn--ghost" href="/assets/checklist-10-fugas-de-margen-amazon.pdf" target="_blank" rel="noopener">Descargar el checklist</a>
+    <form class="lead" id="lead-form" data-lead data-endpoint="" data-pdf="/assets/checklist-10-fugas-de-margen-amazon.pdf" data-subject="Nuevo lead del checklist (web en español)">
+      <label class="lead__label" for="lead-email">Tu email</label>
+      <div class="lead__row">
+        <input id="lead-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="tu@marca.com" required>
+        <button type="submit" class="btn btn--ghost">Descargar el checklist</button>
+      </div>
+      <input class="lead__trap" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="lead__note">Usamos tu email solo para escribirte sobre tu marca en Amazon. Sin spam. <a href="/privacidad/">Privacidad</a>.</p>
+      <p class="lead__done" role="status" hidden>Listo. Si el PDF no se abrió, <a href="/assets/checklist-10-fugas-de-margen-amazon.pdf" target="_blank" rel="noopener">ábrelo aquí.</a></p>
+    </form>
+    <noscript><a class="btn btn--ghost" href="/assets/checklist-10-fugas-de-margen-amazon.pdf" target="_blank" rel="noopener">Descargar el checklist</a></noscript>
   </div>
 </section>
 
@@ -383,7 +393,7 @@
     <p class="footer__word" aria-hidden="true"><svg width="96" height="124" viewBox="0 -4 548 708" aria-hidden="true"><use href="#sx-mark"></use></svg><span>SELLIFY</span></p>
     <div class="footer__legal">
       <span>© 2026 Sellify Agency. Operado por Cortafuegos LLC.</span>
-      <a href="/en/" hreflang="en" lang="en" data-set-lang="en">English</a>
+      <span class="footer__links"><a href="/privacidad/">Privacidad</a><a href="/en/" hreflang="en" lang="en" data-set-lang="en">English</a></span>
     </div>
   </div>
 </footer>
