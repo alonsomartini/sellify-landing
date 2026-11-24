@@ -5,15 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Página no encontrada | Sellify</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#1A1A1A">
+<meta name="theme-color" content="#0F0F10">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Inter:wght@400;500;600&amp;display=swap">
 <link rel="stylesheet" href="/site.css">
 <style>
   .nf{min-height:100vh;display:flex;flex-direction:column}
-  .nf__main{flex:1;display:flex;align-items:center;padding:96px 0}
+  .nf__main{flex:1;display:flex;align-items:center;padding:calc(var(--hdr) + 96px) 0 96px}
   .nf__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px 80px;align-items:start}
   .nf__block{display:flex;flex-direction:column;gap:20px}
   .nf__block p{color:var(--text-2);max-width:28em}
@@ -22,8 +19,8 @@
 </style>
 </head>
 <body class="nf">
-<header class="header">
-  <div class="wrap">
+<header class="hdr is-solid">
+  <div class="wrap hdr__in">
     <a href="/" class="brand" aria-label="Sellify, inicio">
       <svg width="20" height="26" viewBox="0 -4 548 708" aria-hidden="true">
         <defs><clipPath id="nf-clip"><polygon points="-20,-20 166,-20 336,258 53,720 -20,720"></polygon></clipPath>

@@ -9,7 +9,7 @@
 <link rel="alternate" hreflang="es" href="https://www.sellify.us/">
 <link rel="alternate" hreflang="en" href="https://www.sellify.us/en/">
 <link rel="alternate" hreflang="x-default" href="https://www.sellify.us/">
-<meta name="theme-color" content="#1A1A1A">
+<meta name="theme-color" content="#0F0F10">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
@@ -22,39 +22,28 @@
 <meta property="og:locale" content="es_ES">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<link rel="preload" href="/assets/fonts/hanken-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Sellify Agency","legalName":"Cortafuegos LLC","url":"https://www.sellify.us/","logo":"https://www.sellify.us/assets/apple-touch-icon.png","email":"alonso@sellify-agency.com","telephone":"+1-786-824-7458","founder":{"@type":"Person","name":"Alonso Martini"},"areaServed":["US","ES","DE"],"knowsLanguage":["es","en"]}
 </script>
+<script>(function(d){d.className+=' js';setTimeout(function(){d.className+=' ready'},2500)})(document.documentElement)</script>
 <link rel="stylesheet" href="/site.css">
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 <a class="skip" href="#inicio">Saltar al contenido</a>
 
-<header class="header">
-  <div class="wrap">
-    <a href="#inicio" class="brand" aria-label="Sellify, inicio">
-      <svg width="20" height="26" viewBox="0 -4 548 708" aria-hidden="true"><use href="#sx-mark"></use></svg>
-      <span class="brand__word">SELLIFY</span>
-    </a>
-    <nav class="nav" aria-label="Principal">
-      <a href="#casos">Casos</a>
-      <a href="#como-funciona">Cómo funciona</a>
-      <a href="#dashboard">Dashboard</a>
-      <a href="#fundador">Fundador</a>
-      <div class="lang" role="group" aria-label="Idioma">
-        <span aria-current="true">ES</span>
-        <a href="/en/" hreflang="en" lang="en" data-set-lang="en" aria-label="English">EN</a>
-      </div>
+<header class="hdr" data-hdr>
+  <div class="wrap hdr__in">
+    <a href="#inicio" class="brand" aria-label="Sellify, inicio"><svg width="20" height="26" viewBox="0 -4 548 708" aria-hidden="true"><use href="#sx-mark"></use></svg><span class="brand__word">SELLIFY</span></a>
+    <nav class="nav" aria-label="Principal"><a href="#casos">Casos</a><a href="#como-funciona">Cómo funciona</a><a href="#dashboard">Dashboard</a><a href="#fundador">Fundador</a></nav>
+    <div class="hdr__end">
+      <div class="lang" role="group" aria-label="Idioma"><span aria-current="true">ES</span><a href="/en/" hreflang="en" lang="en" data-set-lang="en" aria-label="English">EN</a></div>
       <a href="https://calendar.app.google/2jLD97aqcqJvhxJu5" class="btn btn--sm" target="_blank" rel="noopener"><span class="btn__long">Agenda tu auditoría</span><span class="btn__short">Auditoría</span></a>
-    </nav>
+    </div>
   </div>
 </header>
 
-<!-- Símbolo reutilizable -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <clipPath id="sx-clip"><polygon points="-20,-20 166,-20 336,258 53,720 -20,720"></polygon></clipPath>
@@ -73,244 +62,238 @@
 
 <main id="inicio">
 
-<!-- 1. Encabezado: qué ofreces, cómo mejora su vida, qué hacer -->
-<section class="hero">
-  <div class="wrap">
-    <p class="status"><span class="status__dot" aria-hidden="true"></span>Aceptando marcas nuevas</p>
-    <h1>Vende más en Amazon sin perder margen.</h1>
-    <div class="hero__grid">
-      <div class="hero__copy">
-        <div class="hero__lede">
-          <p class="hero__sub">Gestionamos la publicidad, el contenido y las operaciones de tu marca en Amazon Estados Unidos y Europa, y cada mes te mostramos cuánto ganas de verdad.</p>
-          <div class="hero__actions">
-            <a href="https://calendar.app.google/2jLD97aqcqJvhxJu5" class="btn" target="_blank" rel="noopener">Agenda tu auditoría</a>
-            <a href="/assets/checklist-10-fugas-de-margen-amazon.pdf" class="link" target="_blank" rel="noopener">Descarga el checklist de las 10 fugas</a>
-          </div>
-        </div>
-        <a class="proof" href="#casos" data-video-open>
-          <span class="proof__thumb"><img src="/assets/tatiana-thumb.webp" width="128" height="128" alt=""><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#F2F2F2"/><path d="M8 6v8l6-4z" fill="#1A1A1A"/></svg></span>
-          <span><b>De $42K a $360K al año en Amazon, en 9 meses.</b>Tatiana Irizar, fundadora. <span class="proof__cta">Ver su testimonio</span></span>
-        </a>
+<section class="hero" data-hero>
+  <canvas class="hero__canvas" data-mark-canvas aria-hidden="true"></canvas>
+  <div class="wrap hero__in">
+    <div class="hero__copy">
+      <p class="status" data-in><span class="status__dot" aria-hidden="true"></span>Aceptando marcas nuevas</p>
+      <h1 class="hero__h1"><span class="ln"><span data-line>Vende más en Amazon</span></span> <span class="ln"><span data-line><em>sin perder margen.</em></span></span></h1>
+      <p class="hero__sub" data-in>Gestionamos la publicidad, el contenido y las operaciones de tu marca en Amazon Estados Unidos y Europa, y cada mes te mostramos cuánto ganas de verdad.</p>
+      <div class="hero__actions" data-in>
+        <a href="https://calendar.app.google/2jLD97aqcqJvhxJu5" class="btn" target="_blank" rel="noopener">Agenda tu auditoría</a>
+        <a href="/assets/checklist-10-fugas-de-margen-amazon.pdf" class="link" target="_blank" rel="noopener">Descarga el checklist de las 10 fugas</a>
       </div>
-      <figure class="portrait">
-        <div class="portrait__frame">
-          <svg class="portrait__mark" viewBox="0 -4 548 708" aria-hidden="true">
-            <defs><clipPath id="sx-hero-clip"><polygon class="sx-wipe" points="-20,-20 166,-20 336,258 53,720 -20,720"></polygon></clipPath></defs>
-            <g class="sx-turn">
-              <use href="#sx-bars" fill="#3A3C40"></use>
-              <use href="#sx-bars" fill="#F58238" clip-path="url(#sx-hero-clip)"></use>
-            </g>
-          </svg>
-          <img class="portrait__img" src="/assets/alonso.webp" width="821" height="889" alt="Alonso Martini, fundador de Sellify" fetchpriority="high">
-        </div>
-        <figcaption class="portrait__caption">
-          <span><b>Alonso Martini</b>, fundador</span>
-          <svg width="120" height="8" viewBox="0 0 120 8" aria-hidden="true"><rect class="sx-line" width="120" height="8" rx="1" fill="#F58238"></rect></svg>
-        </figcaption>
-      </figure>
+      <a class="proof" href="#casos" data-video-open data-in>
+        <span class="proof__thumb"><img src="/assets/tatiana-thumb.webp" width="128" height="128" alt=""><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#F2F2F2"/><path d="M8 6v8l6-4z" fill="#1A1A1A"/></svg></span>
+        <span><b>De $42K a $360K al año en Amazon, en 9 meses.</b>Tatiana Irizar, fundadora. <span class="proof__cta">Ver su testimonio</span></span>
+      </a>
     </div>
+    <div class="hero__art" data-mark-anchor aria-hidden="true"></div>
   </div>
 </section>
 
-<section class="creds" aria-label="Credenciales">
-  <div class="wrap creds__inner">
-    <div>
-      <p class="creds__label">Marcas con las que hemos trabajado</p>
-      <ul class="creds__logos">
-        <li><img src="/assets/logos/tatiana-irizar.webp" width="105" height="38" alt="Tatiana Irizar"></li>
-        <li><img src="/assets/logos/zusset.webp" width="92" height="22" alt="Zusset"></li>
-        <li><img src="/assets/logos/steepy.webp" width="120" height="18" alt="Steepy"></li>
-        <li><img src="/assets/logos/bullpadel.webp" width="125" height="26" alt="Bullpadel USA"></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- 2. Lo que está en juego: el problema -->
-<section id="problema" class="section">
+<section class="logos" aria-label="Clientes">
   <div class="wrap">
-    <div class="section__head">
-      <h2 class="h2">Vender más no debería significar ganar menos.</h2>
-      <p class="lead">Si no sabes qué campaña o qué producto te deja dinero, cada mes en Amazon es una apuesta.</p>
+    <div class="logos__box">
+      <p class="cap">Marcas con las que hemos trabajado</p>
+      <div class="marquee" data-marquee>
+        <ul class="marquee__track">
+          <li><img src="/assets/logos/tatiana-irizar.webp" width="105" height="38" alt="Tatiana Irizar"></li>
+          <li><img src="/assets/logos/zusset.webp" width="92" height="22" alt="Zusset"></li>
+          <li><img src="/assets/logos/steepy.webp" width="120" height="18" alt="Steepy"></li>
+          <li><img src="/assets/logos/bullpadel.webp" width="125" height="26" alt="Bullpadel USA"></li>
+        </ul>
+      </div>
     </div>
-
-    <figure class="pl" aria-labelledby="pl-title">
-      <h3 class="pl__title" id="pl-title">De cada $100 que vendes en Amazon, ¿cuánto te queda?</h3>
-      <ol class="pl__rows" style="--goal:15">
-        <li class="pl__row pl__row--sale" style="--from:0;--to:100"><span class="pl__label">Venta</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">$100</span></li>
-        <li class="pl__row" style="--from:72;--to:100"><span class="pl__label">Costo del producto</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">−$28</span></li>
-        <li class="pl__row" style="--from:57;--to:72"><span class="pl__label">Comisión de Amazon</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">−$15</span></li>
-        <li class="pl__row" style="--from:37;--to:57"><span class="pl__label">Envío FBA</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">−$20</span></li>
-        <li class="pl__row" style="--from:17;--to:37"><span class="pl__label">Publicidad</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">−$20</span></li>
-        <li class="pl__row" style="--from:12;--to:17"><span class="pl__label">Devoluciones</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">−$5</span></li>
-        <li class="pl__row" style="--from:9;--to:12"><span class="pl__label">Almacenamiento y otros cargos</span><span class="pl__bar" aria-hidden="true"><i></i></span><span class="pl__amt">−$3</span></li>
-        <li class="pl__row pl__row--margin" style="--from:0;--to:9"><span class="pl__label">Lo que te queda</span><span class="pl__bar" aria-hidden="true"><i></i><span class="pl__goal"><span>Margen sano: $15</span></span></span><span class="pl__amt">$9</span></li>
-      </ol>
-      <figcaption class="pl__foot">
-        <p class="pl__punch">Amazon te muestra los $100. Te quedan $9, cuando un margen sano ronda los $15. Cerrar esa diferencia es nuestro trabajo.</p>
-        <p class="pl__note">Ejemplo ilustrativo de un producto vendido con FBA en Amazon Estados Unidos. El reparto real de cada producto aparece en tu P&amp;L.</p>
-      </figcaption>
-    </figure>
-
-    <h3 class="problems__title">Lo que más encontramos al auditar una cuenta</h3>
-    <ul class="problems">
-      <li><h3>Pagas clics que no venden.</h3><p>Búsquedas con clics y sin pedidos que nadie revisa desde hace meses.</p></li>
-      <li><h3>Tu ACoS se ve bien. Tu margen, no.</h3><p>Si no cuentas fees, devoluciones y costo del producto, la publicidad puede estar perdiendo dinero.</p></li>
-      <li><h3>Tus productos no aparecen donde se compra.</h3><p>Keywords principales fuera del título o sin indexar en el listing.</p></li>
-      <li><h3>Te quedas sin stock, o te sobra.</h3><p>Un quiebre de stock te cuesta ranking. El exceso, almacenamiento de largo plazo.</p></li>
-    </ul>
   </div>
 </section>
 
-<!-- Llamado a la acción transicional: lead magnet -->
-<section class="lead-band" aria-label="Checklist gratuito">
-  <div class="wrap lead-band__inner">
-    <img class="lead-band__img" src="/assets/checklist-preview-es.webp" width="480" height="480" alt="Portada del checklist 10 fugas de margen en Amazon" loading="lazy">
-    <div class="lead-band__copy">
-      <h2 class="lead-band__title">¿Todavía no estás listo para una auditoría?</h2>
+<section id="problema" class="say">
+  <div class="wrap">
+    <h2 class="say__h" data-words>Vender más no debería significar ganar menos.</h2>
+    <p class="say__p" data-words>Si no sabes qué campaña o qué producto te deja dinero, cada mes en Amazon es una apuesta.</p>
+  </div>
+</section>
+
+<section class="pl" data-pl aria-labelledby="pl-title">
+  <div class="wrap pl__in">
+    <div class="pl__left">
+      <p class="cap">Ejemplo ilustrativo · Producto vendido con FBA en Amazon EE.UU.</p>
+      <h3 class="pl__title" id="pl-title">De cada $100 que vendes en Amazon, ¿cuánto te queda?</h3>
+      <p class="pl__big"><span class="pl__cur">$</span><span data-pl-num>9</span></p>
+      <p class="pl__state"><span data-pl-state data-a="La venta que Amazon te muestra" data-m="Lo que va quedando" data-b="Lo que te queda">Lo que te queda</span></p>
+    </div>
+    <div class="pl__right">
+      <div class="pl__track" aria-hidden="true">
+        <i class="pl__keep" data-pl-keep></i>
+        <i class="pl__seg" style="left:72%;width:28%" data-pl-seg></i><i class="pl__seg" style="left:57%;width:15%" data-pl-seg></i><i class="pl__seg" style="left:37%;width:20%" data-pl-seg></i><i class="pl__seg" style="left:17%;width:20%" data-pl-seg></i><i class="pl__seg" style="left:12%;width:5%" data-pl-seg></i><i class="pl__seg" style="left:9%;width:3%" data-pl-seg></i>
+        <span class="pl__goal" data-pl-goal><span>Margen sano: $15</span></span>
+      </div>
+      <ol class="pl__rows">
+        <li data-pl-row data-amt="28"><span>Costo del producto</span><b>−$28</b></li><li data-pl-row data-amt="15"><span>Comisión de Amazon</span><b>−$15</b></li><li data-pl-row data-amt="20"><span>Envío FBA</span><b>−$20</b></li><li data-pl-row data-amt="20"><span>Publicidad</span><b>−$20</b></li><li data-pl-row data-amt="5"><span>Devoluciones</span><b>−$5</b></li><li data-pl-row data-amt="3"><span>Almacenamiento y otros cargos</span><b>−$3</b></li>
+      </ol>
+      <div class="pl__foot" data-pl-foot>
+        <p class="pl__punch">Amazon te muestra los $100. Te quedan $9, cuando un margen sano ronda los $15. Cerrar esa diferencia es nuestro trabajo.</p>
+        <p class="pl__note">El reparto real de cada producto aparece en tu P&amp;L.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--tight">
+  <div class="wrap">
+    <h2 class="h3 problems__title">Lo que más encontramos al auditar una cuenta</h2>
+    <ul class="problems"><li><h3>Pagas clics que no venden.</h3><p>Búsquedas con clics y sin pedidos que nadie revisa desde hace meses.</p></li><li><h3>Tu ACoS se ve bien. Tu margen, no.</h3><p>Si no cuentas fees, devoluciones y costo del producto, la publicidad puede estar perdiendo dinero.</p></li><li><h3>Tus productos no aparecen donde se compra.</h3><p>Keywords principales fuera del título o sin indexar en el listing.</p></li><li><h3>Te quedas sin stock, o te sobra.</h3><p>Un quiebre de stock te cuesta ranking. El exceso, almacenamiento de largo plazo.</p></li></ul>
+  </div>
+</section>
+
+<section class="band" aria-label="Checklist gratuito">
+  <div class="wrap band__in">
+    <img class="band__img" src="/assets/checklist-preview-es.webp" width="480" height="480" alt="Portada del checklist 10 fugas de margen en Amazon" loading="lazy">
+    <div class="band__copy">
+      <h2 class="h3">¿Todavía no estás listo para una auditoría?</h2>
       <p>Revisa tu cuenta tú mismo con el checklist de las 10 fugas de margen que más encontramos. Gratis, en PDF, para hacerlo en una tarde.</p>
     </div>
     <a class="btn btn--ghost" href="/assets/checklist-10-fugas-de-margen-amazon.pdf" target="_blank" rel="noopener">Descargar el checklist</a>
   </div>
 </section>
 
-<!-- 3. Propuesta de valor: el éxito -->
-<section id="margen" class="section section--alt">
-  <div class="wrap index">
-    <div class="index__head">
+<section id="margen" class="sec">
+  <div class="wrap duo">
+    <div class="duo__head">
       <h2 class="h2">Margen primero.</h2>
       <p class="lead">Primero tapamos las fugas, después invertimos para crecer. Así cada dólar que pones en Amazon trabaja para tu margen.</p>
     </div>
     <div>
-      <ul class="rows">
-        <li><h3>Publicidad que responde a tu margen</h3><p>Campañas gestionadas contra un objetivo de rentabilidad, no solo de ventas, y optimizadas cada semana.</p></li>
-        <li><h3>Listings que convierten</h3><p>Títulos, contenido A+ e imágenes que responden lo que el comprador pregunta antes de comprar.</p></li>
-        <li><h3>Inventario sin sorpresas</h3><p>Forecast y envíos a FBA para no perder ranking ni pagar almacenamiento de más.</p></li>
-        <li><h3>Números claros cada mes</h3><p>Tu P&amp;L real, por producto y por campaña, y lo revisamos contigo.</p></li>
-      </ul>
-      <p class="index__note">Publicidad (Sponsored Products, Brands y Display), listings y contenido A+, operaciones FBA y Brand Registry. También Walmart, Shopify y TikTok Shop cuando tiene sentido para tu marca.</p>
+      <ul class="rows" data-rows><li><h3>Publicidad que responde a tu margen</h3><p>Campañas gestionadas contra un objetivo de rentabilidad, no solo de ventas, y optimizadas cada semana.</p></li><li><h3>Listings que convierten</h3><p>Títulos, contenido A+ e imágenes que responden lo que el comprador pregunta antes de comprar.</p></li><li><h3>Inventario sin sorpresas</h3><p>Forecast y envíos a FBA para no perder ranking ni pagar almacenamiento de más.</p></li><li><h3>Números claros cada mes</h3><p>Tu P&amp;L real, por producto y por campaña, y lo revisamos contigo.</p></li></ul>
+      <p class="duo__note">Publicidad (Sponsored Products, Brands y Display), listings y contenido A+, operaciones FBA y Brand Registry. También Walmart, Shopify y TikTok Shop cuando tiene sentido para tu marca.</p>
     </div>
   </div>
 </section>
 
-<!-- 4. El guía: empatía y autoridad -->
-<section id="casos" class="section">
+<section id="casos" class="cases">
   <div class="wrap">
-    <div class="section__head">
+    <div class="head">
       <h2 class="h2">Sabemos lo que cuesta crecer en Amazon.</h2>
       <p class="lead">Es frustrante ver subir las ventas sin saber si estás ganando. Llevamos más de 10 años resolviendo eso para marcas como estas.</p>
     </div>
-    <dl class="stats">
-      <div><dt>+$4.5M</dt><dd>en ventas generadas para clientes</dd></div>
-      <div><dt>+$1M</dt><dd>en publicidad gestionada</dd></div>
-      <div><dt>10+ años</dt><dd>vendiendo y gestionando marcas en marketplaces</dd></div>
-    </dl>
-    <div class="feature">
-      <figure>
-        <button type="button" class="video-card" id="video-card" aria-label="Ver el testimonio en video de Tatiana Irizar" disabled>
-          <img src="/assets/tatiana-poster.webp" width="640" height="800" alt="Tatiana Irizar en su testimonio en video" loading="lazy">
-          <span class="video-card__play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M7 4.5v13l11-6.5z" fill="#1A1A1A"></path></svg></span>
-        </button>
-        <figcaption class="muted" style="font-size:14px;margin-top:14px">Testimonio en video de Tatiana Irizar</figcaption>
-      </figure>
-      <div class="feature__copy">
-        <p class="muted" style="font-size:14px">Tatiana Irizar, belleza, Amazon EE.UU.</p>
-        <h3 class="feature__title">De $42K a $360K al año, en 9 meses.</h3>
-        <p class="muted" style="font-size:14px;margin-top:-12px">Ritmo anual de ventas en Amazon (ventas del mes × 12).</p>
-        <blockquote class="feature__quote">“Sellify llevó nuestras ventas en Amazon de $3.5K/mes a $30K/mes en 9 meses.”</blockquote>
-        <div class="who">
-          <img onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/al-na-9d5791cf-3faf/a6f72a17-5789-43c7-80ff-ec0262d33ea7._CR0,0,2500,2500_SX400_.jpg'" src="/_vercel/image?url=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FS%2Fal-na-9d5791cf-3faf%2Fa6f72a17-5789-43c7-80ff-ec0262d33ea7._CR0%2C0%2C2500%2C2500_SX400_.jpg&amp;w=256&amp;q=80" width="56" height="56" alt="Logo de Tatiana Irizar" loading="lazy">
-          <p><b>Tatiana Irizar</b><br>Fundadora</p>
+    <dl class="stats" data-stats><div><dt><span data-n="4.5" data-dec="1" data-pre="+$" data-suf="M">+$4.5M</span></dt><dd>en ventas generadas para clientes</dd></div><div><dt><span data-n="1" data-dec="0" data-pre="+$" data-suf="M">+$1M</span></dt><dd>en publicidad gestionada</dd></div><div><dt><span data-n="10" data-dec="0" data-pre="" data-suf="+ años">10+ años</span></dt><dd>vendiendo y gestionando marcas en marketplaces</dd></div></dl>
+  </div>
+  <div class="viewer" data-viewer>
+    <div class="wrap">
+      <div class="viewer__frame">
+        <div class="viewer__tabs" role="tablist" aria-label="Casos de clientes"><button type="button" class="tab" role="tab" id="tab-0" aria-controls="case-0" aria-selected="true" data-tab="0"><b>Tatiana Irizar</b><span>Belleza</span></button><button type="button" class="tab" role="tab" id="tab-1" aria-controls="case-1" aria-selected="false" data-tab="1"><b>Bullpadel USA</b><span>Pádel</span></button><button type="button" class="tab" role="tab" id="tab-2" aria-controls="case-2" aria-selected="false" data-tab="2"><b>Steepy</b><span>Accesorios de oficina</span></button><button type="button" class="tab" role="tab" id="tab-3" aria-controls="case-3" aria-selected="false" data-tab="3"><b>Zusset</b><span>Pádel</span></button></div>
+        <div class="viewer__body">
+      <article class="case" id="case-0" role="tabpanel" aria-labelledby="tab-0" data-case="0">
+        <div class="case__copy">
+          <p class="case__brand"><img src="/assets/logos/tatiana-irizar.webp" width="105" height="38" alt="Tatiana Irizar" loading="lazy"><span>Belleza, Amazon EE.UU.</span></p>
+          <h3 class="case__result">De $42K a $360K al año, en 9 meses.</h3>
+          <p class="case__note">Ritmo anual de ventas en Amazon (ventas del mes × 12).</p>
+          <blockquote class="case__quote"><p>“Sellify llevó nuestras ventas en Amazon de $3.5K/mes a $30K/mes en 9 meses.”</p><footer><b>Tatiana Irizar</b>, fundadora</footer></blockquote>
+          <button type="button" class="play" data-video-open hidden><img src="/assets/tatiana-thumb.webp" width="128" height="128" alt="" loading="lazy"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 5.5v9l7-4.5z" fill="currentColor"></path></svg><span>Ver su testimonio en video</span></button>
+        </div>
+        <figure class="case__fig case__fig--chart" data-fig="chart">
+          <figcaption class="cap">Fig. 1 · Ventas mensuales en Amazon EE.UU., mayo 2024 a enero 2025</figcaption>
+          <svg class="chart" viewBox="0 0 640 320" role="img" aria-label="Gráfica de ventas mensuales de Tatiana Irizar en Amazon: de $441 en mayo de 2024 a $30,546 en enero de 2025.">
+            <defs>
+              <linearGradient id="chart-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F58238" stop-opacity=".30"></stop><stop offset="1" stop-color="#F58238" stop-opacity="0"></stop></linearGradient>
+              <clipPath id="chart-clip"><rect x="0" y="0" width="640" height="320" data-chart-clip></rect></clipPath>
+            </defs>
+            <line x1="52" y1="268.0" x2="612" y2="268.0" class="chart__grid"></line><text x="42" y="272.0" text-anchor="end" class="chart__tick">$0</text><line x1="52" y1="194.9" x2="612" y2="194.9" class="chart__grid"></line><text x="42" y="198.9" text-anchor="end" class="chart__tick">$10K</text><line x1="52" y1="121.8" x2="612" y2="121.8" class="chart__grid"></line><text x="42" y="125.8" text-anchor="end" class="chart__tick">$20K</text><line x1="52" y1="48.6" x2="612" y2="48.6" class="chart__grid"></line><text x="42" y="52.6" text-anchor="end" class="chart__tick">$30K</text>
+            <text x="52.0" y="292" text-anchor="middle" class="chart__tick">may</text><text x="122.0" y="292" text-anchor="middle" class="chart__tick">jun</text><text x="192.0" y="292" text-anchor="middle" class="chart__tick">jul</text><text x="262.0" y="292" text-anchor="middle" class="chart__tick">ago</text><text x="332.0" y="292" text-anchor="middle" class="chart__tick">sep</text><text x="402.0" y="292" text-anchor="middle" class="chart__tick">oct</text><text x="472.0" y="292" text-anchor="middle" class="chart__tick">nov</text><text x="542.0" y="292" text-anchor="middle" class="chart__tick">dic</text><text x="612.0" y="292" text-anchor="middle" class="chart__tick">ene</text>
+            <text x="52.0" y="310" text-anchor="middle" class="chart__year">2024</text><text x="612.0" y="310" text-anchor="middle" class="chart__year">2025</text>
+            <g clip-path="url(#chart-clip)">
+              <path d="M52.0,268 L52.0,264.8 L122.0,258.8 L192.0,190.7 L262.0,220.0 L332.0,226.5 L402.0,161.5 L472.0,177.8 L542.0,144.7 L612.0,44.6 L612.0,268 Z" fill="url(#chart-fill)"></path>
+              <polyline points="52.0,264.8 122.0,258.8 192.0,190.7 262.0,220.0 332.0,226.5 402.0,161.5 472.0,177.8 542.0,144.7 612.0,44.6" class="chart__line"></polyline>
+            </g>
+            <circle cx="52.0" cy="264.8" r="4" class="chart__dot" data-dot></circle><circle cx="122.0" cy="258.8" r="4" class="chart__dot" data-dot></circle><circle cx="192.0" cy="190.7" r="4" class="chart__dot" data-dot></circle><circle cx="262.0" cy="220.0" r="4" class="chart__dot" data-dot></circle><circle cx="332.0" cy="226.5" r="4" class="chart__dot" data-dot></circle><circle cx="402.0" cy="161.5" r="4" class="chart__dot" data-dot></circle><circle cx="472.0" cy="177.8" r="4" class="chart__dot" data-dot></circle><circle cx="542.0" cy="144.7" r="4" class="chart__dot" data-dot></circle><circle cx="612.0" cy="44.6" r="6" class="chart__dot chart__dot--end" data-dot></circle>
+            <text x="54.0" y="250.8" text-anchor="start" class="chart__val" data-chart-first>$441</text>
+            <text x="612.0" y="28.6" text-anchor="end" class="chart__val chart__val--end" data-chart-last>$30,546</text>
+          </svg>
+          <p class="case__src">Fuente: Sellerboard, cuenta de la marca.</p>
+        </figure>
+      </article>
+      <article class="case" id="case-1" role="tabpanel" aria-labelledby="tab-1" data-case="1">
+        <div class="case__copy">
+          <p class="case__brand"><img src="/assets/logos/bullpadel.webp" width="125" height="26" alt="Bullpadel USA" loading="lazy"><span>Pádel</span></p>
+          <h3 class="case__result">-20% ACoS y +110% en ingresos, en 8 meses.</h3>
+          
+          <blockquote class="case__quote"><p>“Reconstruyeron por completo nuestra estrategia de PPC.”</p><footer><b>Carlos L.</b>, CFO</footer></blockquote>
+          
+        </div>
+        <figure class="case__fig case__fig--photo" data-fig="stats">
+          <figcaption class="cap">Fig. 2 · Resultado en 8 meses</figcaption>
+          <div class="case__media"><div class="tile"><img onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/515cgaxhbKL.jpg'" src="/_vercel/image?url=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F515cgaxhbKL.jpg&amp;w=640&amp;q=80" alt="Pala de pádel Bullpadel Vertex 05" width="640" height="640" loading="lazy"></div><div class="bigs"><div class="big"><b><span data-n="110" data-pre="+" data-suf="%">+110%</span></b><span>ingresos</span></div><div class="big"><b><span data-n="20" data-pre="−" data-suf="%">−20%</span></b><span>ACoS</span></div></div></div>
+        </figure>
+      </article>
+      <article class="case" id="case-2" role="tabpanel" aria-labelledby="tab-2" data-case="2">
+        <div class="case__copy">
+          <p class="case__brand"><img src="/assets/logos/steepy.webp" width="120" height="18" alt="Steepy" loading="lazy"><span>Accesorios de oficina</span></p>
+          <h3 class="case__result">+85% en ventas, año contra año.</h3>
+          
+          <blockquote class="case__quote"><p>“El equipo de Sellify llegó con un plan claro, tomó el control de las operaciones diarias y optimizó completamente nuestros listings.”</p><footer><b>Alberto O.</b>, fundador</footer></blockquote>
+          
+        </div>
+        <figure class="case__fig case__fig--photo" data-fig="bars">
+          <figcaption class="cap">Fig. 3 · Ventas, año contra año</figcaption>
+          <div class="case__media"><div class="tile"><img onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/71qa1ehZGUL.jpg'" src="/_vercel/image?url=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F71qa1ehZGUL.jpg&amp;w=640&amp;q=80" alt="Soporte portátil para laptop Steepy" width="640" height="640" loading="lazy"></div><div class="bigs">
+              <div class="big"><b><span data-n="85" data-pre="+" data-suf="%">+85%</span></b><span>ventas</span></div>
+              <div class="yoy" aria-hidden="true">
+                <div class="yoy__row"><span>Año anterior</span><i style="--w:54.05%" data-bar></i><em>100</em></div>
+                <div class="yoy__row yoy__row--now"><span>Año actual</span><i style="--w:100%" data-bar></i><em>185</em></div>
+              </div>
+              <p class="case__src">Índice: año anterior = 100.</p>
+            </div></div>
+        </figure>
+      </article>
+      <article class="case" id="case-3" role="tabpanel" aria-labelledby="tab-3" data-case="3">
+        <div class="case__copy">
+          <p class="case__brand"><img src="/assets/logos/zusset.webp" width="92" height="22" alt="Zusset" loading="lazy"><span>Pádel</span></p>
+          <h3 class="case__result">De la configuración a la primera venta.</h3>
+          
+          <blockquote class="case__quote"><p>“Sabíamos que teníamos que estar en Amazon, pero el proceso era intimidante. Alonso y su equipo gestionaron todo nuestro lanzamiento multicanal.”</p><footer><b>Carlos G.</b>, CEO y fundador</footer></blockquote>
+          
+        </div>
+        <figure class="case__fig case__fig--photo" data-fig="launch">
+          <figcaption class="cap">Fig. 4 · Lanzamiento</figcaption>
+          <div class="case__media"><div class="tile"><img onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/81eb+MPQm6L.jpg'" src="/_vercel/image?url=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F81eb%2BMPQm6L.jpg&amp;w=640&amp;q=80" alt="Pala de pádel Zusset Solid Pro" width="640" height="640" loading="lazy"></div><ol class="launch"><li data-step><span></span>Configuración de la cuenta</li><li data-step><span></span>Lanzamiento multicanal</li><li data-step><span></span>Primera venta</li></ol></div>
+        </figure>
+      </article>
+        </div>
+        <div class="viewer__foot">
+          <span class="cap" data-viewer-count>1 / 4</span>
+          <span class="cap viewer__hint">Sigue bajando para ver el siguiente caso</span>
+          <a class="cap viewer__skip" href="#como-funciona">Saltar casos</a>
         </div>
       </div>
     </div>
-
-    <ul class="ledger">
-      <li>
-        <div class="ledger__img"><img onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/515cgaxhbKL.jpg'" src="/_vercel/image?url=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F515cgaxhbKL.jpg&amp;w=256&amp;q=80" alt="Pala de pádel Bullpadel Vertex 05" loading="lazy"></div>
-        <div><p class="ledger__brand">Bullpadel USA, pádel</p><h3>-20% ACoS y +110% en ingresos, en 8 meses.</h3></div>
-        <blockquote><p>“Reconstruyeron por completo nuestra estrategia de PPC.”</p><footer><b>Carlos L.</b>, CFO</footer></blockquote>
-      </li>
-      <li>
-        <div class="ledger__img"><img onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/71qa1ehZGUL.jpg'" src="/_vercel/image?url=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F71qa1ehZGUL.jpg&amp;w=256&amp;q=80" alt="Soporte portátil para laptop Steepy" loading="lazy"></div>
-        <div><p class="ledger__brand">Steepy, accesorios de oficina</p><h3>+85% en ventas, año contra año.</h3></div>
-        <blockquote><p>“El equipo de Sellify llegó con un plan claro, tomó el control de las operaciones diarias y optimizó completamente nuestros listings.”</p><footer><b>Alberto O.</b>, fundador</footer></blockquote>
-      </li>
-      <li>
-        <div class="ledger__img"><img onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/81eb+MPQm6L.jpg'" src="/_vercel/image?url=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F81eb%2BMPQm6L.jpg&amp;w=256&amp;q=80" alt="Pala de pádel Zusset Solid Pro" loading="lazy"></div>
-        <div><p class="ledger__brand">Zusset, pádel</p><h3>De la configuración a la primera venta.</h3></div>
-        <blockquote><p>“Sabíamos que teníamos que estar en Amazon, pero el proceso era intimidante. Alonso y su equipo gestionaron todo nuestro lanzamiento multicanal.”</p><footer><b>Carlos G.</b>, CEO y fundador</footer></blockquote>
-      </li>
-    </ul>
   </div>
 </section>
 
-<!-- 5. El plan: tres pasos del cliente -->
-<section id="como-funciona" class="section section--alt">
+<section id="como-funciona" class="sec">
   <div class="wrap">
-    <div class="section__head">
-      <h2 class="h2">Empezar es simple.</h2>
-    </div>
-    <ol class="steps">
-      <li><span aria-hidden="true">01</span><h3>Agenda tu auditoría</h3><p>30 minutos para revisar tu cuenta, o tu plan para entrar a Amazon.</p></li>
-      <li><span aria-hidden="true">02</span><h3>Recibe tu plan</h3><p>Hallazgos por escrito, ordenados por lo que más dinero te cuesta, y una propuesta clara.</p></li>
-      <li><span aria-hidden="true">03</span><h3>Crece con tus números a la vista</h3><p>Ejecutamos el plan y cada mes revisamos contigo tu P&amp;L y los próximos pasos.</p></li>
-    </ol>
+    <div class="head"><h2 class="h2">Empezar es simple.</h2></div>
+    <ol class="steps" data-steps><li><span class="steps__n" aria-hidden="true">1</span><h3>Agenda tu auditoría</h3><p>30 minutos para revisar tu cuenta, o tu plan para entrar a Amazon.</p></li><li><span class="steps__n" aria-hidden="true">2</span><h3>Recibe tu plan</h3><p>Hallazgos por escrito, ordenados por lo que más dinero te cuesta, y una propuesta clara.</p></li><li><span class="steps__n" aria-hidden="true">3</span><h3>Crece con tus números a la vista</h3><p>Ejecutamos el plan y cada mes revisamos contigo tu P&amp;L y los próximos pasos.</p></li></ol>
     <a href="https://calendar.app.google/2jLD97aqcqJvhxJu5" class="btn" target="_blank" rel="noopener">Agenda tu auditoría</a>
     <div class="terms">
-      <h3 class="terms__title">Sin letra pequeña.</h3>
-      <dl class="terms__list">
-        <div><dt>Sin permanencia mínima</dt><dd>Te quedas porque funciona, no porque lo diga un contrato.</dd></div>
-        <div><dt>Cancelas con un correo</dt><dd>Un correo basta para terminar el servicio.</dd></div>
-        <div><dt>Optimización semanal</dt><dd>Revisamos y ajustamos tus campañas cada semana.</dd></div>
-        <div><dt>Tu cuenta sigue siendo tuya</dt><dd>Trabajamos dentro de tu cuenta de Amazon. Nunca deja de ser tuya.</dd></div>
-        <div><dt>Hablas con Alonso</dt><dd>Tu contacto es el fundador, no un intermediario.</dd></div>
-        <div><dt>P&amp;L cada mes</dt><dd>Un reporte con tus números reales, revisado contigo.</dd></div>
-      </dl>
+      <h3 class="h3">Sin letra pequeña.</h3>
+      <dl class="terms__list"><div><dt>Sin permanencia mínima</dt><dd>Te quedas porque funciona, no porque lo diga un contrato.</dd></div><div><dt>Cancelas con un correo</dt><dd>Un correo basta para terminar el servicio.</dd></div><div><dt>Optimización semanal</dt><dd>Revisamos y ajustamos tus campañas cada semana.</dd></div><div><dt>Tu cuenta sigue siendo tuya</dt><dd>Trabajamos dentro de tu cuenta de Amazon. Nunca deja de ser tuya.</dd></div><div><dt>Hablas con Alonso</dt><dd>Tu contacto es el fundador, no un intermediario.</dd></div><div><dt>P&amp;L cada mes</dt><dd>Un reporte con tus números reales, revisado contigo.</dd></div></dl>
     </div>
   </div>
 </section>
 
-<!-- Prueba: transparencia -->
-<section id="dashboard" class="section">
+<section id="dashboard" class="sec sec--panel">
   <div class="wrap split">
-    <div class="dash-copy">
+    <div class="split__copy">
       <h2 class="h2">Tus números, siempre a la vista.</h2>
       <p class="lead">Cada mes recibes un reporte con el P&amp;L de tu cuenta y lo revisamos contigo. Entre reportes, tienes un dashboard con ventas, publicidad e inventario actualizado cada día.</p>
-      <ul class="rule-list">
-        <li>P&amp;L mensual contra el mes y el año anterior</li>
-        <li>Publicidad por campaña: inversión, ACoS y ROAS</li>
-        <li>Inventario y días de cobertura por producto</li>
-      </ul>
+      <ul class="rule-list"><li>P&amp;L mensual contra el mes y el año anterior</li><li>Publicidad por campaña: inversión, ACoS y ROAS</li><li>Inventario y días de cobertura por producto</li></ul>
     </div>
-    <figure class="dash" role="img" aria-label="Vista de ejemplo del dashboard de clientes de Sellify, con datos ficticios">
+    <figure class="dash" role="img" aria-label="Vista de ejemplo del dashboard de clientes de Sellify, con datos ficticios" data-dash>
       <div class="dash__ui">
-        <div class="dash__bar">
-          <svg width="12" height="16" viewBox="0 -4 548 708" aria-hidden="true"><use href="#sx-mark"></use></svg>
-          <b>SELLIFY</b><span style="color:#6B6E73">Dashboard de clientes</span>
-          <span class="dash__tag">Datos de ejemplo</span>
-        </div>
+        <div class="dash__bar"><svg width="12" height="16" viewBox="0 -4 548 708" aria-hidden="true"><use href="#sx-mark"></use></svg><b>SELLIFY</b><span>Dashboard de clientes</span><span class="dash__tag">Datos de ejemplo</span></div>
         <div class="dash__main">
-          <div class="kpis">
-            <div><p>Ventas 30 días</p><strong>$52,340</strong><small>+8%</small></div>
-            <div class="kpi--margin"><p>Margen neto</p><strong>23.6%</strong><small>+1.8 pts</small></div>
-            <div><p>ACoS</p><strong>21.4%</strong><small>-2.1 pts</small></div>
-            <div><p>TACoS</p><strong>15.2%</strong><small>-1.4 pts</small></div>
-          </div>
+          <div class="kpis"><div><p>Ventas 30 días</p><strong>$52,340</strong><small>+8%</small></div><div class="kpi--margin"><p>Margen neto</p><strong>23.6%</strong><small>+1.8 pts</small></div><div><p>ACoS</p><strong>21.4%</strong><small>-2.1 pts</small></div><div><p>TACoS</p><strong>15.2%</strong><small>-1.4 pts</small></div></div>
           <div>
-            <p style="color:#6B6E73;font-size:11px;margin-bottom:8px">Ventas diarias, últimos 30 días</p>
-            <svg viewBox="0 0 600 140" preserveAspectRatio="none" aria-hidden="true" style="width:100%;height:120px">
+            <p class="dash__label">Ventas diarias, últimos 30 días</p>
+            <svg viewBox="0 0 600 140" preserveAspectRatio="none" aria-hidden="true" class="dash__chart">
               <line x1="0" y1="139" x2="600" y2="139" stroke="#E6E7E8" stroke-width="2"></line>
-              <polyline points="0,96 20,92 41,98 62,88 83,90 103,84 124,86 145,80 166,83 186,76 207,79 228,72 248,75 269,70 290,74 310,66 331,69 352,62 372,64 393,58 414,61 434,54 455,57 476,49 497,52 517,45 538,48 559,40 579,43 600,36" fill="none" stroke="#F58238" stroke-width="3" stroke-linejoin="round"></polyline>
+              <polyline pathLength="1" points="0,96 20,92 41,98 62,88 83,90 103,84 124,86 145,80 166,83 186,76 207,79 228,72 248,75 269,70 290,74 310,66 331,69 352,62 372,64 393,58 414,61 434,54 455,57 476,49 497,52 517,45 538,48 559,40 579,43 600,36" fill="none" stroke="#F58238" stroke-width="3" stroke-linejoin="round" data-dash-line></polyline>
             </svg>
           </div>
           <table>
             <thead><tr><th>Producto</th><th>Ventas</th><th>ACoS</th><th>Cobertura</th></tr></thead>
-            <tbody>
-              <tr><td>Producto A</td><td>$24,910</td><td>18.2%</td><td>41 días</td></tr>
-              <tr><td>Producto B</td><td>$17,480</td><td>23.9%</td><td>29 días</td></tr>
-              <tr><td>Producto C</td><td>$9,950</td><td>26.7%</td><td class="warn">12 días</td></tr>
-            </tbody>
+            <tbody><tr><td>Producto A</td><td>$24,910</td><td>18.2%</td><td>41 días</td></tr><tr><td>Producto B</td><td>$17,480</td><td>23.9%</td><td>29 días</td></tr><tr><td>Producto C</td><td>$9,950</td><td>26.7%</td><td class="warn">12 días</td></tr></tbody>
           </table>
         </div>
       </div>
@@ -318,72 +301,45 @@
   </div>
 </section>
 
-<!-- 6. Párrafo explicativo: la historia en corto -->
-<section id="fundador" class="section section--alt">
+<section id="fundador" class="sec">
   <div class="wrap founder">
-    <div class="founder__head">
+    <figure class="founder__photo">
+      <img src="/assets/alonso.webp" width="821" height="889" alt="Alonso Martini, fundador de Sellify" loading="lazy">
+      <figcaption class="cap">Alonso Martini, fundador</figcaption>
+    </figure>
+    <div class="founder__copy">
       <h2 class="h2">Una agencia pequeña, a propósito.</h2>
+      <p>Quieres que Amazon sea un canal rentable y predecible para tu marca. Para eso necesitas que la publicidad, el contenido y el inventario trabajen hacia un mismo objetivo: tu margen. El problema es que Amazon te muestra ventas, no ganancias, y es fácil terminar pagando por crecer sin saber si estás ganando.</p><p>Soy Alonso Martini. Llevo más de 10 años vendiendo y gestionando marcas en marketplaces, y fundé Sellify para trabajar con pocas marcas a la vez y responder por sus resultados como si fueran míos. Detrás de cada cuenta hay un equipo dedicado de operaciones, publicidad y contenido, y yo reviso personalmente cada reporte antes de que llegue a ti. Atendemos en español e inglés.</p>
       <p class="founder__sign"><svg width="22" height="28" viewBox="0 -4 548 708" aria-hidden="true"><use href="#sx-mark"></use></svg><span><b>Alonso Martini</b><br>Fundador de Sellify</span></p>
     </div>
-    <div class="founder__copy">
-      <p>Quieres que Amazon sea un canal rentable y predecible para tu marca. Para eso necesitas que la publicidad, el contenido y el inventario trabajen hacia un mismo objetivo: tu margen. El problema es que Amazon te muestra ventas, no ganancias, y es fácil terminar pagando por crecer sin saber si estás ganando.</p>
-      <p>Soy Alonso Martini. Llevo más de 10 años vendiendo y gestionando marcas en marketplaces, y fundé Sellify para trabajar con pocas marcas a la vez y responder por sus resultados como si fueran míos. Detrás de cada cuenta hay un equipo dedicado de operaciones, publicidad y contenido, y yo reviso personalmente cada reporte antes de que llegue a ti. Atendemos en español e inglés.</p>
-    </div>
   </div>
 </section>
 
-<section id="preguntas" class="section">
-  <div class="wrap index">
-    <div class="index__head">
-      <h2 class="h2">Preguntas frecuentes.</h2>
-    </div>
-    <dl class="faq">
-      <div><dt>¿Trabajan con marcas que todavía no venden en Amazon?</dt><dd>Sí. Te ayudamos a abrir la cuenta, registrar la marca en Brand Registry y lanzar tus primeros productos.</dd></div>
-      <div><dt>¿Piden un mínimo de ventas?</dt><dd>No. En la auditoría vemos juntos si tiene sentido trabajar con nosotros.</dd></div>
-      <div><dt>¿Hay permanencia mínima?</dt><dd>No. Trabajas con nosotros mientras te funcione y cancelas con un correo.</dd></div>
-      <div><dt>¿Voy a tener acceso a mis datos?</dt><dd>Sí. Tienes tu dashboard, recibes el reporte mensual y tu cuenta de Amazon sigue siendo tuya en todo momento.</dd></div>
-      <div><dt>¿Cuánto cuesta?</dt><dd>Depende del alcance y del tamaño de la cuenta. Después de la auditoría te enviamos una propuesta con el costo exacto.</dd></div>
-    </dl>
+<section id="preguntas" class="sec sec--line">
+  <div class="wrap duo">
+    <div class="duo__head"><h2 class="h2">Preguntas frecuentes.</h2></div>
+    <div class="faq"><details><summary>¿Trabajan con marcas que todavía no venden en Amazon?<span aria-hidden="true"></span></summary><p>Sí. Te ayudamos a abrir la cuenta, registrar la marca en Brand Registry y lanzar tus primeros productos.</p></details><details><summary>¿Piden un mínimo de ventas?<span aria-hidden="true"></span></summary><p>No. En la auditoría vemos juntos si tiene sentido trabajar con nosotros.</p></details><details><summary>¿Hay permanencia mínima?<span aria-hidden="true"></span></summary><p>No. Trabajas con nosotros mientras te funcione y cancelas con un correo.</p></details><details><summary>¿Voy a tener acceso a mis datos?<span aria-hidden="true"></span></summary><p>Sí. Tienes tu dashboard, recibes el reporte mensual y tu cuenta de Amazon sigue siendo tuya en todo momento.</p></details><details><summary>¿Cuánto cuesta?<span aria-hidden="true"></span></summary><p>Depende del alcance y del tamaño de la cuenta. Después de la auditoría te enviamos una propuesta con el costo exacto.</p></details></div>
   </div>
 </section>
 
-<!-- 7. Llamado a la acción directo -->
-<section id="auditoria" class="section section--line">
+<section id="auditoria" class="sec sec--panel" data-audit>
   <div class="wrap audit">
     <div class="audit__copy">
-      <h2>Agenda tu auditoría.</h2>
+      <h2 class="h2 audit__h">Agenda tu auditoría.</h2>
       <p class="lead">Deja de adivinar qué te deja dinero en Amazon.</p>
-      <ul class="rule-list">
-        <li>30 minutos conmigo revisando tu cuenta</li>
-        <li>Hallazgos por escrito, ordenados por lo que más dinero te cuesta</li>
-        <li>Una recomendación clara, trabajes o no con nosotros</li>
-      </ul>
+      <ul class="rule-list"><li>30 minutos conmigo revisando tu cuenta</li><li>Hallazgos por escrito, ordenados por lo que más dinero te cuesta</li><li>Una recomendación clara, trabajes o no con nosotros</li></ul>
       <div class="audit__book">
         <a href="https://calendar.app.google/2jLD97aqcqJvhxJu5" class="btn" target="_blank" rel="noopener">Agenda tu auditoría</a>
         <p class="audit__note">30 minutos por Google Meet. Eliges el día y la hora.</p>
       </div>
     </div>
     <form class="form" id="audit-form" aria-labelledby="form-title">
-      <h3 class="form__title" id="form-title">¿Prefieres escribir primero?</h3>
+      <h3 class="h3 form__title" id="form-title">¿Prefieres escribir primero?</h3>
       <div class="field"><label for="f-nombre">Nombre</label><input id="f-nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required></div>
       <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="tu@marca.com" required></div>
       <div class="field field--full"><label for="f-marca">Link de tu marca en Amazon o tu web</label><input id="f-marca" name="marca" type="text" inputmode="url" placeholder="amazon.com/stores/tu-marca"></div>
-      <div class="field"><label for="f-mercado">¿Dónde vendes hoy?</label>
-        <select id="f-mercado" name="mercado">
-          <option>Amazon EE.UU.</option>
-          <option>Amazon Europa</option>
-          <option>Aún no en Amazon</option>
-        </select>
-      </div>
-      <div class="field"><label for="f-ventas">Ventas mensuales en Amazon</label>
-        <select id="f-ventas" name="ventas">
-          <option>Todavía no vendo</option>
-          <option>Menos de $10K</option>
-          <option>$10K a $50K</option>
-          <option>$50K a $200K</option>
-          <option>Más de $200K</option>
-        </select>
-      </div>
+      <div class="field"><label for="f-mercado">¿Dónde vendes hoy?</label><select id="f-mercado" name="mercado"><option>Amazon EE.UU.</option><option>Amazon Europa</option><option>Aún no en Amazon</option></select></div>
+      <div class="field"><label for="f-ventas">Ventas mensuales en Amazon</label><select id="f-ventas" name="ventas"><option>Todavía no vendo</option><option>Menos de $10K</option><option>$10K a $50K</option><option>$50K a $200K</option><option>Más de $200K</option></select></div>
       <button type="submit" class="btn btn--ghost">Enviar por WhatsApp</button>
       <p class="form__note">Se abre WhatsApp con tus datos listos para mandar. También puedes llamar al <a href="tel:+17868247458">+1 786 824 7458</a>.</p>
     </form>
@@ -393,25 +349,33 @@
 </main>
 
 <footer class="footer">
-  <div class="wrap footer__grid">
-    <div class="footer__brand">
-      <a href="#inicio" class="brand" aria-label="Sellify, inicio"><svg width="16" height="21" viewBox="0 -4 548 708" aria-hidden="true"><use href="#sx-mark"></use></svg><span class="brand__word">SELLIFY</span></a>
-      <p>Agencia de Amazon para marcas que quieren crecer sin perder margen, en Estados Unidos y Europa.</p>
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <p>Agencia de Amazon para marcas que quieren crecer sin perder margen, en Estados Unidos y Europa.</p>
+        <a href="https://calendar.app.google/2jLD97aqcqJvhxJu5" class="btn btn--sm" target="_blank" rel="noopener">Agenda tu auditoría</a>
+      </div>
+      <nav class="footer__col" aria-label="Pie de página">
+        <p class="cap">Sitio</p>
+        <a href="#casos">Casos</a><a href="#como-funciona">Cómo funciona</a><a href="#dashboard">Dashboard</a><a href="#preguntas">Preguntas</a>
+      </nav>
+      <div class="footer__col">
+        <p class="cap">Contacto</p>
+        <a href="https://wa.me/34627071754">WhatsApp +34 627 07 17 54</a><a href="tel:+17868247458">Llamadas +1 786 824 7458</a><a href="mailto:alonso@sellify-agency.com">alonso@sellify-agency.com</a>
+      </div>
     </div>
-    <nav class="footer__col" aria-label="Pie de página">
-      <p class="footer__h">Sitio</p>
-      <a href="#casos">Casos</a><a href="#como-funciona">Cómo funciona</a><a href="#dashboard">Dashboard</a><a href="#preguntas">Preguntas</a>
-    </nav>
-    <div class="footer__col">
-      <p class="footer__h">Contacto</p>
-      <a href="https://wa.me/34627071754">WhatsApp +34 627 07 17 54</a><a href="tel:+17868247458">Llamadas +1 786 824 7458</a><a href="mailto:alonso@sellify-agency.com">alonso@sellify-agency.com</a>
+    <p class="footer__word" aria-hidden="true"><svg width="96" height="124" viewBox="0 -4 548 708" aria-hidden="true"><use href="#sx-mark"></use></svg><span>SELLIFY</span></p>
+    <div class="footer__legal">
+      <span>© 2026 Sellify Agency. Operado por Cortafuegos LLC.</span>
+      <a href="/en/" hreflang="en" lang="en" data-set-lang="en">English</a>
     </div>
-  </div>
-  <div class="wrap footer__legal">
-    <span>© 2026 Sellify Agency. Operado por Cortafuegos LLC.</span>
-    <a href="/en/" hreflang="en" lang="en" data-set-lang="en">English</a>
   </div>
 </footer>
+
+<div class="dock" data-dock>
+  <span class="dock__status"><span class="status__dot" aria-hidden="true"></span>Aceptando marcas nuevas</span>
+  <a href="https://calendar.app.google/2jLD97aqcqJvhxJu5" class="btn btn--sm" target="_blank" rel="noopener">Agenda tu auditoría</a>
+</div>
 
 <dialog class="video-dialog" id="video-dialog" aria-label="Testimonio de Tatiana Irizar">
   <video id="video-el" controls playsinline preload="none" poster="/assets/tatiana-poster.webp">
@@ -420,6 +384,9 @@
   <button type="button" id="video-close">Cerrar</button>
 </dialog>
 
-<script src="/site.js" defer></script>
+<script defer src="/assets/vendor/gsap.min.js"></script>
+<script defer src="/assets/vendor/ScrollTrigger.min.js"></script>
+<script defer src="/assets/vendor/lenis.min.js"></script>
+<script defer src="/site.js"></script>
 </body>
 </html>
