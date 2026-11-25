@@ -45,14 +45,6 @@ HEAD_JS = ("<script>(function(d){d.className+=' js';setTimeout(function(){d.clas
            "(document.documentElement)</script>")
 
 
-def amz(code, w=640):
-    """Foto de producto servida por el optimizador de Vercel, con respaldo directo a Amazon."""
-    url = "https://m.media-amazon.com/images/I/" + code
-    enc = url.replace(":", "%3A").replace("/", "%2F").replace("+", "%2B")
-    return (f"onerror=\"this.onerror=null;this.src='{url}'\" "
-            f"src=\"/_vercel/image?url={enc}&amp;w={w}&amp;q=80\"")
-
-
 def mark(w, h):
     return f'<svg width="{w}" height="{h}" viewBox="0 -4 548 708" aria-hidden="true"><use href="#sx-mark"></use></svg>'
 
@@ -109,7 +101,9 @@ def case_fig(i, c, t):
           {chart(c)}
           <p class="case__src">{c['src']}</p>
         </figure>"""
-    photo = f'<div class="tile"><img {amz(c["img"])} alt="{c["alt"]}" width="640" height="640" loading="lazy"></div>'
+    # Foto de producto recortada (sin fondo blanco) sobre un fondo de estudio oscuro
+    photo = (f'<div class="tile"><img src="/assets/products/{c["img"]}" alt="{c["alt"]}" '
+             f'width="{c["iw"]}" height="{c["ih"]}" loading="lazy"></div>')
     if c["fig"] == "stats":
         stats = "".join(
             f'<div class="big"><b><span data-n="{s["n"]}" data-pre="{s["pre"]}" data-suf="%">{s["pre"]}{s["n"]}%</span></b><span>{s["label"]}</span></div>'
@@ -672,7 +666,7 @@ ES = dict(
         dict(brand="Bullpadel USA", cat="Pádel", meta="Pádel", logo="bullpadel.webp", lw=125, lh=26,
              result="-20% ACoS y +110% en ingresos, en 8 meses.",
              quote="“Reconstruyeron por completo nuestra estrategia de PPC.”", who="Carlos L.", role="CFO",
-             fig="stats", img="515cgaxhbKL.jpg", alt="Pala de pádel Bullpadel Vertex 05", cap="Fig. 2 · Resultado en 8 meses",
+             fig="stats", img="bullpadel-vertex-05.webp", iw=518, ih=900, alt="Pala de pádel Bullpadel Vertex 05", cap="Fig. 2 · Resultado en 8 meses",
              stats=[dict(n=110, pre="+", label="ingresos"), dict(n=20, pre="−", label="ACoS")]),
         dict(brand="Steepy", cat="Accesorios de oficina", meta="Accesorios de oficina", logo="steepy.webp", lw=120, lh=18,
              result="De $2.8K a $20.2K al mes en 2024.",
@@ -686,7 +680,7 @@ ES = dict(
              result="De la configuración a la primera venta.",
              quote="“Sabíamos que teníamos que estar en Amazon, pero el proceso era intimidante. Alonso y su equipo gestionaron todo nuestro lanzamiento multicanal.”",
              who="Carlos G.", role="CEO y fundador",
-             fig="launch", img="81eb+MPQm6L.jpg", alt="Pala de pádel Zusset Solid Pro", cap="Fig. 4 · Lanzamiento",
+             fig="launch", img="zusset-solid-pro.webp", iw=894, ih=900, alt="Pala de pádel Zusset Solid Pro", cap="Fig. 4 · Lanzamiento",
              steps=["Configuración de la cuenta", "Lanzamiento multicanal", "Primera venta"]),
     ],
     how_h="Empezar es simple.",
@@ -745,7 +739,7 @@ ES = dict(
               "<b>Estadísticas de visitas.</b> Usamos Vercel Web Analytics para saber cuántas personas visitan la web y qué páginas ven. No usa cookies y no te sigue entre sitios ni de un día para otro.",
               "<b>Una cookie de idioma.</b> Si cambias de idioma, guardamos una cookie llamada lang durante un año para recordarlo. No sirve para identificarte."],
         share_h="Con quién los compartimos",
-        share_p="No vendemos tus datos. Solo los tratan los proveedores que hacen funcionar la web: Vercel (alojamiento y estadísticas), {procs}Google (agenda), WhatsApp (mensajes) y Amazon (algunas fotos de producto). Estos proveedores pueden tratar datos en Estados Unidos.",
+        share_p="No vendemos tus datos. Solo los tratan los proveedores que hacen funcionar la web: Vercel (alojamiento y estadísticas), {procs}Google (agenda) y WhatsApp (mensajes). Estos proveedores pueden tratar datos en Estados Unidos.",
         proc_item="{proc} (formulario del checklist), ",
         keep_h="Cuánto tiempo los guardamos",
         keep_p="Guardamos tu email y tus mensajes mientras sigamos en conversación contigo, o hasta que nos pidas borrarlos.",
@@ -818,7 +812,7 @@ EN = dict(
         dict(brand="Bullpadel USA", cat="Padel", meta="Padel", logo="bullpadel.webp", lw=125, lh=26,
              result="-20% ACoS and +110% revenue, in 8 months.",
              quote="“They rebuilt our entire PPC strategy.”", who="Carlos L.", role="CFO",
-             fig="stats", img="515cgaxhbKL.jpg", alt="Bullpadel Vertex 05 padel racket", cap="Fig. 2 · Result in 8 months",
+             fig="stats", img="bullpadel-vertex-05.webp", iw=518, ih=900, alt="Bullpadel Vertex 05 padel racket", cap="Fig. 2 · Result in 8 months",
              stats=[dict(n=110, pre="+", label="revenue"), dict(n=20, pre="−", label="ACoS")]),
         dict(brand="Steepy", cat="Office accessories", meta="Office accessories", logo="steepy.webp", lw=120, lh=18,
              result="From $2.8K to $20.2K a month in 2024.",
@@ -832,7 +826,7 @@ EN = dict(
              result="From setup to first sale.",
              quote="“Being on Amazon was intimidating and we had no idea where to start. Alonso and his team handled our entire multi-channel launch.”",
              who="Carlos G.", role="CEO and founder",
-             fig="launch", img="81eb+MPQm6L.jpg", alt="Zusset Solid Pro padel racket", cap="Fig. 4 · Launch",
+             fig="launch", img="zusset-solid-pro.webp", iw=894, ih=900, alt="Zusset Solid Pro padel racket", cap="Fig. 4 · Launch",
              steps=["Account setup", "Multi-channel launch", "First sale"]),
     ],
     how_h="Getting started is simple.",
@@ -891,7 +885,7 @@ EN = dict(
               "<b>Visit statistics.</b> We use Vercel Web Analytics to see how many people visit the site and which pages they view. It uses no cookies and does not follow you across sites or from one day to the next.",
               "<b>A language cookie.</b> If you switch languages, we store a cookie called lang for one year to remember your choice. It cannot identify you."],
         share_h="Who we share it with",
-        share_p="We do not sell your data. It is only handled by the providers that run the site: Vercel (hosting and statistics), {procs}Google (booking), WhatsApp (messages), and Amazon (some product photos). These providers may process data in the United States.",
+        share_p="We do not sell your data. It is only handled by the providers that run the site: Vercel (hosting and statistics), {procs}Google (booking), and WhatsApp (messages). These providers may process data in the United States.",
         proc_item="{proc} (checklist form), ",
         keep_h="How long we keep it",
         keep_p="We keep your email and your messages while we are in conversation with you, or until you ask us to delete them.",
