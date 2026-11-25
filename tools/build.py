@@ -435,7 +435,7 @@ def page(t):
 <section id="{a['founder']}" class="sec">
   <div class="wrap founder">
     <figure class="founder__photo">
-      <img src="/assets/alonso.webp" width="821" height="889" alt="{t['founder_alt']}" loading="lazy">
+      <img src="/assets/alonso-camisa-negra.webp" width="821" height="889" alt="{t['founder_alt']}" loading="lazy">
       <figcaption class="cap">{t['founder_cap']}</figcaption>
     </figure>
     <div class="founder__copy">
